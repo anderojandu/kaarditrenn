@@ -1,0 +1,42 @@
+[
+ {
+  "code": "2018078",
+  "name": "Pullapää",
+  "mk": "Läänemaa",
+  "scale": 10000,
+  "legs": 40,
+  "features": 734
+ },
+ {
+  "code": "2020042",
+  "name": "Vooreküla-Vastse-Kuuste",
+  "mk": "Põlvamaa",
+  "scale": 10000,
+  "legs": 40,
+  "features": 421
+ },
+ {
+  "code": "2024007",
+  "name": "Kärsa",
+  "mk": "Põlvamaa",
+  "scale": 10000,
+  "legs": 40,
+  "features": 411
+ },
+ {
+  "code": "2024018",
+  "name": "Kudjape",
+  "mk": "Saaremaa",
+  "scale": 7500,
+  "legs": 29,
+  "features": 945
+ },
+ {
+  "code": "2025042",
+  "name": "Lutsu",
+  "mk": "Põlvamaa",
+  "scale": 10000,
+  "legs": 40,
+  "features": 195
+ }
+]

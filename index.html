@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>Kaarditrenn</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -19,6 +18,7 @@
   --f-display:"Barlow Condensed","Arial Narrow",sans-serif;
   --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -38,7 +38,7 @@
 [hidden]{display:none!important}
 body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.5;margin:0;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
-.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
 h1,h2,h3{font-family:var(--f-display);font-weight:600;letter-spacing:.01em;text-wrap:balance;margin:0;line-height:1.1}
 h1{font-size:clamp(30px,5vw,44px)}
 h2{font-size:26px}
@@ -47,24 +47,21 @@ p{margin:0}
 a{color:var(--accent)}
 button{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-
 header.top{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .flag{width:44px;height:44px;flex:none;border-radius:3px;box-shadow:0 0 0 1px var(--line)}
-.top .sub{color:var(--muted);max-width:62ch}
-
+.top .sub{color:var(--muted);max-width:66ch}
 nav.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px}
-nav.tabs a{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;text-decoration:none;color:var(--fg);
-  font-family:var(--f-display);font-size:19px;font-weight:600;letter-spacing:.02em;background:var(--chip)}
+nav.tabs a{display:flex;align-items:center;gap:8px;padding:7px 13px;border-radius:999px;text-decoration:none;color:var(--fg);
+  font-family:var(--f-display);font-size:18px;font-weight:600;letter-spacing:.02em;background:var(--chip)}
 nav.tabs a[aria-current="page"]{background:var(--fg);color:var(--bg)}
-nav.tabs .sw{width:12px;height:12px;border-radius:2px;flex:none}
-
+nav.tabs .sw{width:12px;height:12px;border-radius:2px;flex:none;box-shadow:0 0 0 1px rgba(128,128,128,.6)}
 .view{display:flex;flex-direction:column;gap:14px}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .toolbar .grow{flex:1}
 .seg{display:inline-flex;background:var(--chip);border-radius:10px;padding:3px;gap:3px;flex-wrap:wrap}
 .seg button{border:0;background:transparent;padding:7px 12px;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px}
 .seg button[aria-pressed="true"]{background:var(--surface);box-shadow:0 1px 2px rgba(0,0,0,.12)}
-.btn{border:1px solid var(--line);background:var(--surface);padding:9px 16px;border-radius:10px;cursor:pointer;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn{border:1px solid var(--line);background:var(--surface);padding:9px 16px;border-radius:10px;cursor:pointer;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:6px;color:var(--fg)}
 .btn:hover{border-color:var(--fg)}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .btn.primary:hover{filter:brightness(1.06)}
@@ -77,8 +74,6 @@ nav.tabs .sw{width:12px;height:12px;border-radius:2px;flex:none}
 .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px 5px 8px;cursor:pointer;font-size:14px}
 .chip .sw{width:12px;height:12px;border-radius:3px}
 .chip[aria-pressed="false"]{opacity:.5;background:transparent}
-
-/* tase */
 .lvl{display:inline-flex;flex-wrap:wrap;max-width:100%;align-items:center;gap:6px 8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 6px 4px 12px;font-size:14px}
 .lvl b{font-family:var(--f-display);font-size:18px;font-weight:600}
 .pips{display:inline-flex;gap:3px}
@@ -86,17 +81,15 @@ nav.tabs .sw{width:12px;height:12px;border-radius:2px;flex:none}
 .pips i.on{background:var(--accent);box-shadow:none}
 .lvl button{border:1px solid var(--line);background:var(--surface);width:26px;height:26px;border-radius:50%;cursor:pointer;font-weight:700;line-height:1;padding:0}
 .lvl button:disabled{opacity:.35;cursor:default}
-.lvlmsg{border-radius:12px;padding:10px 14px;font-weight:700;display:flex;gap:8px;align-items:center}
+.lvlmsg{border-radius:12px;padding:10px 14px;font-weight:700}
 .lvlmsg.up{background:var(--accent-soft)}
 .lvlmsg.down{background:var(--warn-soft)}
 .timer{height:6px;background:var(--chip);border-radius:99px;overflow:hidden}
 .timer i{display:block;height:100%;background:var(--accent);width:100%}
-
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:16px;min-width:0}
 .progress{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
 .bar{height:8px;background:var(--chip);border-radius:99px;overflow:hidden}
 .bar>i{display:block;height:100%;background:var(--good);border-radius:99px}
-
 .tile{background:var(--paper);border:1px solid var(--paper-edge);border-radius:8px;display:grid;place-items:center;aspect-ratio:1;max-width:100%}
 .tile svg{width:100%;height:100%;display:block}
 .tile.big{width:min(200px,60vw)}
@@ -113,16 +106,17 @@ nav.tabs .sw{width:12px;height:12px;border-radius:2px;flex:none}
 .opt.ok{border-color:var(--good);background:var(--good-soft)}
 .opt.no{border-color:var(--bad);background:var(--bad-soft)}
 .opt:disabled{cursor:default}
+.opt[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
 .feedback{display:flex;flex-direction:column;gap:10px}
 .fb{border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
 .fb.ok{background:var(--good-soft)}
 .fb.no{background:var(--bad-soft)}
+.fb.info{background:var(--chip)}
 .fb b{display:block}
 .fb .tile{width:64px;flex:none}
 .tip{border-left:4px solid var(--accent);padding:6px 12px;font-size:15px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .num{font-family:var(--f-mono);font-size:.8em;color:var(--muted);font-weight:500}
-
 .table{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 .cell{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:6px;min-width:0}
 .cell .tile{width:100%}
@@ -132,7 +126,6 @@ nav.tabs .sw{width:12px;height:12px;border-radius:2px;flex:none}
 .cell .lv i.on{background:var(--good)}
 .grouphead{grid-column:1/-1;display:flex;align-items:center;gap:8px;margin-top:8px}
 .grouphead .sw{width:14px;height:14px;border-radius:3px}
-
 .qtext{font-size:19px;line-height:1.45;max-width:60ch}
 .answer-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .answer-row input{font:inherit;font-size:20px;font-variant-numeric:tabular-nums;width:140px;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:var(--surface);color:var(--fg)}
@@ -140,31 +133,23 @@ nav.tabs .sw{width:12px;height:12px;border-radius:2px;flex:none}
 .note{background:var(--chip);border-radius:12px;padding:14px 16px;font-size:15px;display:flex;flex-direction:column;gap:6px;min-width:0}
 .note b{font-family:var(--f-display);font-size:18px;font-weight:600}
 .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-
 .split{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:16px;align-items:start}
-@media (max-width:820px){.split{grid-template-columns:minmax(0,1fr)}}
-.mapbox{background:var(--paper);border:1px solid var(--paper-edge);border-radius:10px;overflow:hidden;position:relative}
-.mapbox canvas{display:block;width:100%;height:auto;touch-action:none}
-.mapbox .badge{position:absolute;left:8px;bottom:8px;background:rgba(255,255,255,.88);color:#1A1A1A;font-family:var(--f-mono);font-size:12px;padding:3px 7px;border-radius:6px}
+@media (max-width:860px){.split{grid-template-columns:minmax(0,1fr)}}
 .side{display:flex;flex-direction:column;gap:14px;min-width:0}
-.profs{display:grid;gap:10px}
-.prof{border:2px solid var(--line);border-radius:12px;background:var(--surface);padding:6px 8px;cursor:pointer;text-align:left;display:flex;gap:10px;align-items:center}
-.prof:hover:not(:disabled){border-color:var(--fg)}
-.prof svg{width:100%;height:auto;display:block}
-.prof .lbl{font-family:var(--f-display);font-size:24px;font-weight:700;width:22px;flex:none;text-align:center}
-.prof.ok{border-color:var(--good);background:var(--good-soft)}
-.prof.no{border-color:var(--bad);background:var(--bad-soft)}
-.prof-line{stroke:var(--fg);fill:none;stroke-width:2.5;stroke-linejoin:round}
-.prof-area{fill:var(--chip)}
-.prof-grid{stroke:var(--line);stroke-width:1}
-.prof-t{fill:var(--muted);font:12px var(--f-mono)}
-.compass{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;max-width:300px}
-.compass button{border:2px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 4px;cursor:pointer;font-weight:700;font-size:14px}
-.compass button:hover:not(:disabled){border-color:var(--fg)}
-.compass .mid,.compass .gap{display:grid;place-items:center;color:var(--muted);font-family:var(--f-display);font-size:22px}
-.compass button.ok{border-color:var(--good);background:var(--good-soft)}
-.compass button.no{border-color:var(--bad);background:var(--bad-soft)}
 
+/* kaardivaade */
+.mapwrap{display:flex;flex-direction:column;gap:6px;min-width:0}
+.mapview{position:relative;overflow:hidden;background:var(--paper);border:1px solid var(--paper-edge);border-radius:10px;height:min(68vh,620px);min-height:300px;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
+.mapview.drawing{cursor:crosshair}
+.mapview .stage{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
+.mapview .stage img{display:block;pointer-events:none;-webkit-user-drag:none;image-rendering:auto}
+.mapview .stage svg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.mapview .stage svg .ov{mix-blend-mode:multiply}
+.mapview .ctl{position:absolute;right:max(8px,env(safe-area-inset-right,0px));top:8px;display:flex;flex-direction:column;gap:6px;z-index:2}
+.mapview .ctl button{width:38px;height:38px;border-radius:10px;border:1px solid #C9CFC3;background:rgba(255,255,255,.92);color:#1C2420;font-size:20px;font-weight:700;cursor:pointer;line-height:1}
+.mapview .msg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:#1C2420;background:rgba(255,255,255,.85);z-index:3;font-weight:700}
+.credit{font-size:12px;color:var(--muted);line-height:1.4}
+.credit a{color:var(--muted)}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted)}
 .legend span{display:inline-flex;gap:6px;align-items:center}
 .legend i{width:18px;height:12px;border-radius:2px;border:1px solid var(--paper-edge);display:inline-block}
@@ -180,6 +165,7 @@ nav.tabs .sw{width:12px;height:12px;border-radius:2px;flex:none}
 .mix{display:flex;height:10px;border-radius:4px;overflow:hidden;border:1px solid var(--paper-edge)}
 .mix i{display:block;height:100%}
 
+/* joonistamine */
 .drawgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
 @media (max-width:720px){.drawgrid{grid-template-columns:minmax(0,1fr)}}
 .drawpad{background:var(--paper);border:1px solid var(--paper-edge);border-radius:10px;overflow:hidden;width:100%;max-width:420px;aspect-ratio:1}
@@ -190,9 +176,31 @@ nav.tabs .sw{width:12px;height:12px;border-radius:2px;flex:none}
 .reveal{display:flex;flex-direction:column;gap:12px}
 .reveal .tile{width:min(220px,100%)}
 
+/* Livelox */
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.ev{background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:4px;cursor:pointer;text-align:left}
+.ev:hover{border-color:var(--fg)}
+.ev[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.ev .nm{font-weight:700;line-height:1.25}
+.ev .mt{font-size:13px;color:var(--muted)}
+.steps{display:flex;flex-direction:column;gap:14px}
+.step{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start}
+.step .n{width:34px;height:34px;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;font-family:var(--f-display);font-size:20px;font-weight:700}
+.step.done .n{background:var(--good);color:#fff}
+.step .bd{display:flex;flex-direction:column;gap:10px;min-width:0}
+.field{display:flex;flex-direction:column;gap:4px}
+.field label{font-weight:700;font-size:14px}
+.field input,.field select,.field textarea{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;max-width:100%}
+.field textarea{min-height:60px;resize:vertical}
+.choice{display:flex;flex-wrap:wrap;gap:6px}
+.choice button{border:2px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:700;font-size:14px}
+.choice button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.hist{display:flex;flex-direction:column;gap:6px}
+.hist .h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:14px;border-bottom:1px solid var(--line);padding-bottom:6px}
+
 /* ülevaade */
 .ov-top{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:16px}
-@media (max-width:820px){.ov-top{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:860px){.ov-top{grid-template-columns:minmax(0,1fr)}}
 .today{background:var(--fg);color:var(--bg);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
 .today h2{font-size:30px}
 .today .btn.primary{align-self:flex-start}
@@ -203,21 +211,18 @@ nav.tabs .sw{width:12px;height:12px;border-radius:2px;flex:none}
 .days i.d3{background:var(--accent);color:var(--accent-ink)}
 .mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
 .mod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
-.mod .hd{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
 .mod .st{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
 .mod .wk{font-size:14px}
-.mod .lvl{padding-left:10px}
+.mod .lvl{padding-left:10px;align-self:flex-start}
 .mod .btn{margin-top:auto;align-self:flex-start}
 .hard{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
 .hard .c{display:flex;flex-direction:column;gap:4px;font-size:12px;line-height:1.25}
-
 footer.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:10px}
 footer.res ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
 .small{font-size:13px;color:var(--muted)}
 @media (max-width:520px){.opts{grid-template-columns:minmax(0,1fr)}.opts.four{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:14px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
-
 </head>
 <body>
 <div class="wrap">
@@ -225,20 +230,21 @@ footer.res ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:colum
     <svg class="flag" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#FFFFFF"/><path d="M44 0V44H0Z" fill="#E0560D"/></svg>
     <div>
       <h1>Kaarditrenn</h1>
-      <p class="sub">Kuiv trenn orienteerumiskaardiga. Raskus kohandub sinu vastuste järgi ja iga vea juures saad nõuande.</p>
+      <p class="sub">Kuiv trenn päris orienteerumiskaartidel ja päris võistluste etappidel. Raskus kohandub sinu vastuste järgi ja iga vea juures saad nõuande.</p>
     </div>
   </header>
 
   <nav class="tabs" aria-label="Harjutused">
     <a href="#ylevaade" data-v="ylevaade"><span class="sw" style="background:#E0560D"></span>Täna</a>
     <a href="#leppemargid" data-v="leppemargid"><span class="sw" style="background:#3DA84A"></span>Leppemärgid</a>
-    <a href="#moodkava" data-v="moodkava"><span class="sw" style="background:#1A1A1A"></span>Mõõtkava</a>
+    <a href="#kaardilugemine" data-v="kaardilugemine"><span class="sw" style="background:#C2188F"></span>Kaardilugemine</a>
     <a href="#reljeef" data-v="reljeef"><span class="sw" style="background:#C4661F"></span>Reljeef</a>
-    <a href="#teevalik" data-v="teevalik"><span class="sw" style="background:#C2188F"></span>Teevalik</a>
+    <a href="#teevalik" data-v="teevalik"><span class="sw" style="background:#E3202B"></span>Teevalik</a>
+    <a href="#moodkava" data-v="moodkava"><span class="sw" style="background:#1A1A1A"></span>Mõõtkava</a>
+    <a href="#livelox" data-v="livelox"><span class="sw" style="background:#7A7F75"></span>Päris võistlus</a>
     <a href="#joonistamine" data-v="joonistamine"><span class="sw" style="background:#1E9FD8"></span>Joonista</a>
   </nav>
 
-  <!-- ÜLEVAADE -->
   <section class="view" id="v-ylevaade"></section>
 
   <!-- LEPPEMÄRGID -->
@@ -257,43 +263,21 @@ footer.res ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:colum
     <div class="progress" id="lep-progress"></div>
   </section>
 
-  <!-- MÕÕTKAVA -->
-  <section class="view" id="v-moodkava" hidden>
-    <div class="toolbar">
-      <div class="seg" role="group" aria-label="Harjutuse liik">
-        <button type="button" data-mm="arvuta">Arvuta</button>
-        <button type="button" data-mm="hinda">Hinda silmaga</button>
-      </div>
-      <label class="inline" for="sp-len">Minu sammupaar <input id="sp-len" type="number" step="0.05" min="0.8" max="2.5"> m</label>
-      <span class="grow"></span>
-      <span class="lvl" id="mm-lvl"></span>
+  <!-- KAARDILUGEMINE -->
+  <section class="view" id="v-kaardilugemine" hidden>
+    <div class="toolbar"><p class="small grow">Päris kaart, päris objekt. Mis on kontrollpunkti ringi keskel?</p><span class="lvl" data-lvl="ring"></span></div>
+    <div class="split">
+      <div class="mapwrap" id="ring-map"></div>
+      <div class="side card" id="ring-panel"></div>
     </div>
-    <div class="card" id="mm-card"></div>
-    <div class="progress" id="mm-progress"></div>
-    <div class="note">
-      <b>Meelespea</b>
-      <span class="mono">1 : 15 000 → 1 mm = 15 m · 1 cm = 150 m</span>
-      <span class="mono">1 : 10 000 → 1 mm = 10 m · 1 cm = 100 m</span>
-      <span class="mono">1 : 4000 (sprint) → 1 mm = 4 m · 1 cm = 40 m</span>
-      <span>Põhjajoonte vahe on maastikul alati 300 m: 1 : 15 000 kaardil 20 mm, 1 : 10 000 kaardil 30 mm.</span>
-    </div>
+    <div class="progress" id="ring-progress"></div>
   </section>
 
   <!-- RELJEEF -->
   <section class="view" id="v-reljeef" hidden>
-    <div class="toolbar">
-      <div class="seg" role="group" aria-label="Ülesande liik">
-        <button type="button" data-rt="mix">Segamini</button>
-        <button type="button" data-rt="profile">Profiil</button>
-        <button type="button" data-rt="higher">Kumb kõrgemal</button>
-        <button type="button" data-rt="slope">Langussuund</button>
-        <button type="button" data-rt="hill">Küngas või lohk</button>
-      </div>
-      <span class="grow"></span>
-      <span class="lvl" data-lvl="rel"></span>
-    </div>
+    <div class="toolbar"><p class="small grow">Loe horisontaale päris kaardil. Mis pinnavorm on ringi keskel?</p><span class="lvl" data-lvl="rel"></span></div>
     <div class="split">
-      <div class="mapbox"><canvas id="rel-canvas" aria-label="Horisontaalidega kaart"></canvas><span class="badge">1 : 10 000 · horisontaalide vahe 5 m</span></div>
+      <div class="mapwrap" id="rel-map"></div>
       <div class="side card" id="rel-panel"></div>
     </div>
     <div class="progress" id="rel-progress"></div>
@@ -319,11 +303,44 @@ footer.res ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:colum
       <span class="lvl" id="tv-lvl"></span>
     </div>
     <div class="split">
-      <div class="mapbox"><canvas id="tv-canvas" aria-label="Orienteerumiskaart etapiga"></canvas><span class="badge">1 : 10 000 · horisontaalid 5 m</span></div>
+      <div class="mapwrap" id="tv-map"></div>
       <div class="side card" id="tv-panel"></div>
     </div>
     <div class="legend" id="tv-legend"></div>
     <div class="progress" id="tv-progress"></div>
+  </section>
+
+  <!-- MÕÕTKAVA -->
+  <section class="view" id="v-moodkava" hidden>
+    <div class="toolbar">
+      <div class="seg" role="group" aria-label="Harjutuse liik">
+        <button type="button" data-mm="arvuta">Arvuta</button>
+        <button type="button" data-mm="hinda">Hinda kaardil</button>
+      </div>
+      <label class="inline" for="sp-len">Minu sammupaar <input id="sp-len" type="number" step="0.05" min="0.8" max="2.5"> m</label>
+      <span class="grow"></span>
+      <span class="lvl" id="mm-lvl"></span>
+    </div>
+    <div class="card" id="mm-card"></div>
+    <div class="split" id="mmh-box" hidden>
+      <div class="mapwrap" id="mmh-map"></div>
+      <div class="side card" id="mmh-panel"></div>
+    </div>
+    <div class="progress" id="mm-progress"></div>
+    <div class="note">
+      <b>Meelespea</b>
+      <span class="mono">1 : 15 000 → 1 mm = 15 m · 1 cm = 150 m</span>
+      <span class="mono">1 : 10 000 → 1 mm = 10 m · 1 cm = 100 m</span>
+      <span class="mono">1 : 4000 (sprint) → 1 mm = 4 m · 1 cm = 40 m</span>
+      <span>Põhjajoonte vahe on maastikul alati 300 m: 1 : 15 000 kaardil 20 mm, 1 : 10 000 kaardil 30 mm.</span>
+    </div>
+  </section>
+
+  <!-- LIVELOX -->
+  <section class="view" id="v-livelox" hidden>
+    <div class="toolbar"><p class="small grow">Päris võistlus Livelox'is: vali enne ise tee, siis vaata, kuidas jooksid teised.</p><span class="lvl" data-lvl="lx"></span></div>
+    <div class="card" id="lx-card"></div>
+    <div class="card" id="lx-hist"></div>
   </section>
 
   <!-- JOONISTAMINE -->
@@ -361,18 +378,18 @@ footer.res ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:colum
         <li>Võta jalutuskäigule kaart kaasa. Enne iga käänakut ütle, mida kohe näed, ja kontrolli.</li>
         <li>Mõõda oma sammupaar: loe 100 m tasasel teel ja metsas eraldi. Kirjuta tulemus mõõtkava vahekaardile.</li>
         <li>Hoia kaart alati põhja suunas orienteerituna ja pöidlaga oma asukohal.</li>
-        <li>Pärast võistlust joonista oma tee kaardile ja võrdle teistega.</li>
+        <li>Pärast võistlust analüüsi oma etappe vahekaardil „Päris võistlus“.</li>
       </ul>
     </div>
     <div class="note">
-      <b>Allikad ja lisaharjutus</b>
+      <b>Kaardid ja allikad</b>
       <ul>
-        <li><a href="https://orienteerumine.ee/wp-content/uploads/2021/11/isom2017-est.pdf" target="_blank" rel="noopener">ISOM 2017 eestikeelne tõlge</a> (EOL)</li>
-        <li><a href="https://app.orienteerumine.ee/orienteerumine/opime/O-kaardi_leppema%CC%88rgid_A4_20180518.pdf" target="_blank" rel="noopener">Leppemärgid A4-lehel</a> ja <a href="https://app.orienteerumine.ee/orienteerumine/opime/Legendileht_A4_2lk_20180518.pdf" target="_blank" rel="noopener">piltlegendid</a></li>
-        <li><a href="https://orienteerumine.ee/orienteerumismangud/" target="_blank" rel="noopener">EOL-i orienteerumismängud</a>, sh 3D-simulaator Catching Features</li>
-        <li><a href="https://mobo.osport.ee/" target="_blank" rel="noopener">MOBO püsirajad</a> ja <a href="https://paevakud.ee/" target="_blank" rel="noopener">orienteerumispäevakud</a></li>
+        <li>Kaardid laaditakse otse <a href="https://orienteerumine.ee/kaardid/" target="_blank" rel="noopener">EOL-i kaardiserverist</a>. Autoriõigus kuulub kaardi omanikule, kes on märgitud iga kaardi all.</li>
+        <li>Harjutuste objektid ja läbitavus on arvutatud samade kaartide OCAD-failidest, mida EOL avalikult jagab.</li>
+        <li>Päris võistlused: <a href="https://www.livelox.com/" target="_blank" rel="noopener">Livelox</a>.</li>
+        <li><a href="https://orienteerumine.ee/wp-content/uploads/2021/11/isom2017-est.pdf" target="_blank" rel="noopener">ISOM 2017 eestikeelne tõlge</a> ja <a href="https://app.orienteerumine.ee/orienteerumine/opime/O-kaardi_leppema%CC%88rgid_A4_20180518.pdf" target="_blank" rel="noopener">leppemärgid A4-lehel</a></li>
       </ul>
-      <p class="small">Leppemärgid on joonistatud ISOM 2017 eestikeelse tõlke kirjelduste järgi lihtsustatult. Kahtluse korral kehtib ametlik A4-leht. Sinu edusammud salvestuvad ainult selles brauseris.</p>
+      <p class="small">Sinu edusammud salvestuvad ainult selles brauseris.</p>
     </div>
   </footer>
 </div>
@@ -382,26 +399,28 @@ footer.res ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:colum
 /* ---------- abifunktsioonid ---------- */
 const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
-function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 const store={get(k,d){try{const v=localStorage.getItem('kaarditrenn:'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('kaarditrenn:'+k,JSON.stringify(v))}catch(e){}}};
 function shuffle(a,r=Math.random){for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 const fmt=(x,d=0)=>Number(x).toLocaleString('et-EE',{maximumFractionDigits:d,minimumFractionDigits:0});
 function parseNum(s){s=String(s).trim().replace(/\s/g,'').replace(',','.');const v=parseFloat(s);return isFinite(v)?v:null}
+function parseTime(s){s=String(s).trim();if(!s)return null;const m=s.match(/^(\d+)[:.,](\d{1,2})$/);if(m)return +m[1]*60+ +m[2];const v=parseNum(s);return v==null?null:v*60}
 function fmtTime(sec){sec=Math.max(0,Math.round(sec));const m=Math.floor(sec/60),s=sec-m*60;return m+':'+String(s).padStart(2,'0')}
 const randInt=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
 const pick=a=>a[Math.floor(Math.random()*a.length)];
-const DPR=Math.min(2,window.devicePixelRatio||1);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 
 /* ---------- kohanduv raskus ---------- */
 const LVLNAME=['','Algaja','Harrastaja','Võistleja','Edasijõudnu','Tipp'];
 const MODS={
   lep:{name:'Leppemärgid',view:'leppemargid',desc:['','Põhimärgid, valikud eri rühmadest','Kõik märgid, valikud segamini','Valikud samast rühmast, küsimused mõlemas suunas','Sarnased märgid, 12 sekundit aega','Sarnased märgid, 6 sekundit aega']},
-  mm:{name:'Mõõtkava: arvutused',view:'moodkava',desc:['','1 : 10 000 ja ümmargused arvud','Lisandub 1 : 15 000 ja komakohad','Lisanduvad sprindimõõtkavad ja ajaarvutus','Lisanduvad sammupaarid','Kõik ülesanded segamini, 45 sekundit aega']},
-  mmh:{name:'Mõõtkava: hindamine',view:'moodkava',desc:['','Lubatud viga 30%','Lubatud viga 25%','Lubatud viga 20%','Lubatud viga 15%','Lubatud viga 10%']},
-  rel:{name:'Reljeef',view:'reljeef',desc:['','Kõrguste võrdlus, küngas või lohk','Lisandub langussuund nelja ilmakaare järgi','Lisanduvad profiilid ja kaheksa ilmakaart','Väiksemad kõrgusevahed, sarnasemad profiilid','Lisaks 25 sekundit aega']},
-  tv:{name:'Teevalik: vali kolmest',view:'teevalik',desc:['','Kiireim tee on teistest selgelt parem','Kiireima ja järgmise vahe vähemalt 15%','Vahe vähemalt 10%','Vahe vähemalt 6%','Vahe vaid 3%, 40 sekundit aega']},
+  ring:{name:'Kaardilugemine',view:'kaardilugemine',desc:['','Selged objektid, kaart suurendatud','Lisanduvad lohud, augud, järsakud ja kinnised horisontaalid','Lisanduvad uhteorud, vallid ja kaljud; valikud samast rühmast','Kõik objektid, väiksem suurendus, 20 sekundit aega','Kõik objektid, tihedad alad, 10 sekundit aega']},
+  rel:{name:'Reljeef',view:'reljeef',desc:['','Küngas, lohk, tipp ja järsak','Lisanduvad väike lohk, auk ja uhteorg','Lisanduvad piklik tipp, vall ja väike uhteorg','Kõik pinnavormid, väiksem suurendus','Kõik pinnavormid, 12 sekundit aega']},
+  tv:{name:'Teevalik: vali kolmest',view:'teevalik',desc:['','Kiireim tee on teistest selgelt parem','Kiireima ja järgmise vahe vähemalt 15%','Vahe vähemalt 10%','Vahe vähemalt 6%','Vahe vaid 2–6%, 40 sekundit aega']},
   tvd:{name:'Teevalik: joonista ise',view:'teevalik',desc:['','Hea tee on kuni 15% aeglasem kui arvuti oma','Kuni 12% aeglasem','Kuni 9% aeglasem','Kuni 7% aeglasem','Kuni 5% aeglasem']},
+  mm:{name:'Mõõtkava: arvutused',view:'moodkava',desc:['','1 : 10 000 ja ümmargused arvud','Lisandub 1 : 15 000 ja komakohad','Lisanduvad sprindimõõtkavad ja ajaarvutus','Lisanduvad sammupaarid','Kõik ülesanded segamini, 45 sekundit aega']},
+  mmh:{name:'Mõõtkava: hinda kaardil',view:'moodkava',desc:['','Lühikesed vahemaad, lubatud viga 30%','Lubatud viga 25%','Lubatud viga 20%','Pikemad vahemaad, lubatud viga 15%','Pikad vahemaad, lubatud viga 10%']},
+  lx:{name:'Päris võistlus (Livelox)',view:'livelox',desc:['','Lühikesed noorterajad (N12–N14 või lihtne rada)','N14 ja M14 rajad','N16 ja M16 rajad','N18 ja M18 rajad','Põhiklassid ja eliit']},
   dr:{name:'Joonistamine mälu järgi',view:'joonistamine',desc:['','Näed märki 4 sekundit, siis joonistad','Nimi, number ja kirjeldus','Nimi ja number','Ainult nimi','Ainult number']}
 };
 const TIPS={
@@ -411,18 +430,21 @@ const TIPS={
   arvutus:'Arvuta samm-sammult: kõigepealt leia, mitu meetrit on 1 mm, siis korruta.',
   yle:'Kipud vahemaid üle hindama. Võrdle etappi mõõtkavajoonlauaga mitu korda.',
   ala:'Kipud vahemaid alahindama. Võrdle etappi mõõtkavajoonlauaga mitu korda.',
-  tagurpidi:'Valisid profiili tagurpidi. Profiil algab alati vasakult A-st.',
-  korvaljoon:'Valisid kõrvaloleva joone profiili. Loe horisontaale täpselt mööda joont A–B.',
-  vastassuund:'Valisid tõusu suuna. Leia, kummal pool on kõrgem koht: küngas, juhthorisontaal või lohu langujooned.',
-  naabersuund:'Peaaegu. Kõige järsem langus on risti horisontaalidega, mitte nendega viltu.',
-  korgus:'Loe, mitu horisontaali jääb punktide vahele ja kummale poole maa tõuseb.',
-  lohk:'Lohu tunned ära langujoonte järgi: lühikesed kriipsud osutavad allamäge, lohu põhja poole.',
+  varv:'Värv oli vale. Pruun on pinnavormid, must kivid ja inimtekkelised objektid, sinine vesi, roheline ja kollane taimestik, magenta rajamärgid.',
+  rirk:'Vaata ringi keskpunkti, mitte kogu ringi. Kontrollpunkt on täpselt keskel.',
+  relhill:'Küngast ja lohku eristavad langujooned: lühikesed kriipsud horisontaalil osutavad alla. Lohu sees on langujooned, künkal neid tavaliselt pole.',
+  relpoint:'Pruun täpp on tipp, pruun poolkaar on väike lohk ja pruun „v“ on auk. Kinnine horisontaal on suurem küngas või lohk.',
+  relline:'Joonelised pinnavormid: järsakul on hambad, vall on pruun joon täppidega ja uhteorg on kitsas pruun kiil.',
   lyhim:'Valisid lühima tee, aga see ei olnud kiireim. Roheline ala ja tõus teevad lühikese tee aeglaseks.',
-  roheline:'Kaotasid aega rohelises. 50% roheline aeglustab umbes poole võrra, täisroheline kuni viis korda.',
-  tous:'Kaotasid aega tõusul. Iga horisontaal on 5 m ja 10 m tõusu võtab sama kaua kui 100 m tasast maad.',
+  roheline:'Kaotasid aega rohelises. Heleroheline aeglustab umbes kolmandiku võrra, tumeroheline kuni viis korda.',
+  tous:'Kaotasid aega tõusul. Iga horisontaali ületamine tähendab tõusu või langust. Mööda nõlva või ümber künka on sageli kiirem.',
   soo:'Soo aeglustab. Vali võimalusel kuiv tee.',
   rada:'Rada oleks olnud kiirem. Rada mööda jooksed täiskiirusel isegi siis, kui tee on pikem.',
-  varv:'Värv oli vale. Pruun on pinnavormid, must kivid ja inimtekkelised objektid, sinine vesi, roheline ja kollane taimestik, magenta rajamärgid.'
+  otse:'Otsetee oleks olnud kiirem. Kui mets on valge või lage, ei tasu pikka ringi teha.',
+  lxrada:'Kiireim läks mööda teed või rada. Vaata, kui palju pikem see tee oli ja kas see tasus end ära.',
+  lxotse:'Kiireim läks otse. Vaata kaardilt, miks otsetee oli seekord kiire: valge mets, lage ala või hea suund.',
+  lxkylg:'Kiireim valis teise külje. Uuri kaardilt, mis sellel küljel paremini joosta lasi: rajad, lage ala või vähem tõusu.',
+  lxaeg:'Sinu ajahinnang erines palju. Arvesta etapi pikkust, tempot ja aeglustavaid alasid.'
 };
 const PROG=store.get('prog',{});
 const DAYS=store.get('days',{});
@@ -445,11 +467,20 @@ function setLvl(k,l){const s=P(k);s.lvl=Math.max(1,Math.min(5,l));s.atLvl=0;s.hi
 function lvlHtml(k){const l=P(k).lvl;return `<span>Tase</span><b>${LVLNAME[l]}</b><span class="pips" aria-label="Tase ${l} viiest">${[1,2,3,4,5].map(i=>`<i class="${i<=l?'on':''}"></i>`).join('')}</span><button type="button" data-lk="${k}" data-ld="-1" aria-label="Lihtsamaks" ${l<=1?'disabled':''}>−</button><button type="button" data-lk="${k}" data-ld="1" aria-label="Raskemaks" ${l>=5?'disabled':''}>+</button>`}
 function renderLvl(k){
   $$(`[data-lvl="${k}"]`).forEach(el=>el.innerHTML=lvlHtml(k));
-  if((k==='mm'||k==='mmh')&&MM&&$('#mm-lvl'))$('#mm-lvl').innerHTML=lvlHtml(MM.mode==='hinda'?'mmh':'mm');
-  if((k==='tv'||k==='tvd')&&TV&&$('#tv-lvl'))$('#tv-lvl').innerHTML=lvlHtml(TV.mode==='joonista'?'tvd':'tv');
+  if((k==='mm'||k==='mmh')&&$('#mm-lvl'))$('#mm-lvl').innerHTML=lvlHtml(MM.mode==='hinda'?'mmh':'mm');
+  if((k==='tv'||k==='tvd')&&$('#tv-lvl'))$('#tv-lvl').innerHTML=lvlHtml(TV.mode==='joonista'?'tvd':'tv');
 }
 document.addEventListener('click',e=>{const b=e.target.closest('[data-lk]');if(!b)return;const k=b.dataset.lk;setLvl(k,P(k).lvl+(+b.dataset.ld));onLvlManual(k)});
-function onLvlManual(k){if(!$('#v-ylevaade').hidden){ovRender();return}if(k==='lep'&&inited.leppemargid){Lep.next();lepRender()}else if((k==='mm'||k==='mmh')&&inited.moodkava)mmNew();else if(k==='rel'&&inited.reljeef)relNew();else if((k==='tv'||k==='tvd')&&inited.teevalik)tvNew();else if(k==='dr'&&inited.joonistamine)drNew()}
+function onLvlManual(k){
+  if(!$('#v-ylevaade').hidden){ovRender();return}
+  if(k==='lep'&&inited.leppemargid){Lep.next();lepRender()}
+  else if(k==='ring'&&inited.kaardilugemine)Ring.next();
+  else if(k==='rel'&&inited.reljeef)Rel.next();
+  else if((k==='mm'||k==='mmh')&&inited.moodkava)mmNew();
+  else if((k==='tv'||k==='tvd')&&inited.teevalik)tvNew();
+  else if(k==='lx'&&inited.livelox)lxRender();
+  else if(k==='dr'&&inited.joonistamine)drNew();
+}
 function lvlMsg(k,change){
   if(!change)return '';
   const l=P(k).lvl;
@@ -461,7 +492,7 @@ function startTimer(sec,host,onEnd){
   host.innerHTML='<div class="timer" role="timer" aria-label="Aeg"><i></i></div>';const bar=$('i',host);const t0=performance.now();let id=0,stop=false;
   const tick=now=>{if(stop)return;const f=Math.max(0,1-(now-t0)/1000/sec);bar.style.width=(f*100)+'%';if(f<=0){stop=true;onEnd();return}id=requestAnimationFrame(tick)};
   id=requestAnimationFrame(tick);
-  return ()=>{stop=true;cancelAnimationFrame(id)};
+  return ()=>{stop=true;cancelAnimationFrame(id);host.innerHTML=''};
 }
 
 /* ---------- ISOM-i värvid ---------- */
@@ -483,14 +514,9 @@ const X=(c,w=6)=>`<path d="M38 38 L62 62 M62 38 L38 62" stroke="${c}" stroke-wid
 const BLOB='M24 48 C24 30 46 26 60 30 C76 34 82 46 76 60 C70 74 46 76 34 70 C26 66 24 58 24 48 Z';
 const tri=(x,y,s=1)=>`<path d="M${x-7*s} ${y+4.5*s} L${x+7*s} ${y+4.5*s} L${x+1.5*s} ${y-6*s} Z" fill="${INK.black}"/>`;
 const {brown:BR,black:BK,blue:BL,green:GR,yellow:YE,magenta:MG}=INK;
-
 const CATS=[
-  {id:'pinnavormid',name:'Pinnavormid',color:BR},
-  {id:'kivid',name:'Kivid ja kaljud',color:BK},
-  {id:'vesi',name:'Veekogud ja sood',color:BL},
-  {id:'taimestik',name:'Taimestik',color:GR},
-  {id:'tehis',name:'Inimtekkelised objektid',color:'#7A7F75'},
-  {id:'rada',name:'Rajamärgid',color:MG}
+  {id:'pinnavormid',name:'Pinnavormid',color:BR},{id:'kivid',name:'Kivid ja kaljud',color:BK},{id:'vesi',name:'Veekogud ja sood',color:BL},
+  {id:'taimestik',name:'Taimestik',color:GR},{id:'tehis',name:'Inimtekkelised objektid',color:'#7A7F75'},{id:'rada',name:'Rajamärgid',color:MG}
 ];
 const S=(n,cat,name,inks,desc,svg)=>({n,cat,name,inks,desc,svg});
 const SYMBOLS=[
@@ -508,7 +534,6 @@ const SYMBOLS=[
   S('112','pinnavormid','Auk',['brown'],'Järskude servadega auk või kaeve.',ln('M36 38 L50 62 L64 38',BR,6,'stroke-linejoin="miter"')),
   S('113','pinnavormid','Ebatasane maapind',['brown'],'Rohkete aukude ja küngastega ala, mis jooksmist oluliselt ei aeglusta.',dotsAt(SCATTER,2.6,BR)),
   S('115','pinnavormid','Reljeefi pisiobjekt',['brown'],'Ümbrusest selgelt eristuv väike pinnavorm. Mida see tähendab, peab olema kaardil kirjas.',X(BR)),
-
   S('201','kivid','Ületamatu kalju',['black'],'Nii kõrge ja järsk kalju, et seda ei saa ületada või on ohtlik ületada.',ln('M12 38 H88',BK,10)+ticks(18,82,10,38,20,BK,4)),
   S('202','kivid','Kalju',['black'],'Ületatav kalju. Ületamine aeglustab jooksu.',ln('M12 42 H88',BK,5)+ticks(18,82,12,42,10,BK,3)),
   S('203','kivid','Kivine auk või koobas',['black'],'Kivine auk, kaeve või koobas, mis võib olla ohtlik.',`<path d="M34 36 L66 36 L50 66 Z" fill="${BK}"/>`),
@@ -519,7 +544,6 @@ const SYMBOLS=[
   S('208','kivid','Kivine ala (kivikülv)',['black'],'Suurte kividega kaetud ala. Jooksukiirus enamasti ei vähene.',[[28,38],[52,34],[74,42],[36,60],[60,58],[80,68],[24,72]].map(([x,y])=>tri(x,y)).join('')),
   S('210','kivid','Kivine maapind',['black'],'Kivine pinnas, mis aeglustab jooksu (60–80% tavakiirusest).',dotsAt(SCATTER,2.2,BK)),
   S('214','kivid','Avakalju',['grey'],'Hästi joostav paljas kaljupind, kus pole mulda ega taimi.',area(INK.grey)),
-
   S('301','vesi','Ületamatu veekogu',['blue','black'],'Must kaldajoon näitab, et veekogu ei saa ületada.',`<path d="${BLOB}" fill="${BL}" stroke="${BK}" stroke-width="3"/>`),
   S('302','vesi','Madal veekogu',['blue'],'Madal, muutuva veetasemega veekogu. Kaldajoon on katkendlik.',`<path d="${BLOB}" fill="${INK.blue50}" stroke="${BL}" stroke-width="3" stroke-dasharray="8 5"/>`),
   S('303','vesi','Veeauk',['blue'],'Vett täis auk või lomp, liiga väike mõõtkavas näitamiseks.',ln('M36 38 L50 62 L64 38',BL,6,'stroke-linejoin="miter"')),
@@ -533,7 +557,6 @@ const SYMBOLS=[
   S('311','vesi','Kaev, purskkaev, veepaak',['blue'],'Selgelt eristuv kaev, purskkaev või veepaak.',`<circle cx="50" cy="50" r="11" fill="none" stroke="${BL}" stroke-width="5"/>`),
   S('312','vesi','Allikas',['blue'],'Koht, kus vesi tuleb maa seest välja. Kaare ava on voolu suunas.',ln('M60 38 A14 14 0 1 0 60 62',BL,5)),
   S('313','vesi','Vee pisiobjekt',['blue'],'Väike veega seotud objekt. Tähendus peab olema kaardil kirjas.',X(BL)),
-
   S('401','taimestik','Lage ala',['yellow'],'Muru- või samblaga lage ala, mis on paremini joostav kui mets.',area(YE)),
   S('402','taimestik','Lage ala üksikute puudega',['yellow'],'Lage ala hajusalt kasvavate puude või põõsastega.',area(YE)+grid(13,4.5,'#FFFFFF')),
   S('403','taimestik','Hooldamata lage ala',['yellow'],'Raiesmik, nõmm või kõrge rohuga lage. Joostavus umbes nagu metsas.',area(INK.yellow50)),
@@ -549,7 +572,6 @@ const SYMBOLS=[
   S('417','taimestik','Eristuv suur puu',['green'],'Ümbrusest selgelt eristuv suur puu.',`<circle cx="50" cy="50" r="11" fill="none" stroke="${GR}" stroke-width="5"/>`),
   S('418','taimestik','Eristuv põõsas või puu',['green'],'Väike eristuv põõsas või puu.',`<circle cx="50" cy="50" r="7" fill="${GR}"/>`),
   S('419','taimestik','Väljapaistev taimestiku objekt',['green'],'Muu silmapaistev taimeobjekt. Tähendus peab olema kaardil kirjas.',X(GR)),
-
   S('501','tehis','Kattega teedeala',['brown','black'],'Asfaldi, kruusa või muu kattega tasane ala.',area(INK.brown50,`stroke="${BK}" stroke-width="2"`)),
   S('502','tehis','Lai tee',['brown','black'],'Lai sõidutee. Laius kaardil vastab tegelikule.',`<rect x="8" y="42" width="84" height="16" fill="${INK.brown50}"/>`+ln('M8 42 H92',BK,3)+ln('M8 58 H92',BK,3)),
   S('503','tehis','Tee',['black'],'Kitsas, iga ilmaga sõidetav tee.',ln('M8 50 H92',BK,7)),
@@ -564,7 +586,6 @@ const SYMBOLS=[
   S('521','tehis','Hoone',['black'],'Hoone põhiplaani kujul.',`<rect x="30" y="34" width="40" height="32" fill="${BK}"/>`),
   S('523','tehis','Vare',['black'],'Lagunenud hoone või hoone vundament.',`<rect x="30" y="34" width="40" height="32" fill="none" stroke="${BK}" stroke-width="4"/>`),
   S('531','tehis','Inimtekkeline pisiobjekt',['black'],'Väike inimtekkeline objekt. Tähendus peab olema kaardil kirjas.',X(BK)),
-
   S('601','rada','Põhjajooned',['black'],'Kaardi servaga paralleelsed jooned näitavad magnetilist põhjasuunda. Maastikul on nende vahe 300 m.',ln('M34 26 V86',BK,3)+ln('M66 26 V86',BK,3)+`<path d="M34 12 L27 28 H41 Z M66 12 L59 28 H73 Z" fill="${BK}"/>`),
   S('701','rada','Start',['magenta'],'Kolmnurga keskpunkt on raja algus. Tipp näitab esimese punkti suunda.',`<path d="M50 24 L74.2 66 L25.8 66 Z" fill="none" stroke="${MG}" stroke-width="4"/>`),
   S('703','rada','Kontrollpunkt',['magenta'],'Ringi keskpunkt näitab kontrollpunkti täpset asukohta.',`<circle cx="50" cy="50" r="24" fill="none" stroke="${MG}" stroke-width="4"/>`),
@@ -582,8 +603,125 @@ const symSvg=s=>`<svg viewBox="0 0 100 100" aria-hidden="true">${s.svg}</svg>`;
 const CORE=new Set(['101','102','104','109','111','112','201','202','204','205','207','208','301','304','305','308','401','403','405','406','408','410','416','503','504','505','506','516','521','701','703','706']);
 const CONF=[['109','418','204'],['111','312','303','112'],['115','313','419','531'],['204','205','207'],['406','408','410'],['407','409','406'],['505','506','507','504'],['401','403','412','402'],['202','201','104'],['308','310','307'],['304','305','306'],['417','311'],['521','523'],['301','302'],['105','106','108','309'],['113','210'],['510','511'],['708','711']];
 
+/* ---------- päris kaardi objektide nimed ---------- */
+const FEAT={
+  'C+':{name:'Küngas',fam:'rel',desc:'Kinnine horisontaal ilma langujoonteta: maapind tõuseb keskkoha poole.',ette:'Seisad künka otsas. Maa langeb igas suunas, kõige järsemalt seal, kus horisontaalid on tihedamad.'},
+  'C-':{name:'Lohk',fam:'rel',desc:'Kinnine horisontaal, mille sees on langujooned: maapind langeb keskkoha poole.',ette:'Seisad lohu põhjas. Igas suunas tõuseb maa ja ümbritsevad nõlvad on sinust kõrgemal.'},
+  104:{name:'Järsak',fam:'rel',ette:'Järsk nõlv või serv. Hambad osutavad allapoole, sinna, kus maa on madalam.'},
+  105:{name:'Vall',fam:'rel',ette:'Pinnasest vall, mis on ümbrusest vähemalt meetri võrra kõrgem.'},
+  106:{name:'Lagunenud vall',fam:'rel',ette:'Madal, osaliselt kulunud vall, mida on maastikul raskem märgata.'},
+  107:{name:'Uhteorg',fam:'rel',ette:'Kitsas järskude nõlvadega org, mida mööda võib vihmaga vesi voolata.'},
+  108:{name:'Väike uhteorg',fam:'rel',ette:'Väike kuiv kraav või uhteorg, umbes poole meetri sügavune.'},
+  109:{name:'Tipp',fam:'rel',ette:'Väike selge kõrgendik, mis on horisontaaliga joonistamiseks liiga väike.'},
+  110:{name:'Piklik tipp',fam:'rel',ette:'Väike piklik kõrgendik, nagu lühike seljandik.'},
+  111:{name:'Väike lohk',fam:'rel',ette:'Laugete servadega väike nõgu, vähemalt meetri sügavune.'},
+  112:{name:'Auk',fam:'rel',ette:'Järskude servadega auk, sageli kaevatud.'},
+  113:{name:'Ebatasane maapind',fam:'rel',ette:'Paljude väikeste aukude ja küngastega ala.'},
+  115:{name:'Reljeefi pisiobjekt',fam:'rel',ette:'Ümbrusest eristuv eriline pinnavorm. Mida see tähendab, on kirjas kaardi legendis.'},
+  202:{name:'Kalju',fam:'rock'},203:{name:'Kivine auk või koobas',fam:'rock'},204:{name:'Kivi',fam:'rock'},205:{name:'Suur kivi',fam:'rock'},206:{name:'Hiiglaslik kivi',fam:'rock'},207:{name:'Kivide kogum',fam:'rock'},
+  303:{name:'Veeauk',fam:'water'},304:{name:'Lai ületatav kraav',fam:'water'},305:{name:'Kitsas ületatav kraav',fam:'water'},306:{name:'Hooajalise veega kraav',fam:'water'},308:{name:'Soo',fam:'water'},309:{name:'Nire ehk kitsas soo',fam:'water'},311:{name:'Kaev, purskkaev, veepaak',fam:'water'},312:{name:'Allikas',fam:'water'},313:{name:'Vee pisiobjekt',fam:'water'},
+  401:{name:'Lage ala',fam:'veg'},403:{name:'Hooldamata lage ala',fam:'veg'},410:{name:'Väga raskelt läbitav mets',fam:'veg'},417:{name:'Eristuv suur puu',fam:'veg'},418:{name:'Eristuv põõsas või puu',fam:'veg'},419:{name:'Väljapaistev taimestiku objekt',fam:'veg'},
+  510:{name:'Elektriliin',fam:'man'},513:{name:'Müür',fam:'man',desc:'Väljapaistev kivist, betoonist või puidust müür või sein.'},514:{name:'Lagunenud müür',fam:'man',desc:'Lagunenud või halvasti märgatav müür.'},516:{name:'Tara',fam:'man'},517:{name:'Lagunenud tara',fam:'man',desc:'Lagunenud või halvasti märgatav tara.'},
+  521:{name:'Hoone',fam:'man'},523:{name:'Vare',fam:'man'},524:{name:'Kõrge torn',fam:'man',desc:'Kõrge torn või mast, metsas puudest kõrgem.'},525:{name:'Madal torn',fam:'man',desc:'Väljapaistev madal torn, jahilava või muu platvorm.'},526:{name:'Piirikivi või mälestuskivi',fam:'man',desc:'Väljapaistev mälestuskivi, piirikivi või geodeetiline märk.'},527:{name:'Söödasõim',fam:'man',desc:'Söödasõim maapinnal või puu küljes.'},530:{name:'Inimtekkeline pisiobjekt (ring)',fam:'man',desc:'Väike inimtekkeline objekt. Mida see tähendab, on kirjas kaardi legendis.'},531:{name:'Inimtekkeline pisiobjekt (rist)',fam:'man'}
+};
+const featName=k=>FEAT[k]?FEAT[k].name:String(k);
+const featDesc=k=>(FEAT[k]&&FEAT[k].desc)||(SYM[k]&&SYM[k].desc)||'';
+const featIcon=k=>SYM[k]?symSvg(SYM[k]):(k==='C+'?`<svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="30" ry="20" fill="none" stroke="${BR}" stroke-width="4"/><ellipse cx="50" cy="50" rx="14" ry="9" fill="none" stroke="${BR}" stroke-width="4"/></svg>`:k==='C-'?`<svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="30" ry="20" fill="none" stroke="${BR}" stroke-width="4"/>${[[50,30,50,40],[50,70,50,60],[20,50,30,50],[80,50,70,50]].map(([a,b,c,d])=>`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="${BR}" stroke-width="4"/>`).join('')}</svg>`:'');
+const AMBIG=[['109','C+'],['111','C-'],['204','205'],['304','305']];
+const ambiguous=(a,b)=>AMBIG.some(([x,y])=>(x==a&&y==b)||(x==b&&y==a));
+
+/* ---------- päris kaardid: andmed ---------- */
+const MAPS={index:null,cache:{},grids:{}};
+async function mapIndex(){if(MAPS.index)return MAPS.index;const r=await fetch('data/maps.json');if(!r.ok)throw new Error('maps.json');MAPS.index=await r.json();return MAPS.index}
+async function loadMap(code){if(MAPS.cache[code])return MAPS.cache[code];const r=await fetch(`data/${code}.json`);if(!r.ok)throw new Error(code);const m=await r.json();MAPS.cache[code]=m;return m}
+async function loadGrid(m){
+  if(MAPS.grids[m.code])return MAPS.grids[m.code];
+  const img=new Image();img.src=`data/${m.code}-grid.png`;await img.decode();
+  const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;const ctx=c.getContext('2d',{willReadFrequently:true});ctx.drawImage(img,0,0);
+  const d=ctx.getImageData(0,0,c.width,c.height).data;const g=new Uint8Array(c.width*c.height);for(let i=0;i<g.length;i++)g[i]=d[i*4];
+  MAPS.grids[m.code]={g,w:c.width,h:c.height};return MAPS.grids[m.code];
+}
+let lastMapCode=null;
+async function pickMap(filter){
+  const idx=await mapIndex();let c=idx.filter(filter||(()=>true));const c2=c.filter(x=>x.code!==lastMapCode);if(c2.length)c=c2;
+  const e=pick(c);lastMapCode=e.code;return loadMap(e.code);
+}
+const CLASSES={0:['väljaspool kaarti',0],1:['valge mets',1],2:['lage ala',1.15],3:['hooldamata lage ala',1],4:['aeglaselt läbitav mets',.7],5:['raskelt läbitav mets',.4],6:['väga raskelt läbitav mets',.15],7:['ületamatu objekt',0],8:['soo',.6],9:['ebamäärane soo',.85],10:['madal veekogu',.4],11:['haritud maa',.8],12:['kivine või liivane pinnas',.7],13:['rada',1.25],14:['tee',1.35],15:['kraav või oja',.5],16:['lage ala üksikute puudega',1.1]};
+const CLCOL={1:'#FFFFFF',2:'#FBB03B',3:'#FDD79D',4:'#D8EEDA',5:'#9ED3A4',6:'#3DA84A',8:'#8ECFEB',9:'#C6E7F5',10:'#5BB8E6',11:'#F2D27A',12:'#BEC3C4',13:'#1A1A1A',14:'#6B4A2A',15:'#1E9FD8',16:'#FCC872'};
+function evalRoute(m,G,pts){
+  const cs=m.cs,cm=m.cell_m;let t=0,len=0,cross=0,blocked=null;const br={};let prevC=false;
+  for(let i=1;i<pts.length;i++){
+    const x0=pts[i-1][0]/cs,y0=pts[i-1][1]/cs,x1=pts[i][0]/cs,y1=pts[i][1]/cs;
+    const L=Math.hypot(x1-x0,y1-y0),n=Math.max(1,Math.ceil(L/0.5)),st=L/n*cm;
+    for(let k=0;k<n;k++){
+      const u=(k+.5)/n,gx=Math.floor(x0+(x1-x0)*u),gy=Math.floor(y0+(y1-y0)*u);
+      if(gx<0||gy<0||gx>=G.w||gy>=G.h){if(blocked==null)blocked=0;continue}
+      const v=G.g[gy*G.w+gx],cl=v&127,c=(v&128)>0;
+      if(c&&!prevC)cross++;prevC=c;
+      const sp=CLASSES[cl]?CLASSES[cl][1]:0;
+      if(sp<=0){if(blocked==null)blocked=cl;continue}
+      t+=st/sp;len+=st;br[cl]=(br[cl]||0)+st;
+    }
+  }
+  const climb=cross*m.interval/2;t+=climb*10;
+  return {t,len,climb,br,blocked};
+}
+
+/* ---------- kaardivaade ---------- */
+class MapView{
+  constructor(host){
+    this.host=host;
+    host.innerHTML=`<div class="mapview" tabindex="0" aria-label="Orienteerumiskaart"><div class="stage"><img alt=""><svg class="ovsvg"><g class="ov"></g><g class="ov2"></g></svg></div>
+      <div class="ctl"><button type="button" data-z="1" aria-label="Suurenda">+</button><button type="button" data-z="-1" aria-label="Vähenda">−</button><button type="button" data-z="0" aria-label="Tagasi ülesande juurde">⤢</button></div>
+      <div class="msg" hidden></div></div><p class="credit"></p>`;
+    this.el=$('.mapview',host);this.stage=$('.stage',host);this.img=$('img',host);this.svg=$('svg',host);this.ov=$('.ov',host);this.ov2=$('.ov2',host);this.msg=$('.msg',host);this.credit=$('.credit',host);
+    this.s=1;this.tx=0;this.ty=0;this.map=null;this.focusBox=null;this.onTap=null;
+    $$('.ctl button',host).forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();const z=+b.dataset.z;if(z===0)this.fit(this.focusBox);else this.zoomAt(this.el.clientWidth/2,this.el.clientHeight/2,z>0?1.4:1/1.4)}));
+    const pts=new Map();let start=null,moved=0,pinch=null;
+    this.el.addEventListener('pointerdown',e=>{if(e.target.closest('.ctl'))return;this.el.setPointerCapture(e.pointerId);pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+      if(pts.size===1){start={x:e.clientX,y:e.clientY,tx:this.tx,ty:this.ty};moved=0}
+      else if(pts.size===2){const [a,b]=[...pts.values()];pinch={d:Math.hypot(a.x-b.x,a.y-b.y),s:this.s,cx:(a.x+b.x)/2,cy:(a.y+b.y)/2};moved=99}});
+    this.el.addEventListener('pointermove',e=>{if(!pts.has(e.pointerId))return;pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+      if(pts.size===2&&pinch){const [a,b]=[...pts.values()];const d=Math.hypot(a.x-b.x,a.y-b.y);const r=this.el.getBoundingClientRect();this.zoomAt(pinch.cx-r.left,pinch.cy-r.top,(pinch.s*d/pinch.d)/this.s);return}
+      if(start){const dx=e.clientX-start.x,dy=e.clientY-start.y;moved=Math.max(moved,Math.hypot(dx,dy));if(moved>6){this.tx=start.tx+dx;this.ty=start.ty+dy;this.apply()}}});
+    const up=e=>{if(!pts.has(e.pointerId))return;pts.delete(e.pointerId);
+      if(pts.size===0){if(start&&moved<=6&&this.onTap&&this.map){const r=this.el.getBoundingClientRect();this.onTap((e.clientX-r.left-this.tx)/this.s,(e.clientY-r.top-this.ty)/this.s)}start=null;pinch=null}
+      else if(pts.size===1){const [a]=[...pts.values()];start={x:a.x,y:a.y,tx:this.tx,ty:this.ty};pinch=null}};
+    this.el.addEventListener('pointerup',up);this.el.addEventListener('pointercancel',up);
+    this.el.addEventListener('wheel',e=>{e.preventDefault();const r=this.el.getBoundingClientRect();this.zoomAt(e.clientX-r.left,e.clientY-r.top,e.deltaY<0?1.15:1/1.15)},{passive:false});
+    this.lastW=0;if(window.ResizeObserver)new ResizeObserver(()=>{const w=this.el.clientWidth;if(w&&Math.abs(w-this.lastW)>2){this.lastW=w;if(this.focusBox&&this.autoFit)this.fit(this.focusBox)}}).observe(this.el);
+  }
+  setMessage(t){this.msg.hidden=!t;this.msg.textContent=t||''}
+  async load(m){
+    if(this.map&&this.map.code===m.code&&this.loaded)return;
+    this.map=m;this.loaded=false;this.setMessage('Laadin kaarti EOL-i kaardiserverist…');
+    this.stage.style.width=m.w+'px';this.stage.style.height=m.h+'px';
+    this.img.width=m.w;this.img.height=m.h;this.svg.setAttribute('width',m.w);this.svg.setAttribute('height',m.h);this.svg.setAttribute('viewBox',`0 0 ${m.w} ${m.h}`);
+    const rights=m.rights&&m.rights!=='-'?m.rights:m.owner;
+    this.credit.innerHTML=`Kaart: <a href="${esc(m.page)}" target="_blank" rel="noopener">${esc(m.name)}</a> (${esc(m.mk||'')}, ${esc(m.year||'')}, 1 : ${fmt(m.scale)}, horisontaalide vahe ${fmt(m.interval,1)} m) · © ${esc(rights||'')} · pilt EOL-i kaardiserverist`;
+    await new Promise((res,rej)=>{this.img.onload=res;this.img.onerror=rej;this.img.src=m.img}).then(()=>{this.loaded=true;this.setMessage('')},()=>{this.setMessage('Kaardipilti ei õnnestunud EOL-i serverist laadida. Kontrolli internetiühendust ja proovi uuesti.');throw new Error('img')});
+  }
+  apply(){this.stage.style.transform=`translate(${this.tx}px,${this.ty}px) scale(${this.s})`}
+  zoomAt(px,py,f){const ns=Math.max(.05,Math.min(4,this.s*f));const k=ns/this.s;this.tx=px-(px-this.tx)*k;this.ty=py-(py-this.ty)*k;this.s=ns;this.apply()}
+  fit(b,auto=true){if(!b)return;this.focusBox=b;this.autoFit=auto;const W=this.el.clientWidth,H=this.el.clientHeight;if(!W||!H)return;this.lastW=W;const bw=Math.max(20,b[2]-b[0]),bh=Math.max(20,b[3]-b[1]);
+    this.s=Math.min(W/bw,H/bh);this.tx=W/2-(b[0]+b[2])/2*this.s;this.ty=H/2-(b[1]+b[3])/2*this.s;this.apply()}
+  focusOn(x,y,widthM){const m=this.map;const half=widthM/2/m.mpp;const W=this.el.clientWidth||600,H=this.el.clientHeight||450;const r=H/W;this.fit([x-half,y-half*r,x+half,y+half*r])}
+  visible(){const W=this.el.clientWidth,H=this.el.clientHeight;return [-this.tx/this.s,-this.ty/this.s,(W-this.tx)/this.s,(H-this.ty)/this.s]}
+  draw(html,html2=''){this.ov.innerHTML=html;this.ov2.innerHTML=html2}
+}
+/* rajasümbolid kaardil (pildi pikslites) */
+function px(m,meters){return meters/m.mpp}
+function ringSvg(m,x,y,label){const r=px(m,30),w=px(m,3);return `<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="${MG}" stroke-width="${w}" opacity=".9"/>`+(label?`<text x="${x+r*.85}" y="${y-r*.85}" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" font-size="${px(m,26)}" fill="${MG}">${label}</text>`:'')}
+function startSvg(m,x,y,tx,ty){const r=px(m,34),w=px(m,3);const a=Math.atan2(ty-y,tx-x);const p=[0,1,2].map(k=>{const b=a+k*2*Math.PI/3;return (x+r*Math.cos(b)).toFixed(1)+','+(y+r*Math.sin(b)).toFixed(1)}).join(' ');return `<polygon points="${p}" fill="none" stroke="${MG}" stroke-width="${w}" opacity=".9"/>`}
+function legLine(m,s,e){const dx=e[0]-s[0],dy=e[1]-s[1],L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,a=px(m,38),b=px(m,33);return `<line x1="${s[0]+ux*a}" y1="${s[1]+uy*a}" x2="${e[0]-ux*b}" y2="${e[1]-uy*b}" stroke="${MG}" stroke-width="${px(m,2.5)}" opacity=".9"/>`}
+function routeSvg(m,pts,color,dash,w=4.5){return `<polyline points="${pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ')}" fill="none" stroke="${color}" stroke-width="${px(m,w)}" stroke-linecap="round" stroke-linejoin="round" ${dash?`stroke-dasharray="${dash.map(d=>px(m,d)).join(' ')}"`:''} opacity=".92"/>`}
+function badgeSvg(m,x,y,txt,color){const h=px(m,22),w=Math.max(h*1.2,txt.length*h*.5+h*.6);return `<g><rect x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}" rx="${h/2}" fill="#fff" stroke="${color}" stroke-width="${px(m,2.5)}"/><text x="${x}" y="${y+h*.32}" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" font-size="${h*.85}" fill="${color}">${esc(txt)}</text></g>`}
+function scaleBarSvg(m,vis){const meters=(vis[2]-vis[0])*m.mpp>500?200:100;const L=px(m,meters),x=vis[0]+(vis[2]-vis[0])*.05,y=vis[3]-(vis[3]-vis[1])*.06;const h=px(m,6),fs=px(m,meters===200?16:12);
+  return `<g><rect x="${x-px(m,6)}" y="${y-fs*1.6}" width="${L+px(m,30)}" height="${fs*2.2}" fill="#fff" opacity=".85" rx="${px(m,3)}"/><rect x="${x}" y="${y-h}" width="${L/2}" height="${h}" fill="#1A1A1A"/><rect x="${x+L/2}" y="${y-h}" width="${L/2}" height="${h}" fill="#fff" stroke="#1A1A1A" stroke-width="${px(m,1)}"/><text x="${x}" y="${y-h-fs*.25}" font-size="${fs}" font-family="IBM Plex Mono, monospace" fill="#1A1A1A">0</text><text x="${x+L}" y="${y-h-fs*.25}" font-size="${fs}" font-family="IBM Plex Mono, monospace" fill="#1A1A1A" text-anchor="middle">${meters} m</text></g>`}
+function mapError(host,msg){host.innerHTML=`<div class="fb no"><div><b>Kaarti ei saanud avada.</b>${esc(msg)} Proovi lehte uuesti laadida.</div></div>`}
+
 /* ---------- vahekaardid ---------- */
-const VIEWS=['ylevaade','leppemargid','moodkava','reljeef','teevalik','joonistamine'];
+const VIEWS=['ylevaade','leppemargid','kaardilugemine','reljeef','teevalik','moodkava','livelox','joonistamine'];
 const inited={};
 function route(){
   const h=(location.hash||'').slice(1);
@@ -603,29 +741,24 @@ function topTag(k){const t=P(k).tags.slice(-12);if(!t.length)return null;const c
 function recommend(){
   const keys=Object.keys(MODS);
   const done=keys.map(k=>({k,n:P(k).total,a:acc(k)}));
-  const never=done.filter(d=>d.n===0&&d.k!=='tvd'&&d.k!=='mmh');
+  const never=done.filter(d=>d.n===0&&!['tvd','mmh','dr'].includes(d.k));
   if(never.length)return {k:never[0].k,why:'Seda osa pole sa veel proovinud.'};
   const weak=done.filter(d=>d.a!=null&&P(d.k).recent.length>=5).sort((a,b)=>a.a-b.a)[0];
   if(weak&&weak.a<70)return {k:weak.k,why:`Viimastel kordadel on siin õigeid vastuseid ${weak.a}%. Harjutame seda veel.`};
   const least=done.sort((a,b)=>P(a.k).lvl-P(b.k).lvl||a.n-b.n)[0];
   return {k:least.k,why:`Siin on sinu tase kõige madalam (${LVLNAME[P(least.k).lvl]}). Proovi see järgmisele tasemele viia.`};
 }
+function dayKey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
 function ovRender(){
-  const v=$('#v-ylevaade');
-  const t=today(),n=DAYS[t]||0;
-  let streak=0;{const d=new Date();for(;;){const k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');if(DAYS[k]){streak++;d.setDate(d.getDate()-1)}else{if(k===t){d.setDate(d.getDate()-1);continue}break}}}
-  const days=[];{const d=new Date();d.setDate(d.getDate()-13);for(let i=0;i<14;i++){const k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');const c=DAYS[k]||0;days.push(`<i class="${c>=30?'d3':c>=12?'d2':c>0?'d1':''}" title="${k}: ${c} ülesannet">${d.getDate()}</i>`);d.setDate(d.getDate()+1)}}
-  const rec=recommend();
-  const goal=20;
-  const mods=Object.entries(MODS).map(([k,m])=>{
-    const s=P(k),a=acc(k),tt=topTag(k);
-    return `<div class="mod"><div class="hd"><h3>${m.name}</h3></div>
-      <div class="lvl" style="align-self:flex-start">${lvlHtml(k)}</div>
+  const v=$('#v-ylevaade');const t=today(),n=DAYS[t]||0;
+  let streak=0;{const d=new Date();if(!DAYS[dayKey(d)])d.setDate(d.getDate()-1);while(DAYS[dayKey(d)]){streak++;d.setDate(d.getDate()-1)}}
+  const days=[];{const d=new Date();d.setDate(d.getDate()-13);for(let i=0;i<14;i++){const k=dayKey(d);const c=DAYS[k]||0;days.push(`<i class="${c>=30?'d3':c>=12?'d2':c>0?'d1':''}" title="${k}: ${c} ülesannet">${d.getDate()}</i>`);d.setDate(d.getDate()+1)}}
+  const rec=recommend(),goal=20;
+  const mods=Object.entries(MODS).map(([k,m])=>{const s=P(k),a=acc(k),tt=topTag(k);
+    return `<div class="mod"><h3>${m.name}</h3><div class="lvl">${lvlHtml(k)}</div>
       <div class="st">${s.total?`Vastuseid ${s.total} · viimastest ${s.recent.length}-st õigeid ${a}%`:'Veel proovimata'}</div>
-      <div class="small">${m.desc[s.lvl]}</div>
-      ${tt?`<div class="wk tip">${TIPS[tt[0]]||''}</div>`:''}
-      <a class="btn small" href="#${m.view}" data-go="${k}">Harjuta</a></div>`;
-  }).join('');
+      <div class="small">${m.desc[s.lvl]}</div>${tt&&TIPS[tt[0]]?`<div class="wk tip">${TIPS[tt[0]]}</div>`:''}
+      <a class="btn small" href="#${m.view}" data-go="${k}">Harjuta</a></div>`}).join('');
   const wrong=store.get('lepWrong',{});
   const hard=Object.entries(wrong).filter(e=>e[1]>0&&SYM[e[0]]).sort((a,b)=>b[1]-a[1]).slice(0,8);
   const conf=Object.entries(store.get('conf',{})).sort((a,b)=>b[1]-a[1]).slice(0,3);
@@ -636,8 +769,7 @@ function ovRender(){
         <p class="progress">Täna ${n} ülesannet${n>=goal?' · päeva eesmärk on täis!':` · päeva eesmärgini (${goal}) on jäänud ${goal-n}`}</p>
         <div class="bar"><i style="width:${Math.min(100,n/goal*100)}%"></i></div>
         <p class="progress">${streak?`Harjutanud ${streak} päeva järjest`:'Alusta täna uut seeriat'}</p>
-        <div class="days" aria-label="Viimased 14 päeva">${days.join('')}</div>
-      </div></div>
+        <div class="days" aria-label="Viimased 14 päeva">${days.join('')}</div></div></div>
     <h2>Kõik osad</h2><div class="mods">${mods}</div>
     ${hard.length?`<div class="card"><h3>Märgid, mis lähevad kõige sagedamini valesti</h3><div class="hard">${hard.map(([k])=>`<div class="c"><div class="tile">${symSvg(SYM[k])}</div><span><span class="num">${k}</span> ${SYM[k].name}</span></div>`).join('')}</div>
       ${conf.length?`<p class="small">Kõige sagedamini lähevad segi: ${conf.map(([p])=>{const [a,b]=p.split('|');return `${SYM[a]?.name} ja ${SYM[b]?.name}`}).join('; ')}.</p>`:''}</div>`:''}
@@ -652,8 +784,7 @@ document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(!
    1. LEPPEMÄRGID
    ========================================================= */
 const Lep={
-  view:'harjuta',
-  cats:new Set(store.get('lepCats',CATS.map(c=>c.id))),
+  view:'harjuta',cats:new Set(store.get('lepCats',CATS.map(c=>c.id))),
   box:store.get('box',{}),wrong:store.get('lepWrong',{}),conf:store.get('conf',{}),
   cur:null,last:null,answered:false,opts:[],streak:0,dir:'pilt',stopT:null,
   pool(){const l=P('lep').lvl;let p=SYMBOLS.filter(s=>this.cats.has(s.cat));if(l===1){const c=p.filter(s=>CORE.has(s.n));if(c.length>=4)p=c}return p},
@@ -667,580 +798,164 @@ const Lep={
     let cand=[];
     if(l>=4){const g=CONF.filter(c=>c.includes(s.n)).flat().filter(n=>n!==s.n&&SYM[n]);cand=shuffle([...new Set(g)]).map(n=>SYM[n])}
     let rest;
-    if(l===1)rest=SYMBOLS.filter(o=>o.cat!==s.cat);
-    else if(l===2)rest=SYMBOLS.filter(o=>o!==s);
+    if(l===1)rest=shuffle(SYMBOLS.filter(o=>o.cat!==s.cat));
+    else if(l===2)rest=shuffle(SYMBOLS.filter(o=>o!==s));
     else rest=shuffle(SYMBOLS.filter(o=>o.cat===s.cat&&o!==s)).concat(shuffle(SYMBOLS.filter(o=>o.cat!==s.cat)));
-    const ds=[];for(const o of cand.concat(l>=3?rest:shuffle(rest)))if(o!==s&&!ds.includes(o)&&ds.length<3)ds.push(o);
+    const ds=[];for(const o of cand.concat(rest))if(o!==s&&!ds.includes(o)&&ds.length<3)ds.push(o);
     this.opts=shuffle([s,...ds]);
   }
 };
 function lepInit(){
   const cw=$('#lep-cats');
   cw.innerHTML=CATS.map(c=>`<button type="button" class="chip" data-cat="${c.id}" aria-pressed="${Lep.cats.has(c.id)}"><span class="sw" style="background:${c.color}"></span>${c.name}</button>`).join('');
-  cw.addEventListener('click',e=>{
-    const b=e.target.closest('[data-cat]');if(!b)return;const id=b.dataset.cat;
+  cw.addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(!b)return;const id=b.dataset.cat;
     if(Lep.cats.has(id)){if(Lep.cats.size>1)Lep.cats.delete(id)}else Lep.cats.add(id);
-    store.set('lepCats',[...Lep.cats]);
-    $$('[data-cat]',cw).forEach(x=>x.setAttribute('aria-pressed',Lep.cats.has(x.dataset.cat)));
-    if(Lep.view==='tabel')lepTable();else{Lep.next();lepRender()}
-  });
+    store.set('lepCats',[...Lep.cats]);$$('[data-cat]',cw).forEach(x=>x.setAttribute('aria-pressed',Lep.cats.has(x.dataset.cat)));
+    if(Lep.view==='tabel')lepTable();else{Lep.next();lepRender()}});
   $$('[data-lmode]').forEach(b=>b.addEventListener('click',()=>{Lep.view=b.dataset.lmode;lepShow()}));
-  $('#lep-quiz').addEventListener('click',e=>{
-    const o=e.target.closest('[data-i]');if(o&&!Lep.answered){lepAnswer(+o.dataset.i);return}
-    if(e.target.closest('#lep-next')){Lep.next();lepRender()}
-  });
-  document.addEventListener('keydown',e=>{
-    if($('#v-leppemargid').hidden||Lep.view==='tabel'||e.target.matches('input,select,textarea'))return;
-    if(!Lep.answered&&['1','2','3','4'].includes(e.key))lepAnswer(+e.key-1);
-    else if(Lep.answered&&e.key==='Enter'){e.preventDefault();Lep.next();lepRender()}
-  });
+  $('#lep-quiz').addEventListener('click',e=>{const o=e.target.closest('[data-i]');if(o&&!Lep.answered){lepAnswer(+o.dataset.i);return}if(e.target.closest('#lep-next')){Lep.next();lepRender()}});
+  document.addEventListener('keydown',e=>{if($('#v-leppemargid').hidden||Lep.view==='tabel'||e.target.matches('input,select,textarea'))return;
+    if(!Lep.answered&&['1','2','3','4'].includes(e.key))lepAnswer(+e.key-1);else if(Lep.answered&&e.key==='Enter'){e.preventDefault();Lep.next();lepRender()}});
   renderLvl('lep');Lep.next();lepShow();
 }
 function lepShow(){
   $$('[data-lmode]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lmode===Lep.view));
   const tab=Lep.view==='tabel';$('#lep-quiz').hidden=tab;$('#lep-table').hidden=!tab;
-  if(tab){if(Lep.stopT){Lep.stopT();Lep.stopT=null}lepTable()}else lepRender();
-  lepProgress();
+  if(tab){if(Lep.stopT){Lep.stopT();Lep.stopT=null}lepTable()}else lepRender();lepProgress();
 }
 function lepRender(){
-  const q=$('#lep-quiz'),s=Lep.cur;
-  if(!s){q.innerHTML='<p>Vali vähemalt üks märgirühm.</p>';return}
+  const q=$('#lep-quiz'),s=Lep.cur;if(!s){q.innerHTML='<p>Vali vähemalt üks märgirühm.</p>';return}
   const l=P('lep').lvl;let prompt,opts;
-  if(Lep.dir==='nimi'){
-    prompt=`<div class="q-prompt"><p class="q-hint">Milline märk on</p><p class="q-name">${s.name}</p></div>`;
-    opts=`<div class="opts four">${Lep.opts.map((o,i)=>`<button type="button" class="opt tileopt" data-i="${i}" aria-label="Valik ${i+1}"><div class="tile">${symSvg(o)}</div><span class="k">${i+1}</span></button>`).join('')}</div>`;
-  }else{
-    prompt=`<div class="q-prompt"><div class="tile big">${symSvg(s)}</div><p class="q-hint">Mis leppemärk see on?</p></div>`;
-    opts=`<div class="opts">${Lep.opts.map((o,i)=>`<button type="button" class="opt" data-i="${i}"><span class="k">${i+1}</span>${o.name}</button>`).join('')}</div>`;
-  }
-  q.innerHTML=`<div id="lep-timer"></div>${prompt}${opts}
-    <div class="feedback" aria-live="polite"></div>
+  if(Lep.dir==='nimi'){prompt=`<div class="q-prompt"><p class="q-hint">Milline märk on</p><p class="q-name">${s.name}</p></div>`;
+    opts=`<div class="opts four">${Lep.opts.map((o,i)=>`<button type="button" class="opt tileopt" data-i="${i}" aria-label="Valik ${i+1}"><div class="tile">${symSvg(o)}</div><span class="k">${i+1}</span></button>`).join('')}</div>`}
+  else{prompt=`<div class="q-prompt"><div class="tile big">${symSvg(s)}</div><p class="q-hint">Mis leppemärk see on?</p></div>`;
+    opts=`<div class="opts">${Lep.opts.map((o,i)=>`<button type="button" class="opt" data-i="${i}"><span class="k">${i+1}</span>${o.name}</button>`).join('')}</div>`}
+  q.innerHTML=`<div id="lep-timer"></div>${prompt}${opts}<div class="feedback" aria-live="polite"></div>
     <div class="actions"><button type="button" class="btn primary" id="lep-next" hidden>Järgmine</button><span class="small">Klahvid 1–4 ja Enter töötavad ka.</span></div>`;
-  const sec=l===5?6:l===4?12:0;
-  if(sec)Lep.stopT=startTimer(sec,$('#lep-timer'),()=>{Lep.stopT=null;if(!Lep.answered)lepAnswer(-1)});
+  const sec=l===5?6:l===4?12:0;if(sec)Lep.stopT=startTimer(sec,$('#lep-timer'),()=>{Lep.stopT=null;if(!Lep.answered)lepAnswer(-1)});
 }
 function lepAnswer(i){
   if(Lep.stopT){Lep.stopT();Lep.stopT=null}
-  const s=Lep.cur,chosen=i>=0?Lep.opts[i]:null;
-  Lep.answered=true;const ok=chosen===s;
+  const s=Lep.cur,chosen=i>=0?Lep.opts[i]:null;Lep.answered=true;const ok=chosen===s;
   const b=Lep.box[s.n]||0;Lep.box[s.n]=ok?Math.min(5,b+1):0;store.set('box',Lep.box);
   if(ok){if(Lep.wrong[s.n])Lep.wrong[s.n]=Math.max(0,Lep.wrong[s.n]-1)}else{Lep.wrong[s.n]=(Lep.wrong[s.n]||0)+1;
     if(chosen){const key=[s.n,chosen.n].sort().join('|');Lep.conf[key]=(Lep.conf[key]||0)+1;store.set('conf',Lep.conf)}}
-  store.set('lepWrong',Lep.wrong);
-  Lep.streak=ok?Lep.streak+1:0;
-  const tag=ok?null:(chosen?(chosen.cat!==s.cat?'varv':null):'aeg');
-  const change=record('lep',ok,tag);
+  store.set('lepWrong',Lep.wrong);Lep.streak=ok?Lep.streak+1:0;
+  const tag=ok?null:(chosen?(chosen.cat!==s.cat?'varv':null):'aeg');const change=record('lep',ok,tag);
   $$('#lep-quiz [data-i]').forEach(btn=>{const o=Lep.opts[+btn.dataset.i];btn.disabled=true;if(o===s)btn.classList.add('ok');else if(+btn.dataset.i===i)btn.classList.add('no')});
   let tipTxt='';
-  if(!ok&&chosen&&chosen.cat===s.cat)tipTxt=`<div class="tip">Need kaks on sarnased: <b style="display:inline">${s.name}</b> — ${s.desc.split('.')[0].toLowerCase()}. <b style="display:inline">${chosen.name}</b> — ${chosen.desc.split('.')[0].toLowerCase()}.</div>`;
+  if(!ok&&chosen&&chosen.cat===s.cat)tipTxt=`<div class="tip">Need kaks on sarnased. <b style="display:inline">${s.name}:</b> ${s.desc.split('.')[0].toLowerCase()}. <b style="display:inline">${chosen.name}:</b> ${chosen.desc.split('.')[0].toLowerCase()}.</div>`;
   else if(!ok)tipTxt=tipHtml(tag);
-  $('#lep-quiz .feedback').innerHTML=(ok
-    ?`<div class="fb ok"><div class="tile">${symSvg(s)}</div><div><b>Õige! <span class="num">${s.n}</span> ${s.name}${Lep.streak>=3?` · ${Lep.streak} järjest`:''}</b>${s.desc}</div></div>`
-    :`<div class="fb no"><div class="tile">${symSvg(s)}</div><div><b>${chosen?'Õige vastus':'Aeg sai otsa. Õige vastus'}: <span class="num">${s.n}</span> ${s.name}</b>${s.desc}${chosen?`<br><span class="small">Sinu valik oli ${chosen.name} (${chosen.n}). See märk tuleb varsti uuesti.</span>`:''}</div></div>`)
-    +tipTxt+lvlMsg('lep',change);
-  $('#lep-next').hidden=false;$('#lep-next').focus({preventScroll:true});
-  lepProgress();
+  $('#lep-quiz .feedback').innerHTML=(ok?`<div class="fb ok"><div class="tile">${symSvg(s)}</div><div><b>Õige! <span class="num">${s.n}</span> ${s.name}${Lep.streak>=3?` · ${Lep.streak} järjest`:''}</b>${s.desc}</div></div>`
+    :`<div class="fb no"><div class="tile">${symSvg(s)}</div><div><b>${chosen?'Õige vastus':'Aeg sai otsa. Õige vastus'}: <span class="num">${s.n}</span> ${s.name}</b>${s.desc}${chosen?`<br><span class="small">Sinu valik oli ${chosen.name} (${chosen.n}). See märk tuleb varsti uuesti.</span>`:''}</div></div>`)+tipTxt+lvlMsg('lep',change);
+  $('#lep-next').hidden=false;$('#lep-next').focus({preventScroll:true});lepProgress();
 }
 function lepProgress(){
-  const pool=SYMBOLS.filter(s=>Lep.cats.has(s.cat));
-  const learned=pool.filter(s=>(Lep.box[s.n]||0)>=3).length;
-  const pct=pool.length?Math.round(learned/pool.length*100):0;
+  const pool=SYMBOLS.filter(s=>Lep.cats.has(s.cat));const learned=pool.filter(s=>(Lep.box[s.n]||0)>=3).length;const pct=pool.length?Math.round(learned/pool.length*100):0;
   $('#lep-progress').innerHTML=`<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><span>Selgeks õpitud ${learned} märki ${pool.length}-st valitud rühmades</span><span>Märk on selge, kui oled selle kolm korda järjest ära tundnud.</span></div><div class="bar" style="margin-top:6px"><i style="width:${pct}%"></i></div>`;
 }
 function lepTable(){
   $('#lep-table').innerHTML=CATS.filter(c=>Lep.cats.has(c.id)).map(c=>{
     const items=SYMBOLS.filter(s=>s.cat===c.id).map(s=>{const b=Lep.box[s.n]||0;
       return `<div class="cell"><div class="tile">${symSvg(s)}</div><div class="nm"><span class="num">${s.n}</span> ${s.name}</div><div class="small">${s.desc}</div><div class="lv" title="Tase ${b}/5">${[1,2,3,4,5].map(k=>`<i class="${k<=b?'on':''}"></i>`).join('')}</div></div>`}).join('');
-    return `<div class="grouphead"><span class="sw" style="background:${c.color}"></span><h3>${c.name}</h3></div>${items}`;
-  }).join('');
+    return `<div class="grouphead"><span class="sw" style="background:${c.color}"></span><h3>${c.name}</h3></div>${items}`}).join('');
 }
 
 /* =========================================================
-   2. MÕÕTKAVA
+   2. KAARDILUGEMINE JA 3. RELJEEF (päris kaardil, mis on ringis)
    ========================================================= */
-const MM={mode:'arvuta',q:null,done:false,sp:store.get('sp',1.3),stopT:null};
-const scaleTxt=sc=>`1 : ${fmt(sc)}`;
-const MMTOL=[0,.30,.25,.20,.15,.10];
-function mmGen(l){
-  const kinds=l===1?['k2m','m2k']:l===2?['k2m','m2k','pohi']:l===3?['k2m','m2k','aeg','pohi']:['k2m','m2k','aeg','samm','pohi','samm'];
-  const kind=pick(kinds);
-  const scales=l===1?[10000]:l===2?[10000,15000]:[10000,15000,4000,7500,5000];
-  const sc=pick(scales);
-  if(kind==='k2m'){
-    const cm=l===1?randInt(1,9):randInt(6,95)/10, m=cm*sc/100;
-    return {kind,text:`Kaardil on kahe punkti vahe ${fmt(cm,1)} cm. Mõõtkava on ${scaleTxt(sc)}. Kui pikk on see vahemaa maastikul?`,ans:m,unit:'m',tol:.02,
-      ex:`${scaleTxt(sc)} tähendab, et 1 cm kaardil on maastikul ${fmt(sc/100)} m. ${fmt(cm,1)} × ${fmt(sc/100)} m = ${fmt(m)} m.`};
-  }
-  if(kind==='m2k'){
-    const m=l===1?randInt(1,8)*100:randInt(5,80)*10, mm=m/(sc/1000);
-    return {kind,text:`Maastikul on vahemaa ${fmt(m)} m. Mitu millimeetrit on see ${scaleTxt(sc)} kaardil?`,ans:mm,unit:'mm',tol:.03,
-      ex:`${scaleTxt(sc)} kaardil on 1 mm maastikul ${fmt(sc/1000,1)} m. ${fmt(m)} m : ${fmt(sc/1000,1)} m = ${fmt(mm,1)} mm.`};
-  }
-  if(kind==='aeg'){
-    const s2=pick([10000,15000]),cm=randInt(20,80)/10,pace=pick([5,6,7]),km=cm*s2/100000,min=km*pace;
-    return {kind,text:`Etapp on ${scaleTxt(s2)} kaardil ${fmt(cm,1)} cm pikk. Jooksed tempoga ${pace}:00 min/km. Mitu minutit kulub, kui jooksed otse?`,ans:min,unit:'min',tol:.05,
-      ex:`${fmt(cm,1)} cm × ${fmt(s2/100)} m = ${fmt(km*1000)} m ehk ${fmt(km,2)} km. ${fmt(km,2)} × ${pace} min = ${fmt(min,1)} min.`};
-  }
-  if(kind==='samm'){
-    const s2=pick([10000,15000]),mm=randInt(4,24),m=mm*s2/1000,sp=MM.sp,n=m/sp;
-    return {kind,text:`Kontrollpunkt on ${scaleTxt(s2)} kaardil ${mm} mm kaugusel. Sinu sammupaar on ${fmt(sp,2)} m. Mitu sammupaari tuleb lugeda?`,ans:n,unit:'sammupaari',tol:.05,abs:1.5,
-      ex:`${mm} mm × ${fmt(s2/1000)} m = ${fmt(m)} m. ${fmt(m)} m : ${fmt(sp,2)} m ≈ ${fmt(Math.round(n))} sammupaari.`};
-  }
-  const s2=pick([10000,15000]),cmap=s2===10000?30:20;
-  if(Math.random()<.5)return {kind,text:`Põhjajooned on ${scaleTxt(s2)} kaardil üksteisest ${cmap} mm kaugusel. Mitu meetrit on nende vahe maastikul?`,ans:300,unit:'m',tol:.01,ex:`${cmap} mm × ${fmt(s2/1000)} m = 300 m. Põhjajoonte vahe on maastikul alati 300 m.`};
-  return {kind,text:`Põhjajoonte vahe on maastikul 300 m. Mitu millimeetrit on see ${scaleTxt(s2)} kaardil?`,ans:cmap,unit:'mm',tol:.01,ex:`300 m : ${fmt(s2/1000)} m = ${cmap} mm.`};
+const RING_LVL=[null,
+  {codes:['521','401','308','204','305','304','417','109','403','410'],view:300,iso:true,time:0,same:0},
+  {codes:['521','401','308','204','305','304','417','109','403','410','111','112','205','207','104','523','516','510','418','303','309','C+','C-'],view:340,iso:true,time:0,same:1},
+  {codes:['521','401','308','204','305','304','417','109','403','410','111','112','205','207','104','523','516','510','418','303','309','C+','C-','110','107','108','105','106','202','306','312','311','203','419'],view:400,iso:true,time:0,same:2},
+  {codes:null,view:480,iso:true,time:20,same:3},
+  {codes:null,view:560,iso:false,time:10,same:3}];
+const REL_LVL=[null,
+  {codes:['C+','C-','109','104'],view:280,time:0},
+  {codes:['C+','C-','109','104','111','112','107'],view:320,time:0},
+  {codes:['C+','C-','109','104','111','112','107','110','105','108'],view:360,time:0},
+  {codes:['C+','C-','109','104','111','112','107','110','105','108','106','113','115'],view:440,time:0},
+  {codes:['C+','C-','109','104','111','112','107','110','105','108','106','113','115'],view:520,time:12}];
+function makeRingQuiz(key,cfgArr,famOnly){
+  return {
+    key,mv:null,cur:null,answered:false,opts:[],stopT:null,host:null,panel:null,
+    async next(){
+      if(this.stopT){this.stopT();this.stopT=null}
+      const cfg=cfgArr[P(key).lvl];
+      this.panel.innerHTML='<p>Otsin kaardilt sobivat kohta…</p>';
+      try{
+        let m=null,f=null;
+        for(let t=0;t<6&&!f;t++){
+          m=await pickMap();
+          let pool=m.features.filter(x=>!x.weak&&(famOnly?FEAT[x.k]&&FEAT[x.k].fam==='rel':FEAT[x.k])&&(!cfg.codes||cfg.codes.includes(String(x.k)))&&(!cfg.iso||x.iso));
+          if(famOnly&&!cfg.codes)pool=pool.filter(x=>FEAT[x.k]&&FEAT[x.k].fam==='rel');
+          if(pool.length){
+            // tasakaalusta tüüpide vahel
+            const byK={};pool.forEach(x=>(byK[x.k]=byK[x.k]||[]).push(x));const kk=Object.keys(byK);f=pick(byK[pick(kk)]);
+          }
+        }
+        if(!f){this.panel.innerHTML='<p>Sellel tasemel ei leidnud sobivat objekti. Vali teine tase.</p>';return}
+        this.m=m;this.cur=f;this.answered=false;
+        await this.mv.load(m);
+        this.mv.focusOn(f.x,f.y,cfg.view*(0.85+Math.random()*.3));
+        this.mv.draw(ringSvg(m,f.x,f.y));
+        // valikud
+        const k=String(f.k),fam=FEAT[k].fam;
+        let pool=Object.keys(FEAT).filter(c=>c!==k&&!ambiguous(c,k)&&(!famOnly||FEAT[c].fam==='rel')&&(!cfg.codes||cfg.codes.includes(c)||P(key).lvl>=3));
+        const same=shuffle(pool.filter(c=>FEAT[c].fam===fam)),other=shuffle(pool.filter(c=>FEAT[c].fam!==fam));
+        const conf=CONF.filter(c=>c.includes(k)).flat().filter(c=>c!==k&&FEAT[c]&&!ambiguous(c,k));
+        let ds=[];const nSame=famOnly?3:cfg.same;
+        if(!famOnly&&P(key).lvl>=4)ds=shuffle([...new Set(conf)]).slice(0,2);
+        for(const c of same)if(ds.length<nSame&&!ds.includes(c))ds.push(c);
+        for(const c of other.concat(same))if(ds.length<3&&!ds.includes(c))ds.push(c);
+        this.opts=shuffle([k,...ds.slice(0,3)]);
+        this.render(cfg);
+      }catch(err){console.error(err);mapError(this.panel,'Kaardiandmete laadimine ebaõnnestus.')}
+    },
+    render(cfg){
+      this.panel.innerHTML=`<div id="${key}-timer"></div><h3>${famOnly?'Mis pinnavorm on ringi keskel?':'Mis on kontrollpunktis?'}</h3>
+        <p class="small">${famOnly?'Vaata horisontaalide kuju ja langujooni.':'Kontrollpunkt on täpselt ringi keskel.'} Kaarti saad lohistada ja suurendada.</p>
+        <div class="opts">${this.opts.map((c,i)=>`<button type="button" class="opt" data-i="${i}"><span class="k">${i+1}</span>${featName(c)}</button>`).join('')}</div>
+        <div class="feedback" aria-live="polite"></div>
+        <div class="actions"><button type="button" class="btn primary" data-next hidden>Järgmine</button></div>`;
+      if(cfg.time)this.stopT=startTimer(cfg.time,$(`#${key}-timer`),()=>{this.stopT=null;if(!this.answered)this.answer(-1)});
+    },
+    answer(i){
+      if(this.stopT){this.stopT();this.stopT=null}
+      if(this.answered)return;this.answered=true;
+      const k=String(this.cur.k),ch=i>=0?this.opts[i]:null,ok=ch===k;
+      let tag=null;
+      if(!ok){if(!ch)tag='aeg';else if(famOnly){tag=(k==='C+'||k==='C-')?'relhill':(['109','110','111','112'].includes(k)?'relpoint':'relline')}else if(FEAT[ch].fam!==FEAT[k].fam)tag='varv';else tag='rirk'}
+      const change=record(key,ok,tag);
+      $$('[data-i]',this.panel).forEach(b=>{const c=this.opts[+b.dataset.i];b.disabled=true;if(c===k)b.classList.add('ok');else if(+b.dataset.i===i)b.classList.add('no')});
+      const icon=featIcon(k),f=FEAT[k];
+      const extra=famOnly&&f.ette?`<div class="fb info"><div><b>Kujuta ette</b>${f.ette}</div></div>`:'';
+      $('.feedback',this.panel).innerHTML=`<div class="fb ${ok?'ok':'no'}">${icon?`<div class="tile">${icon}</div>`:''}<div><b>${ok?'Õige!':(ch?'':'Aeg sai otsa. ')+'Õige vastus'}: ${featName(k)}</b>${featDesc(k)}${ch&&!ok?`<br><span class="small">Sinu valik oli ${featName(ch)}.</span>`:''}</div></div>${extra}${ok?'':tipHtml(tag)}${lvlMsg(key,change)}`;
+      // tõsta objekt esile
+      const m=this.m;this.mv.draw(ringSvg(m,this.cur.x,this.cur.y),`<circle cx="${this.cur.x}" cy="${this.cur.y}" r="${px(m,4)}" fill="${MG}"/>`);
+      const nx=$('[data-next]',this.panel);nx.hidden=false;nx.focus({preventScroll:true});
+      this.progress();
+    },
+    progress(){const a=acc(key);$(`#${key==='ring'?'ring':'rel'}-progress`).textContent=(a!=null?`Viimastel kordadel ${a}% õigeid. `:'')+'Iga ülesanne on päris kaardil päris objekti juures.'},
+    init(hostSel,panelSel){
+      this.mv=new MapView($(hostSel));this.panel=$(panelSel);
+      this.panel.addEventListener('click',e=>{const o=e.target.closest('[data-i]');if(o&&!this.answered){this.answer(+o.dataset.i);return}if(e.target.closest('[data-next]'))this.next()});
+      renderLvl(key);this.next();this.progress();
+    }
+  };
 }
-function mmEstGen(){
-  const scale=pick([[100,'100 m'],[50,'50 m'],[200,'200 m']]);
-  const pxPerM=(scale[0]===50?2.2:scale[0]===100?1.1:.55)*(0.85+Math.random()*.4);
-  let ax,ay,bx,by,d;
-  do{ax=randInt(60,540);ay=randInt(40,200);bx=randInt(60,540);by=randInt(40,200);d=Math.hypot(bx-ax,by-ay)}while(d<140||d>480);
-  return {kind:'est',W:600,H:280,ax,ay,bx,by,pxPerM,step:scale[0],ans:d/pxPerM,unit:'m'};
-}
-function mmInit(){
-  $('#sp-len').value=MM.sp;
-  $('#sp-len').addEventListener('change',e=>{const v=parseNum(e.target.value);if(v&&v>.7&&v<2.6){MM.sp=v;store.set('sp',v)}});
-  $$('[data-mm]').forEach(b=>b.addEventListener('click',()=>{MM.mode=b.dataset.mm;mmNew()}));
-  $('#mm-card').addEventListener('submit',e=>{e.preventDefault();if(!MM.done)mmCheck();else mmNew()});
-  mmNew();
-}
-const mmKey=()=>MM.mode==='hinda'?'mmh':'mm';
-function mmNew(){
-  if(MM.stopT){MM.stopT();MM.stopT=null}
-  $$('[data-mm]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mm===MM.mode));
-  $('#mm-lvl').innerHTML=lvlHtml(mmKey());
-  const l=P(mmKey()).lvl;
-  MM.q=MM.mode==='hinda'?mmEstGen():mmGen(l);MM.done=false;
-  const q=MM.q,c=$('#mm-card');let body;
-  if(q.kind==='est'){
-    const barPx=q.step*q.pxPerM*2,x0=20,y0=q.H-24,L=Math.hypot(q.bx-q.ax,q.by-q.ay),dx=(q.bx-q.ax)/L,dy=(q.by-q.ay)/L;
-    const ang=Math.atan2(dy,dx),r=22,tr=26;
-    const tri=[0,1,2].map(k=>{const a=ang+k*2*Math.PI/3;return `${(q.ax+tr*Math.cos(a)).toFixed(1)},${(q.ay+tr*Math.sin(a)).toFixed(1)}`}).join(' ');
-    body=`<p class="qtext">Kui pikk on etapp stardist kontrollpunktini? Hinda mõõtkavajoonlaua järgi. Lubatud viga on ${Math.round(MMTOL[l]*100)}%.</p>
-      <div class="mapbox"><svg viewBox="0 0 ${q.W} ${q.H}" style="display:block;width:100%;height:auto" aria-label="Etapp ja mõõtkavajoonlaud">
-        <polygon points="${tri}" fill="none" stroke="${INK.magenta}" stroke-width="3.5"/>
-        <circle cx="${q.bx}" cy="${q.by}" r="${r}" fill="none" stroke="${INK.magenta}" stroke-width="3.5"/>
-        <line x1="${q.ax+dx*(tr*.6)}" y1="${q.ay+dy*(tr*.6)}" x2="${q.bx-dx*(r+3)}" y2="${q.by-dy*(r+3)}" stroke="${INK.magenta}" stroke-width="3"/>
-        <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#1A1A1A">
-          <rect x="${x0}" y="${y0}" width="${barPx/2}" height="7" fill="#1A1A1A"/>
-          <rect x="${x0+barPx/2}" y="${y0}" width="${barPx/2}" height="7" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.2"/>
-          <text x="${x0}" y="${y0-5}" text-anchor="middle">0</text>
-          <text x="${x0+barPx/2}" y="${y0-5}" text-anchor="middle">${q.step}</text>
-          <text x="${x0+barPx}" y="${y0-5}" text-anchor="middle">${q.step*2} m</text>
-        </g></svg></div>`;
-  }else body=`<p class="qtext">${q.text}</p>`;
-  c.innerHTML=`<form id="mm-form" class="card" style="border:0;padding:0" autocomplete="off"><div id="mm-timer"></div>${body}
-    <div class="answer-row"><input id="mm-in" inputmode="decimal" aria-label="Vastus"><span class="unit">${q.unit}</span><button class="btn primary" type="submit" id="mm-go">Kontrolli</button></div>
-    <div class="feedback" aria-live="polite"></div></form>`;
-  $('#mm-in').focus({preventScroll:true});
-  if(MM.mode==='arvuta'&&l===5)MM.stopT=startTimer(45,$('#mm-timer'),()=>{MM.stopT=null;if(!MM.done)mmCheck(true)});
-  mmProgress();
-}
-function mmCheck(timeout){
-  if(MM.stopT){MM.stopT();MM.stopT=null}
-  const v=timeout?null:parseNum($('#mm-in').value);const q=MM.q;const fb=$('#mm-card .feedback');
-  if(v==null&&!timeout){fb.innerHTML='<div class="fb no"><div>Kirjuta vastuseks arv.</div></div>';return}
-  MM.done=true;const k=mmKey(),l=P(k).lvl;
-  if(q.kind==='est'){
-    const err=(v-q.ans)/q.ans,ae=Math.abs(err),ok=ae<=MMTOL[l];
-    const tag=ok?null:(err>0?'yle':'ala');const change=record(k,ok,tag);
-    fb.innerHTML=`<div class="fb ${ok?'ok':'no'}"><div><b>${ae<=.1?'Väga hea hinnang!':ok?'Hea hinnang.':'Sellel tasemel liiga palju mööda.'}</b>Etapp on umbes ${fmt(Math.round(q.ans/5)*5)} m pikk. Sinu hinnang oli ${fmt(v)} m (${err>0?'+':''}${fmt(err*100)}%).</div></div>`
-      +(ok?'':tipHtml(tag)+'<div class="tip">Nipp: mõõda sõrmega joonlaua lõik ja vaata, mitu korda see etapile mahub.</div>')+lvlMsg(k,change);
-  }else{
-    const ok=v!=null&&Math.abs(v-q.ans)<=Math.max(q.ans*q.tol,q.abs||0)+1e-9;
-    let tag=null;
-    if(!ok){if(v==null)tag='aeg';else{const r=v/q.ans;const near=(x,t)=>Math.abs(r-x)<=x*.06;
-      if(near(10)||near(.1)||near(100)||near(.01))tag='uhik';else if(near(1.5)||near(2/3)||near(2.5)||near(.4))tag='mootkava';else tag='arvutus'}}
-    const change=record(k,ok,tag);
-    fb.innerHTML=`<div class="fb ${ok?'ok':'no'}"><div><b>${ok?'Õige!':(v==null?'Aeg sai otsa. ':'')+'Õige vastus on '+fmt(q.ans,q.unit==='m'?0:1)+' '+q.unit+'.'}</b>${q.ex}</div></div>`+tipHtml(tag)+lvlMsg(k,change);
-  }
-  $('#mm-go').textContent='Järgmine';$('#mm-in').readOnly=true;$('#mm-go').focus({preventScroll:true});
-  mmProgress();
-}
-function mmProgress(){
-  const a=acc('mm'),b=acc('mmh');
-  $('#mm-progress').textContent=[a!=null?`Arvutused: viimastel kordadel ${a}% õigeid`:'',b!=null?`silmaga hindamine: ${b}% piisavalt täpseid`:''].filter(Boolean).join(' · ');
-}
+const Ring=makeRingQuiz('ring',RING_LVL,false);
+const Rel=makeRingQuiz('rel',REL_LVL,true);
 
 /* =========================================================
-   Maastiku generaator (reljeef ja teevalik)
+   4. TEEVALIK päris kaardil
    ========================================================= */
-function makeNoise(seed){
-  const r=mulberry32(seed);const perm=shuffle([...Array(256).keys()],r);const vals=Array.from({length:256},()=>r());
-  const h=(i,j)=>vals[perm[(perm[i&255]+j)&255]];const sm=t=>t*t*(3-2*t);
-  const n=(x,y)=>{const xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi;const a=h(xi,yi),b=h(xi+1,yi),c=h(xi,yi+1),d=h(xi+1,yi+1);const u=sm(xf),v=sm(yf);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v};
-  return (x,y,oct=4)=>{let s=0,amp=1,f=1,norm=0;for(let o=0;o<oct;o++){s+=amp*n(x*f+o*17.3,y*f-o*9.1);norm+=amp;amp*=.5;f*=2}return s/norm};
-}
-function makeTerrain(seed){
-  const r=mulberry32(seed);const gs=[];const n=4+Math.floor(r()*3);let neg=0;
-  for(let i=0;i<n;i++){
-    const isNeg=r()<.3&&neg<2;if(isNeg)neg++;
-    gs.push({x:.12+.76*r(),y:.12+.76*r(),s1:(isNeg?.045:.08)+r()*(isNeg?.05:.1),s2:(isNeg?.04:.06)+r()*(isNeg?.04:.1),a:r()*Math.PI,h:isNeg?-(6+r()*5):(8+r()*16)});
-  }
-  const tx=(r()-.5)*18,ty=(r()-.5)*18,nz=makeNoise(seed*7+3);
-  const g=(p,x,y)=>{const dx=x-p.x,dy=y-p.y,c=Math.cos(p.a),s=Math.sin(p.a),u=dx*c+dy*s,v=-dx*s+dy*c;return p.h*Math.exp(-(u*u/(2*p.s1*p.s1)+v*v/(2*p.s2*p.s2)))};
-  const base=(x,y)=>40+tx*x+ty*y+5*(nz(x*3,y*3,3)-.5);
-  const f=(x,y)=>{let z=base(x,y);for(const p of gs)z+=g(p,x,y);return z};
-  const fPos=(x,y)=>{let z=base(x,y);for(const p of gs)if(p.h>0)z+=g(p,x,y);return z};
-  return {f,fPos,gs};
-}
-const MS={1:[[3,0]],2:[[0,1]],3:[[3,1]],4:[[1,2]],5:[[3,0],[1,2]],6:[[0,2]],7:[[3,2]],8:[[2,3]],9:[[0,2]],10:[[0,1],[2,3]],11:[[1,2]],12:[[1,3]],13:[[0,1]],14:[[3,0]]};
-function msSegments(z,nx,ny,L,step){
-  const segs=[];
-  for(let j=0;j<ny-1;j++)for(let i=0;i<nx-1;i++){
-    const v0=z[j*nx+i],v1=z[j*nx+i+1],v2=z[(j+1)*nx+i+1],v3=z[(j+1)*nx+i];
-    const idx=(v0>=L?1:0)|(v1>=L?2:0)|(v2>=L?4:0)|(v3>=L?8:0);
-    const cs=MS[idx];if(!cs)continue;
-    const x=i*step,y=j*step;
-    const e=k=>{let t;switch(k){
-      case 0:t=(L-v0)/(v1-v0);return [x+t*step,y];
-      case 1:t=(L-v1)/(v2-v1);return [x+step,y+t*step];
-      case 2:t=(L-v3)/(v2-v3);return [x+t*step,y+step];
-      default:t=(L-v0)/(v3-v0);return [x,y+t*step];}};
-    for(const [a,b] of cs){const p=e(a),q=e(b);segs.push([p[0],p[1],q[0],q[1]])}
-  }
-  return segs;
-}
-function drawContours(ctx,z,nx,ny,step,depFn){
-  let mn=Infinity,mx=-Infinity;for(const v of z){if(v<mn)mn=v;if(v>mx)mx=v}
-  ctx.lineCap='round';ctx.lineJoin='round';
-  for(let L=Math.ceil(mn/5)*5;L<=mx;L+=5){
-    const segs=msSegments(z,nx,ny,L+0.001,step);if(!segs.length)continue;
-    const major=Math.round(L/5)%5===0;
-    ctx.strokeStyle=INK.brown;ctx.lineWidth=major?3.6:2.1;ctx.beginPath();
-    for(const s of segs){ctx.moveTo(s[0],s[1]);ctx.lineTo(s[2],s[3])}
-    ctx.stroke();
-    if(depFn){
-      let c=0;ctx.lineWidth=2.1;ctx.beginPath();
-      for(const s of segs){const mx_=(s[0]+s[2])/2,my_=(s[1]+s[3])/2;const d=depFn(mx_,my_);if(d&&(c++)%6===0){ctx.moveTo(mx_,my_);ctx.lineTo(mx_+d[0]*7,my_+d[1]*7)}}
-      ctx.stroke();
-    }
-  }
-}
-function setupCanvas(cv,W,H){cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);const ctx=cv.getContext('2d');ctx.setTransform(DPR,0,0,DPR,0,0);return ctx}
-function canvasPoint(cv,e,W,H){const r=cv.getBoundingClientRect();return [(e.clientX-r.left)/r.width*W,(e.clientY-r.top)/r.height*H]}
-
-/* =========================================================
-   3. RELJEEF
-   ========================================================= */
-const RW=600;
-const COMPASS=['põhi','kirre','ida','kagu','lõuna','edel','lääs','loe'];
-const Rel={type:'mix',q:null,terr:null,answered:false,shade:false,stopT:null};
-const RELCFG=[null,
-  {types:['higher','hill'],dz:10,dirs:4},
-  {types:['higher','hill','slope'],dz:6,dirs:4},
-  {types:['profile','profile','higher','slope','hill'],dz:4,dirs:8,off:[100,140],rms:2.5},
-  {types:['profile','profile','higher','slope','hill'],dz:3,dirs:8,off:[55,85],rms:1.6},
-  {types:['profile','profile','higher','slope','hill'],dz:3,dirs:8,off:[55,85],rms:1.6,time:25}];
-function relInit(){
-  const cv=$('#rel-canvas');Rel.ctx=setupCanvas(cv,RW,RW);
-  $$('[data-rt]').forEach(b=>b.addEventListener('click',()=>{Rel.type=b.dataset.rt;relNew()}));
-  $('#rel-panel').addEventListener('click',e=>{
-    const a=e.target.closest('[data-a]');if(a&&!Rel.answered){relAnswer(+a.dataset.a);return}
-    if(e.target.closest('#rel-next'))relNew();
-    if(e.target.closest('#rel-shade')){Rel.shade=!Rel.shade;relDraw();relPanel()}
-  });
-  renderLvl('rel');relNew();
-}
-const zAt=(t,x,y)=>t.f(x/RW,y/RW);
-function relGrad(t,x,y){const e=2;return [(zAt(t,x+e,y)-zAt(t,x-e,y))/(2*e),(zAt(t,x,y+e)-zAt(t,x,y-e))/(2*e)]}
-function sampleLine(t,a,b,n=80){const out=[];for(let k=0;k<=n;k++){const u=k/n;out.push(zAt(t,a[0]+(b[0]-a[0])*u,a[1]+(b[1]-a[1])*u))}return out}
-const rms=(a,b)=>Math.sqrt(a.reduce((s,v,i)=>s+(v-b[i])**2,0)/a.length);
-const inB=(p,m=50)=>p[0]>=m&&p[0]<=RW-m&&p[1]>=m&&p[1]<=RW-m;
-function relBuild(type,t,cfg){
-  if(type==='profile'){
-    const off=cfg.off||[100,140],rm=cfg.rms||2.5;
-    for(let k=0;k<60;k++){
-      const a=[randInt(60,540),randInt(60,540)],b=[randInt(60,540),randInt(60,540)];
-      const L=Math.hypot(b[0]-a[0],b[1]-a[1]);if(L<330)continue;
-      const nx=-(b[1]-a[1])/L,ny=(b[0]-a[0])/L,o=pick([-1,1])*randInt(off[0],off[1]);
-      const a2=[a[0]+nx*o,a[1]+ny*o],b2=[b[0]+nx*o,b[1]+ny*o];
-      if(!inB(a2,10)||!inB(b2,10))continue;
-      const z=sampleLine(t,a,b),zr=[...z].reverse(),z2=sampleLine(t,a2,b2);
-      if(Math.max(...z)-Math.min(...z)<9)continue;
-      if(rms(z,zr)<rm||rms(z,z2)<rm||rms(zr,z2)<rm)continue;
-      const opts=shuffle([{z,ok:true},{z:zr,tag:'tagurpidi',why:'See on profiil tagurpidi, B-st A-sse.'},{z:z2,tag:'korvaljoon',why:'See on kõrvaloleva joone profiil.'}]);
-      return {type,a,b,opts,ans:opts.findIndex(o=>o.ok),len:L};
-    }
-  }
-  if(type==='higher'){
-    for(let k=0;k<100;k++){
-      const p=[randInt(70,530),randInt(70,530)],q=[randInt(70,530),randInt(70,530)];
-      if(Math.hypot(p[0]-q[0],p[1]-q[1])<170)continue;
-      const dz=zAt(t,p[0],p[1])-zAt(t,q[0],q[1]);if(Math.abs(dz)<cfg.dz||Math.abs(dz)>cfg.dz+20)continue;
-      return {type,p,q,dz,ans:dz>0?0:1};
-    }
-  }
-  if(type==='slope'){
-    for(let k=0;k<150;k++){
-      const p=[randInt(80,520),randInt(80,520)];const [gx,gy]=relGrad(t,p[0],p[1]);const s=Math.hypot(gx,gy);
-      if(s<.08)continue;
-      let deg=Math.atan2(-gx,gy)*180/Math.PI;if(deg<0)deg+=360;
-      const step=cfg.dirs===4?90:45,sec=Math.round(deg/step)%(360/step),off=Math.min(Math.abs(deg-sec*step),Math.abs(deg-sec*step-360));
-      if(off>(cfg.dirs===4?22:14))continue;
-      return {type,p,ans:sec*(cfg.dirs===4?2:1),slope:s,dirs:cfg.dirs};
-    }
-  }
-  if(type==='hill'){
-    const cands=shuffle(t.gs.filter(g=>Math.abs(g.h)>=6&&g.x>.15&&g.x<.85&&g.y>.15&&g.y<.85));
-    for(const g of cands){
-      const c=[g.x*RW,g.y*RW];const zc=zAt(t,c[0],c[1]);let ring=0;
-      for(let k=0;k<12;k++){const a=k/12*2*Math.PI;ring+=zAt(t,c[0]+48*Math.cos(a),c[1]+48*Math.sin(a))}ring/=12;
-      if(g.h>0&&zc>ring+3)return {type,p:c,ans:0};
-      if(g.h<0&&zc<ring-3)return {type,p:c,ans:1};
-    }
-  }
-  return null;
-}
-function relNew(){
-  if(Rel.stopT){Rel.stopT();Rel.stopT=null}
-  $$('[data-rt]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.rt===Rel.type));
-  const cfg=RELCFG[P('rel').lvl];Rel.cfg=cfg;
-  for(let k=0;k<50;k++){
-    const t=makeTerrain(Math.floor(Math.random()*1e9));
-    let type=Rel.type==='mix'?pick(cfg.types):Rel.type;
-    if(Rel.type==='mix'&&type==='hill'&&!t.gs.some(g=>g.h<0)&&Math.random()<.5)type=pick(cfg.types.filter(x=>x!=='hill'));
-    const q=relBuild(type,t,cfg);if(q){Rel.terr=t;Rel.q=q;break}
-  }
-  Rel.answered=false;Rel.shade=false;Rel.shadeImg=null;
-  const n=RW/5+1,z=new Float32Array(n*n);
-  for(let j=0;j<n;j++)for(let i=0;i<n;i++)z[j*n+i]=zAt(Rel.terr,i*5,j*5);
-  Rel.grid={z,n};
-  relDraw();relPanel();
-  if(cfg.time)Rel.stopT=startTimer(cfg.time,$('#rel-timer'),()=>{Rel.stopT=null;if(!Rel.answered)relAnswer(-1)});
-}
-function relDepFn(t){return (x,y)=>{const u=x/RW,v=y/RW;if(t.f(u,v)-t.fPos(u,v)>-2.5)return null;const [gx,gy]=relGrad(t,x,y);const L=Math.hypot(gx,gy)||1;return [-gx/L,-gy/L]}}
-function hillshade(t,W,H,scale){
-  const S=2,w=Math.ceil(W/S),h=Math.ceil(H/S);
-  const oc=document.createElement('canvas');oc.width=w;oc.height=h;const octx=oc.getContext('2d');const img=octx.createImageData(w,h);
-  const zs=new Float32Array((w+1)*(h+1));let mn=Infinity,mx=-Infinity;
-  for(let j=0;j<=h;j++)for(let i=0;i<=w;i++){const v=t(i*S,j*S);zs[j*(w+1)+i]=v;if(v<mn)mn=v;if(v>mx)mx=v}
-  const L=[-.5,-.6,.62],ll=Math.hypot(...L);L[0]/=ll;L[1]/=ll;L[2]/=ll;
-  for(let j=0;j<h;j++)for(let i=0;i<w;i++){
-    const z0=zs[j*(w+1)+i],gx=(zs[j*(w+1)+i+1]-z0)/S*scale,gy=(zs[(j+1)*(w+1)+i]-z0)/S*scale;
-    const nl=Math.hypot(gx,gy,1),d=Math.max(0,(-gx*L[0]-gy*L[1]+L[2])/nl);
-    const k=(z0-mn)/((mx-mn)||1),sh=.42+.75*d;
-    const o=(j*w+i)*4;img.data[o]=Math.min(255,(190+50*k)*sh);img.data[o+1]=Math.min(255,(220-14*k)*sh);img.data[o+2]=Math.min(255,(180-30*k)*sh);img.data[o+3]=255;
-  }
-  octx.putImageData(img,0,0);return oc;
-}
-function drawMarker(ctx,p,label,r=14){
-  ctx.save();ctx.globalCompositeOperation='multiply';ctx.strokeStyle=INK.magenta;ctx.lineWidth=3.5;ctx.beginPath();ctx.arc(p[0],p[1],r,0,Math.PI*2);ctx.stroke();ctx.restore();
-  if(label){ctx.save();ctx.font='700 26px "Barlow Condensed", "Arial Narrow", sans-serif';ctx.fillStyle=INK.magenta;ctx.lineWidth=5;ctx.strokeStyle='rgba(255,255,255,.9)';
-    const tx=p[0]+r+4,ty=p[1]-r+4;ctx.strokeText(label,tx,ty);ctx.fillText(label,tx,ty);ctx.restore()}
-}
-function relDraw(){
-  const ctx=Rel.ctx,t=Rel.terr,q=Rel.q;
-  ctx.fillStyle='#FFFFFF';ctx.fillRect(0,0,RW,RW);
-  if(Rel.shade){if(!Rel.shadeImg)Rel.shadeImg=hillshade((x,y)=>zAt(t,x,y),RW,RW,3);ctx.drawImage(Rel.shadeImg,0,0,RW,RW)}
-  drawContours(ctx,Rel.grid.z,Rel.grid.n,Rel.grid.n,5,relDepFn(t));
-  if(q.type==='profile'){
-    ctx.save();ctx.globalCompositeOperation='multiply';ctx.strokeStyle=INK.magenta;ctx.lineWidth=3;ctx.setLineDash([12,6]);ctx.beginPath();ctx.moveTo(...q.a);ctx.lineTo(...q.b);ctx.stroke();ctx.restore();
-    drawMarker(ctx,q.a,'A',8);drawMarker(ctx,q.b,'B',8);
-  }else if(q.type==='higher'){drawMarker(ctx,q.p,'1');drawMarker(ctx,q.q,'2')}
-  else drawMarker(ctx,q.p,'1');
-  if(Rel.answered&&q.type==='slope'){
-    const a=q.ans*Math.PI/4,dx=Math.sin(a),dy=-Math.cos(a),p=q.p;
-    ctx.strokeStyle='#1F4FD8';ctx.fillStyle='#1F4FD8';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(p[0]+dx*16,p[1]+dy*16);ctx.lineTo(p[0]+dx*70,p[1]+dy*70);ctx.stroke();
-    ctx.beginPath();ctx.moveTo(p[0]+dx*82,p[1]+dy*82);ctx.lineTo(p[0]+dx*66-dy*9,p[1]+dy*66+dx*9);ctx.lineTo(p[0]+dx*66+dy*9,p[1]+dy*66-dx*9);ctx.closePath();ctx.fill();
-  }
-}
-function profSvg(z,zmin,zmax){
-  const W=300,H=96,pl=30,pr=10,pt=8,pb=18;
-  const X=i=>pl+(W-pl-pr)*i/(z.length-1),Y=v=>pt+(H-pt-pb)*(1-(v-zmin)/(zmax-zmin));
-  let gl='';for(let v=Math.ceil(zmin/5)*5;v<=zmax;v+=5)gl+=`<line class="prof-grid" x1="${pl}" x2="${W-pr}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}"/>`;
-  const pts=z.map((v,i)=>`${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' ');
-  return `<svg viewBox="0 0 ${W} ${H}" aria-hidden="true">${gl}<polygon class="prof-area" points="${pl},${H-pb} ${pts} ${W-pr},${H-pb}"/><polyline class="prof-line" points="${pts}"/>
-    <text class="prof-t" x="${pl}" y="${H-4}" text-anchor="middle">A</text><text class="prof-t" x="${W-pr}" y="${H-4}" text-anchor="middle">B</text><text class="prof-t" x="4" y="${pt+10}">5 m</text></svg>`;
-}
-function relPanel(){
-  const q=Rel.q,P_=$('#rel-panel');const done=Rel.answered;let html='<div id="rel-timer"></div>';
-  const cls=i=>done?(i===q.ans?'ok':(i===Rel.pick?'no':'')):'';
-  if(q.type==='profile'){
-    const all=q.opts.flatMap(o=>o.z),zmin=Math.min(...all)-1,zmax=Math.max(...all)+1;
-    html+=`<h3>Milline on maastiku profiil joonel A–B?</h3><p class="small">Kujuta ette, et kõnnid A-st B-sse. Kus tuleb tõus, kus langus? Joone pikkus on umbes ${fmt(Math.round(q.len/10)*10)} m.</p>
-      <div class="profs">${q.opts.map((o,i)=>`<button type="button" class="prof ${cls(i)}" data-a="${i}" ${done?'disabled':''}><span class="lbl">${i+1}</span>${profSvg(o.z,zmin,zmax)}</button>`).join('')}</div>`;
-  }else if(q.type==='higher'){
-    html+=`<h3>Kumb punkt on kõrgemal?</h3><p class="small">Loe horisontaale ühest punktist teiseni. Lohu põhjas on langujooned.</p>
-      <div class="opts">${['Punkt 1','Punkt 2'].map((t,i)=>`<button type="button" class="opt ${cls(i)}" data-a="${i}" ${done?'disabled':''}>${t}</button>`).join('')}</div>`;
-  }else if(q.type==='slope'){
-    const order=[7,0,1,6,-1,2,5,4,3];
-    html+=`<h3>Mis suunas langeb nõlv punktis 1 kõige järsemalt?</h3><p class="small">Kaardi ülaserv on põhi. Kõige järsem langus on alati risti horisontaalidega.</p>
-      <div class="compass">${order.map(k=>k<0?`<div class="mid" aria-hidden="true">1</div>`:(q.dirs===4&&k%2)?`<div class="gap"></div>`:`<button type="button" data-a="${k}" class="${cls(k)}" ${done?'disabled':''}>${COMPASS[k]}</button>`).join('')}</div>`;
-  }else{
-    html+=`<h3>Mis on punktis 1?</h3><p class="small">Vaata kinniseid horisontaale ja nende juures olevaid lühikesi kriipse.</p>
-      <div class="opts">${['Küngas','Lohk'].map((t,i)=>`<button type="button" class="opt ${cls(i)}" data-a="${i}" ${done?'disabled':''}>${t}</button>`).join('')}</div>`;
-  }
-  if(done){
-    const ok=Rel.pick===q.ans;let ex='';
-    if(q.type==='profile')ex=ok?'Tihedad horisontaalid tähendavad järsku nõlva, hõredad laugjat.':`${Rel.pick>=0?q.opts[Rel.pick].why+' ':''}Õige oli profiil ${q.ans+1}.`;
-    if(q.type==='higher')ex=`Punkt ${q.ans+1} on umbes ${fmt(Math.round(Math.abs(q.dz)))} m kõrgemal. See on ${fmt(Math.round(Math.abs(q.dz)/5))} horisontaali jagu.`;
-    if(q.type==='slope')ex=`Nõlv langeb kõige järsemalt suunas ${COMPASS[q.ans]} (sinine nool kaardil). Kalle on seal umbes ${fmt(Math.round(q.slope*100))}%.`;
-    if(q.type==='hill')ex=q.ans===0?'Kinnine horisontaal ilma langujoonteta on küngas.':'Lühikesed kriipsud ehk langujooned osutavad allamäge, lohu põhja poole. Nii eristad lohku künkast.';
-    html+=`<div class="fb ${ok?'ok':'no'}"><div><b>${ok?'Õige!':Rel.pick<0?'Aeg sai otsa.':'Seekord mitte.'}</b>${ex}</div></div>${ok?'':tipHtml(Rel.tag)}${lvlMsg('rel',Rel.change)}
-      <div class="actions"><button type="button" class="btn primary" id="rel-next">Järgmine</button><button type="button" class="btn" id="rel-shade">${Rel.shade?'Peida maastik':'Näita maastikku'}</button></div>`;
-  }
-  P_.innerHTML=html;
-  const a=acc('rel');
-  $('#rel-progress').textContent=(a!=null?`Viimastel kordadel ${a}% õigeid. `:'')+'Pärast vastamist vajuta „Näita maastikku“ ja võrdle reljeefi horisontaalidega.';
-}
-function relAnswer(i){
-  if(Rel.stopT){Rel.stopT();Rel.stopT=null}
-  const q=Rel.q;Rel.answered=true;Rel.pick=i;const ok=i===q.ans;let tag=null;
-  if(!ok){
-    if(i<0)tag='aeg';
-    else if(q.type==='profile')tag=q.opts[i].tag;
-    else if(q.type==='higher')tag='korgus';
-    else if(q.type==='hill')tag='lohk';
-    else{const d=Math.min(Math.abs(i-q.ans),8-Math.abs(i-q.ans));tag=d>=3?'vastassuund':'naabersuund'}
-  }
-  Rel.tag=tag;Rel.change=record('rel',ok,tag);
-  relDraw();relPanel();
-}
-
-/* =========================================================
-   4. TEEVALIK
-   ========================================================= */
-const TW=900,TH=650,FW=450,FH=325,GX=90,GY=65;
-const CATF=[1,.7,.4,.15,1.15,1.0];
-const CATNAME=['valge mets','aeglaselt läbitav mets','raskelt läbitav mets','väga raskelt läbitav mets','lage ala','hooldamata lage ala'];
-const CATCOL=[INK.white,INK.green20,INK.green50,INK.green,INK.yellow,INK.yellow50];
-const TVGAP=[0,.25,.15,.10,.06,.03],TVDTOL=[0,15,12,9,7,5];
-function catmull(ctrl,step){
-  const out=[],P0=[ctrl[0],...ctrl,ctrl[ctrl.length-1]];
-  for(let i=1;i<P0.length-2;i++){
-    const p0=P0[i-1],p1=P0[i],p2=P0[i+1],p3=P0[i+2];const L=Math.hypot(p2[0]-p1[0],p2[1]-p1[1]);const n=Math.max(2,Math.ceil(L/step));
-    for(let k=0;k<n;k++){const t=k/n,t2=t*t,t3=t2*t;const c=j=>.5*(2*p1[j]+(-p0[j]+p2[j])*t+(2*p0[j]-5*p1[j]+4*p2[j]-p3[j])*t2+(-p0[j]+3*p1[j]-3*p2[j]+p3[j])*t3);out.push([c(0),c(1)])}
-  }
-  out.push(ctrl[ctrl.length-1]);return out;
-}
-function inPoly(x,y,poly){let c=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const [xi,yi]=poly[i],[xj,yj]=poly[j];if(((yi>y)!==(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi))c=!c}return c}
-function buildMap(seed){
-  const r=mulberry32(seed);
-  const terr=makeTerrain(seed+101);
-  const vegN=makeNoise(seed+202),openN=makeNoise(seed+303),marN=makeNoise(seed+404);
-  const sv=[],so=[],sm=[];
-  for(let i=0;i<1500;i++){const x=r()*TW,y=r()*TH;sv.push(vegN(x/170,y/170,4));so.push(openN(x/230,y/230,3));sm.push(marN(x/150,y/150,3))}
-  const q=(a,p)=>{const s=[...a].sort((x,y)=>x-y);return s[Math.floor(p*(s.length-1))]};
-  const qv={g20:q(sv,.6),g50:q(sv,.76),g100:q(sv,.89)},qo={y50:q(so,.8),y:q(so,.88)},qm=q(sm,.9);
-  const paths=[];const nP=r()<.75?2:1;
-  for(let k=0;k<nP;k++){
-    const horiz=r()<.5;let a,b;
-    if(horiz){a=[-30,60+r()*(TH-120)];b=[TW+30,60+r()*(TH-120)]}else{a=[60+r()*(TW-120),-30];b=[60+r()*(TW-120),TH+30]}
-    const ctrl=[a];const nx=-(b[1]-a[1]),ny=b[0]-a[0],nl=Math.hypot(nx,ny);
-    for(let s=1;s<=3;s++){const u=s/4,j=(r()-.5)*170;ctrl.push([a[0]+(b[0]-a[0])*u+nx/nl*j,a[1]+(b[1]-a[1])*u+ny/nl*j])}
-    ctrl.push(b);paths.push({type:k===0&&r()<.5?2:1,pts:catmull(ctrl,3)});
-  }
-  let lake=null;
-  if(r()<.55){
-    for(let tries=0;tries<25&&!lake;tries++){
-      const cx=120+r()*(TW-240),cy=100+r()*(TH-200),rad=45+r()*55;
-      if(!paths.every(p=>p.pts.every(([x,y])=>Math.hypot(x-cx,y-cy)>rad*1.45)))continue;
-      const ph=r()*6;lake=[];for(let k=0;k<22;k++){const a=k/22*Math.PI*2;const rr=rad*(.78+.22*Math.sin(3*a+ph)+.12*Math.sin(5*a+ph*2));lake.push([cx+rr*Math.cos(a)*1.3,cy+rr*Math.sin(a)])}
-    }
-  }
-  const cat=new Uint8Array(FW*FH),marsh=new Uint8Array(FW*FH),lk=new Uint8Array(FW*FH),path=new Uint8Array(FW*FH);
-  for(let j=0;j<FH;j++)for(let i=0;i<FW;i++){
-    const x=i*2+1,y=j*2+1,o=j*FW+i;
-    const v=vegN(x/170,y/170,4),op=openN(x/230,y/230,3);
-    let c=0;if(v>qv.g100)c=3;else if(op>qo.y)c=4;else if(v>qv.g50)c=2;else if(op>qo.y50)c=5;else if(v>qv.g20)c=1;
-    cat[o]=c;if(c!==4&&marN(x/150,y/150,3)>qm)marsh[o]=1;if(lake&&inPoly(x,y,lake))lk[o]=1;
-  }
-  const cellPath=new Uint8Array(GX*GY),cellPt=new Array(GX*GY);
-  for(const p of paths)for(const [x,y] of p.pts){
-    const fi=Math.floor(x/2),fj=Math.floor(y/2);
-    for(let dj=-2;dj<=2;dj++)for(let di=-2;di<=2;di++){const ii=fi+di,jj=fj+dj;if(ii>=0&&jj>=0&&ii<FW&&jj<FH&&di*di+dj*dj<=5)path[jj*FW+ii]=Math.max(path[jj*FW+ii],p.type)}
-    const ci=Math.floor(x/10),cj=Math.floor(y/10);
-    if(ci>=0&&cj>=0&&ci<GX&&cj<GY){const c=cj*GX+ci;if(p.type>=cellPath[c]){cellPath[c]=p.type;cellPt[c]=[x,y]}}
-  }
-  const EN=TW/5+1,EM=TH/5+1,ez=new Float32Array(EN*EM);
-  for(let j=0;j<EM;j++)for(let i=0;i<EN;i++)ez[j*EN+i]=terr.f(i*5/TW,j*5/TW)*.8;
-  const elev=(x,y)=>{const fx=Math.max(0,Math.min(EN-1.001,x/5)),fy=Math.max(0,Math.min(EM-1.001,y/5));const i=Math.floor(fx),j=Math.floor(fy),u=fx-i,v=fy-j;
-    const a=ez[j*EN+i],b=ez[j*EN+i+1],c=ez[(j+1)*EN+i],d=ez[(j+1)*EN+i+1];return a*(1-u)*(1-v)+b*u*(1-v)+c*(1-u)*v+d*u*v};
-  const fineIdx=(x,y)=>{const i=Math.max(0,Math.min(FW-1,Math.floor(x/2))),j=Math.max(0,Math.min(FH-1,Math.floor(y/2)));return j*FW+i};
-  const factorAt=o=>{if(lk[o])return 0;if(path[o])return path[o]===2?1.35:1.25;let f=CATF[cat[o]];if(marsh[o])f*=.75;return f};
-  const cellF=new Float32Array(GX*GY),cellZ=new Float32Array(GX*GY);
-  for(let j=0;j<GY;j++)for(let i=0;i<GX;i++){
-    const c=j*GX+i,x=i*10+5,y=j*10+5,o=fineIdx(x,y);
-    let anyLake=false;for(const [dx,dy] of [[-4,-4],[4,-4],[-4,4],[4,4],[0,0]])if(lk[fineIdx(x+dx,y+dy)])anyLake=true;
-    cellF[c]=anyLake?0:(cellPath[c]?(cellPath[c]===2?1.35:1.25):factorAt(o));cellZ[c]=elev(x,y);
-  }
-  return {seed,terr,paths,lake,cat,marsh,lk,path,elev,fineIdx,factorAt,cellF,cellZ,cellPath,cellPt,ez,EN,EM};
-}
-class Heap{constructor(){this.a=[]}push(d,i){const a=this.a;a.push([d,i]);let k=a.length-1;while(k>0){const p=(k-1)>>1;if(a[p][0]<=a[k][0])break;[a[p],a[k]]=[a[k],a[p]];k=p}}
-  pop(){const a=this.a,top=a[0],last=a.pop();if(a.length){a[0]=last;let k=0;for(;;){const l=2*k+1,r=l+1;let m=k;if(l<a.length&&a[l][0]<a[m][0])m=l;if(r<a.length&&a[r][0]<a[m][0])m=r;if(m===k)break;[a[m],a[k]]=[a[k],a[m]];k=m}}return top}get size(){return this.a.length}}
-function dijkstra(M,S,F,pen){
-  const N=GX*GY,dist=new Float64Array(N).fill(Infinity),prev=new Int32Array(N).fill(-1);
-  const cid=p=>Math.min(GY-1,Math.floor(p[1]/10))*GX+Math.min(GX-1,Math.floor(p[0]/10));
-  const s=cid(S),t=cid(F);dist[s]=0;const h=new Heap();h.push(0,s);
-  const NB=[[1,0,10],[-1,0,10],[0,1,10],[0,-1,10],[1,1,14.142],[1,-1,14.142],[-1,1,14.142],[-1,-1,14.142]];
-  while(h.size){
-    const [d,u]=h.pop();if(d>dist[u])continue;if(u===t)break;
-    const ui=u%GX,uj=(u-ui)/GX,fu=M.cellF[u];
-    for(const [di,dj,L] of NB){
-      const vi=ui+di,vj=uj+dj;if(vi<0||vj<0||vi>=GX||vj>=GY)continue;
-      const v=vj*GX+vi,fv=M.cellF[v];if(!fv)continue;
-      let c=L*.5*(1/fu+1/fv);if(pen)c*=.5*(pen[u]+pen[v]);
-      c+=Math.max(0,M.cellZ[v]-M.cellZ[u])*10;
-      if(d+c<dist[v]){dist[v]=d+c;prev[v]=u;h.push(d+c,v)}
-    }
-  }
-  if(!isFinite(dist[t]))return null;
-  const cells=[];for(let u=t;u!==-1;u=prev[u])cells.push(u);cells.reverse();
-  const pts=cells.map(c=>M.cellPath[c]&&M.cellPt[c]?M.cellPt[c]:[(c%GX)*10+5,Math.floor(c/GX)*10+5]);
-  pts[0]=S;pts[pts.length-1]=F;
-  return {cells,pts:simplify(pts,4)};
-}
-function segDist(p,a,b){const dx=b[0]-a[0],dy=b[1]-a[1],L=dx*dx+dy*dy;let t=L?((p[0]-a[0])*dx+(p[1]-a[1])*dy)/L:0;t=Math.max(0,Math.min(1,t));return Math.hypot(p[0]-a[0]-t*dx,p[1]-a[1]-t*dy)}
-function simplify(pts,eps){if(pts.length<3)return pts;const keep=new Uint8Array(pts.length);keep[0]=keep[pts.length-1]=1;const st=[[0,pts.length-1]];
-  while(st.length){const [a,b]=st.pop();let md=0,mi=-1;for(let i=a+1;i<b;i++){const d=segDist(pts[i],pts[a],pts[b]);if(d>md){md=d;mi=i}}if(md>eps){keep[mi]=1;st.push([a,mi],[mi,b])}}
-  return pts.filter((_,i)=>keep[i])}
-function polyLen(p){let s=0;for(let i=1;i<p.length;i++)s+=Math.hypot(p[i][0]-p[i-1][0],p[i][1]-p[i-1][1]);return s}
-function resample(p,n){const L=polyLen(p),out=[];let seg=0,acc_=0;for(let k=0;k<n;k++){const target=L*k/(n-1);while(seg<p.length-2&&acc_+Math.hypot(p[seg+1][0]-p[seg][0],p[seg+1][1]-p[seg][1])<target){acc_+=Math.hypot(p[seg+1][0]-p[seg][0],p[seg+1][1]-p[seg][1]);seg++}
-  const sl=Math.hypot(p[seg+1][0]-p[seg][0],p[seg+1][1]-p[seg][1])||1,t=Math.min(1,(target-acc_)/sl);out.push([p[seg][0]+(p[seg+1][0]-p[seg][0])*t,p[seg][1]+(p[seg+1][1]-p[seg][1])*t])}return out}
-function routeDiff(a,b){const A=resample(a,30);let s=0;for(const p of A){let m=Infinity;for(let i=1;i<b.length;i++)m=Math.min(m,segDist(p,b[i-1],b[i]));s+=m}return s/A.length}
-function routeEval(M,pts){
-  let t=0,len=0,climb=0,blocked=false;const br={cat:[0,0,0,0,0,0],path:0,marsh:0};let pz=M.elev(pts[0][0],pts[0][1]);
-  for(let i=1;i<pts.length;i++){
-    const [x0,y0]=pts[i-1],[x1,y1]=pts[i],L=Math.hypot(x1-x0,y1-y0),n=Math.max(1,Math.ceil(L/2)),st=L/n;
-    for(let k=0;k<n;k++){
-      const u=(k+.5)/n,x=x0+(x1-x0)*u,y=y0+(y1-y0)*u,o=M.fineIdx(x,y);
-      if(M.lk[o]){blocked=true;continue}
-      const f=M.factorAt(o);t+=st/f;len+=st;
-      if(M.path[o])br.path+=st;else{br.cat[M.cat[o]]+=st;if(M.marsh[o])br.marsh+=st}
-      const ue=(k+1)/n,z=M.elev(x0+(x1-x0)*ue,y0+(y1-y0)*ue);if(z>pz)climb+=z-pz;pz=z;
-    }
-  }
-  return {t:t+climb*10,flat:t,len,climb,br,blocked};
-}
-function makeLeg(seed,minGap){
-  const M=buildMap(seed),r=mulberry32(seed+999);
-  const okPt=p=>{const o=M.fineIdx(p[0],p[1]);return !M.lk[o]&&M.cat[o]!==3&&p[0]>70&&p[0]<TW-70&&p[1]>70&&p[1]<TH-70};
-  for(let k=0;k<30;k++){
-    const S0=[70+r()*(TW-140),70+r()*(TH-140)];if(!okPt(S0))continue;
-    const a=r()*Math.PI*2,d=420+r()*220,F=[S0[0]+Math.cos(a)*d,S0[1]+Math.sin(a)*d];if(!okPt(F))continue;
-    const straight=[S0,F];if(routeEval(M,straight).blocked)continue;
-    const opt=dijkstra(M,S0,F);if(!opt)continue;
-    if(routeDiff(straight,opt.pts)<30)continue;
-    const pen=new Float32Array(GX*GY).fill(1);
-    for(const c of opt.cells){const ci=c%GX,cj=Math.floor(c/GX);for(let dj=-5;dj<=5;dj++)for(let di=-5;di<=5;di++){const ii=ci+di,jj=cj+dj;if(ii>=0&&jj>=0&&ii<GX&&jj<GY&&di*di+dj*dj<=25)pen[jj*GX+ii]=4}}
-    const s0=Math.floor(S0[1]/10)*GX+Math.floor(S0[0]/10),f0=Math.floor(F[1]/10)*GX+Math.floor(F[0]/10);
-    for(const c0 of [s0,f0]){const ci=c0%GX,cj=Math.floor(c0/GX);for(let dj=-6;dj<=6;dj++)for(let di=-6;di<=6;di++){const ii=ci+di,jj=cj+dj;if(ii>=0&&jj>=0&&ii<GX&&jj<GY)pen[jj*GX+ii]=1}}
-    const alt=dijkstra(M,S0,F,pen);if(!alt)continue;
-    if(routeDiff(alt.pts,opt.pts)<30||routeDiff(alt.pts,straight)<30)continue;
-    const routes=[{pts:straight},{pts:opt.pts},{pts:alt.pts}].map(x=>({...x,ev:routeEval(M,x.pts)}));
-    if(routes.some(x=>x.ev.blocked))continue;
-    const ts=routes.map(x=>x.ev.t).sort((a,b)=>a-b);if(ts[1]/ts[0]-1<minGap)continue;
-    if(minGap>=.2&&ts[1]/ts[0]-1>.8)continue;
-    return {M,S:S0,F,routes:shuffle(routes,r),opt:routes[1]};
-  }
-  return null;
-}
-const ROUTE_DASH=[[],[16,9],[3,8]];
-const TV={mode:'vali',pace:store.get('pace',360),leg:null,answered:false,user:[],userEv:null,base:null,stopT:null};
+const TVGAP=[0,.25,.15,.10,.06,.02],TVDTOL=[0,15,12,9,7,5];
+const TV={mode:'vali',pace:store.get('pace',360),m:null,leg:null,answered:false,user:[],userEv:null,stopT:null,mv:null};
 const tvKey=()=>TV.mode==='joonista'?'tvd':'tv';
+const ROUTE_DASH=[null,[14,8],[2.5,7]];
 function tvInit(){
-  const cv=$('#tv-canvas');TV.ctx=setupCanvas(cv,TW,TH);
+  TV.mv=new MapView($('#tv-map'));
   $('#tv-pace').value=String(TV.pace);
   $('#tv-pace').addEventListener('change',e=>{TV.pace=+e.target.value;store.set('pace',TV.pace);tvDraw();tvPanel()});
   $$('[data-tv]').forEach(b=>b.addEventListener('click',()=>{TV.mode=b.dataset.tv;tvReset()}));
@@ -1250,118 +965,102 @@ function tvInit(){
     if(e.target.closest('#tv-next'))tvNew();
     if(e.target.closest('#tv-undo')){TV.user.pop();tvDraw();tvPanel()}
     if(e.target.closest('#tv-done'))tvFinishUser();
-    if(e.target.closest('#tv-retry'))tvReset(true);
+    if(e.target.closest('#tv-retry'))tvReset();
   });
-  cv.addEventListener('pointerdown',e=>{
+  TV.mv.onTap=(x,y)=>{
     if(TV.mode!=='joonista'||TV.answered||!TV.leg)return;
-    const p=canvasPoint(cv,e,TW,TH);
-    if(Math.hypot(p[0]-TV.leg.F[0],p[1]-TV.leg.F[1])<38){tvFinishUser();return}
-    TV.user.push(p);tvDraw();tvPanel();
-  });
-  $('#tv-legend').innerHTML=[[INK.white,'valge mets'],[INK.green20,'aeglaselt läbitav (60–80%)'],[INK.green50,'raskelt läbitav (20–60%)'],[INK.green,'väga raskelt läbitav (alla 20%)'],[INK.yellow,'lage ala'],[INK.yellow50,'hooldamata lage'],[INK.blue,'ületamatu veekogu']]
-    .map(([c,t])=>`<span><i style="background:${c}"></i>${t}</span>`).join('')+`<span><i style="background:repeating-linear-gradient(0deg,#fff 0 3px,${INK.blue} 3px 5px)"></i>soo</span><span><i style="background:repeating-linear-gradient(90deg,#1A1A1A 0 8px,#fff 8px 10px);height:4px"></i>rada ja metsatee</span>`;
-  tvNew();
+    if(Math.hypot(x-TV.leg.e[0],y-TV.leg.e[1])<px(TV.m,32)){tvFinishUser();return}
+    TV.user.push([x,y]);tvDraw();tvPanel();
+  };
+  $('#tv-legend').innerHTML=[[CLCOL[1],'valge mets (100%)'],[CLCOL[4],'aeglaselt läbitav (70%)'],[CLCOL[5],'raskelt läbitav (40%)'],[CLCOL[6],'väga raskelt läbitav (15%)'],[CLCOL[2],'lage ala (115%)'],[CLCOL[8],'soo (60%)'],[CLCOL[13],'rada (125%)']]
+    .map(([c,t])=>`<span><i style="background:${c}"></i>${t}</span>`).join('')+'<span>Iga horisontaali ületamine lisab tõusu.</span>';
+  renderLvl('tv');tvNew();
 }
-function tvNew(){
+async function tvNew(){
   if(TV.stopT){TV.stopT();TV.stopT=null}
-  $('#tv-panel').innerHTML='<p>Joonistan uut kaarti…</p>';
-  setTimeout(()=>{
-    const gap=TVGAP[P('tv').lvl];let leg=null;
-    for(let k=0;k<45&&!leg;k++)leg=makeLeg(Math.floor(Math.random()*1e9),gap);
-    for(let k=0;k<30&&!leg;k++)leg=makeLeg(Math.floor(Math.random()*1e9),gap*.5);
-    TV.leg=leg;TV.base=null;tvReset();
-  },30);
+  $('#tv-panel').innerHTML='<p>Valin päris kaardilt etapi…</p>';
+  try{
+    const lvl=P('tv').lvl,thr=TVGAP[lvl],top=lvl>1?TVGAP[lvl-1]:9;
+    let best=null;
+    for(let t=0;t<6&&!best;t++){
+      const m=await pickMap(x=>x.legs>0);
+      let c=m.legs.filter(l=>l.gap>=thr&&l.gap<top);
+      if(!c.length)c=m.legs.slice().sort((a,b)=>Math.abs(a.gap-thr)-Math.abs(b.gap-thr)).slice(0,4);
+      if(c.length){const L0=pick(c);const ord=shuffle([0,1,2]);best={m,leg:{...L0,routes:ord.map(i=>L0.routes[i]),ev:ord.map(i=>L0.ev[i])}}}
+    }
+    TV.m=best.m;TV.leg=best.leg;
+    await TV.mv.load(TV.m);
+    tvReset();
+  }catch(err){console.error(err);mapError($('#tv-panel'),'Kaardiandmete laadimine ebaõnnestus.')}
 }
-function tvReset(keepLeg){
+async function tvReset(){
   if(TV.stopT){TV.stopT();TV.stopT=null}
   $$('[data-tv]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.tv===TV.mode));
   $('#tv-lvl').innerHTML=lvlHtml(tvKey());
   TV.answered=false;TV.user=[];TV.userEv=null;TV.pick=null;TV.change=0;TV.tag=null;
-  if(!TV.leg){$('#tv-panel').innerHTML='<p>Kaardi koostamine ebaõnnestus. Vajuta „Uus etapp“.</p>';return}
+  if(!TV.leg)return;
+  if(TV.mode==='joonista')TV.G=await loadGrid(TV.m);
+  $('#tv-map .mapview').classList.toggle('drawing',TV.mode==='joonista');
+  const L=TV.leg;const xs=[L.s[0],L.e[0]].concat(...L.routes.map(r=>r.map(p=>p[0]))),ys=[L.s[1],L.e[1]].concat(...L.routes.map(r=>r.map(p=>p[1])));
+  const pad=px(TV.m,60);TV.mv.fit([Math.min(...xs)-pad,Math.min(...ys)-pad,Math.max(...xs)+pad,Math.max(...ys)+pad]);
   tvDraw();tvPanel();
   if(TV.mode==='vali'&&P('tv').lvl===5)TV.stopT=startTimer(40,$('#tv-timer'),()=>{TV.stopT=null;if(!TV.answered)tvAnswer(-1)});
 }
-function renderBase(leg){
-  const M=leg.M;const c=document.createElement('canvas');c.width=TW*DPR;c.height=TH*DPR;const ctx=c.getContext('2d');ctx.setTransform(DPR,0,0,DPR,0,0);
-  const oc=document.createElement('canvas');oc.width=FW;oc.height=FH;const octx=oc.getContext('2d');const img=octx.createImageData(FW,FH);
-  const rgb=CATCOL.map(h=>[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]);
-  for(let o=0;o<FW*FH;o++){const col=rgb[M.cat[o]];img.data[o*4]=col[0];img.data[o*4+1]=col[1];img.data[o*4+2]=col[2];img.data[o*4+3]=255}
-  octx.putImageData(img,0,0);ctx.imageSmoothingEnabled=true;ctx.drawImage(oc,0,0,TW,TH);
-  const t=M.terr;
-  drawContours(ctx,M.ez,M.EN,M.EM,5,(x,y)=>{const u=x/TW,v=y/TW;if(t.f(u,v)-t.fPos(u,v)>-2.5)return null;const e=.002,gx=t.f(u+e,v)-t.f(u-e,v),gy=t.f(u,v+e)-t.f(u,v-e),L=Math.hypot(gx,gy)||1;return [-gx/L,-gy/L]});
-  ctx.fillStyle=INK.blue;
-  for(let y=4;y<TH;y+=9){const j=Math.floor(y/2);for(let i=0;i<FW;i++)if(M.marsh[j*FW+i])ctx.fillRect(i*2,y-.9,2.05,1.8)}
-  if(M.lake){ctx.beginPath();M.lake.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.fillStyle=INK.blue;ctx.fill();ctx.strokeStyle=INK.black;ctx.lineWidth=2.2;ctx.stroke()}
-  for(const p of M.paths){ctx.strokeStyle=INK.black;ctx.lineWidth=p.type===2?5:3.6;ctx.setLineDash(p.type===2?[42,5]:[28,5]);ctx.lineCap='butt';ctx.beginPath();p.pts.forEach((q,i)=>i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]));ctx.stroke()}
-  ctx.setLineDash([]);
-  ctx.strokeStyle=INK.black;ctx.lineWidth=2;ctx.globalAlpha=.85;for(const x of [150,450,750]){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,TH);ctx.stroke()}ctx.globalAlpha=1;
-  const {S:S0,F}=leg,ang=Math.atan2(F[1]-S0[1],F[0]-S0[0]);
-  ctx.save();ctx.globalCompositeOperation='multiply';ctx.strokeStyle=INK.magenta;ctx.lineWidth=4.5;
-  ctx.beginPath();for(let k=0;k<3;k++){const a=ang+k*2*Math.PI/3;const x=S0[0]+40*Math.cos(a),y=S0[1]+40*Math.sin(a);k?ctx.lineTo(x,y):ctx.moveTo(x,y)}ctx.closePath();ctx.stroke();
-  ctx.beginPath();ctx.arc(F[0],F[1],37,0,Math.PI*2);ctx.stroke();
-  const dx=Math.cos(ang),dy=Math.sin(ang);ctx.beginPath();ctx.moveTo(S0[0]+dx*44,S0[1]+dy*44);ctx.lineTo(F[0]-dx*42,F[1]-dy*42);ctx.stroke();
-  ctx.font='700 34px "Barlow Condensed", "Arial Narrow", sans-serif';ctx.fillStyle=INK.magenta;ctx.fillText('1',F[0]+34,F[1]-30);
-  ctx.restore();
-  return c;
-}
-function strokeRoute(ctx,pts,color,dash,w=5){ctx.save();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash);ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.stroke();ctx.restore()}
-function badge(ctx,p,txt,color){ctx.save();ctx.font='700 24px "Barlow Condensed", "Arial Narrow", sans-serif';const w=Math.max(30,ctx.measureText(txt).width+16);ctx.fillStyle='#FFFFFF';ctx.strokeStyle=color;ctx.lineWidth=3;
-  ctx.beginPath();if(ctx.roundRect)ctx.roundRect(p[0]-w/2,p[1]-15,w,30,15);else ctx.rect(p[0]-w/2,p[1]-15,w,30);ctx.fill();ctx.stroke();ctx.fillStyle=color;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(txt,p[0],p[1]+1);ctx.restore()}
-const bestRoute=leg=>leg.routes.reduce((a,b)=>a.ev.t<b.ev.t?a:b);
+const bestIdx=L=>L.ev.reduce((bi,e,i,a)=>e.t<a[bi].t?i:bi,0);
+const secs=t=>t*TV.pace/1000;
 function tvDraw(){
-  const ctx=TV.ctx,leg=TV.leg;if(!leg)return;
-  if(!TV.base)TV.base=renderBase(leg);
-  ctx.clearRect(0,0,TW,TH);ctx.drawImage(TV.base,0,0,TW,TH);
-  const RED='#E3202B',BLUE='#1F4FD8',pace=TV.pace/1000;
+  const m=TV.m,L=TV.leg;if(!L)return;
+  const course=startSvg(m,L.s[0],L.s[1],L.e[0],L.e[1])+ringSvg(m,L.e[0],L.e[1],'1')+legLine(m,L.s,L.e);
+  let routes='';
+  const RED='#E3202B',BLUE='#1F4FD8';
   if(TV.mode==='vali'){
-    const best=bestRoute(leg);
-    leg.routes.forEach((r,i)=>strokeRoute(ctx,r.pts,RED,ROUTE_DASH[i],TV.answered&&r!==best?3.5:5));
-    leg.routes.forEach((r,i)=>{const p=resample(r.pts,11)[i===0?4:i===1?5:6];badge(ctx,p,TV.answered?`${'ABC'[i]} ${fmtTime(r.ev.t*pace)}`:'ABC'[i],RED)});
+    const bi=bestIdx(L);
+    L.routes.forEach((r,i)=>{routes+=routeSvg(m,r,RED,ROUTE_DASH[i],TV.answered&&i!==bi?3:4.5)});
+    L.routes.forEach((r,i)=>{const p=resamplePts(r,11)[[3,5,7][i]];routes+=badgeSvg(m,p[0],p[1],TV.answered?`${'ABC'[i]} ${fmtTime(secs(L.ev[i].t))}`:'ABC'[i],RED)});
   }else{
-    const pts=[leg.S,...TV.user];if(TV.answered)pts.push(leg.F);
-    if(TV.answered){strokeRoute(ctx,leg.opt.pts,BLUE,[14,8],5);badge(ctx,resample(leg.opt.pts,11)[5],fmtTime(leg.opt.ev.t*pace),BLUE)}
-    if(pts.length>1)strokeRoute(ctx,pts,RED,[],5);
-    ctx.fillStyle=RED;for(const p of TV.user){ctx.beginPath();ctx.arc(p[0],p[1],5,0,Math.PI*2);ctx.fill()}
-    if(TV.answered&&TV.userEv&&!TV.userEv.blocked)badge(ctx,resample(pts,11)[5],fmtTime(TV.userEv.t*pace),RED);
+    const pts=[L.s,...TV.user];if(TV.answered)pts.push(L.e);
+    if(TV.answered){const o=L.routes[bestIdx(L)];routes+=routeSvg(m,o,BLUE,[12,7]);const p=resamplePts(o,11)[5];routes+=badgeSvg(m,p[0],p[1],fmtTime(secs(L.ev[bestIdx(L)].t)),BLUE)}
+    if(pts.length>1)routes+=routeSvg(m,pts,RED,null);
+    TV.user.forEach(p=>{routes+=`<circle cx="${p[0]}" cy="${p[1]}" r="${px(m,4)}" fill="${RED}"/>`});
+    if(TV.answered&&TV.userEv&&TV.userEv.blocked==null){const p=resamplePts(pts,11)[5];routes+=badgeSvg(m,p[0],p[1],fmtTime(secs(TV.userEv.t)),RED)}
   }
+  TV.mv.draw(course,routes);
 }
-function mixBar(ev){
-  const parts=[[ev.br.path,'#1A1A1A','rada'],...ev.br.cat.map((v,i)=>[v,CATCOL[i],CATNAME[i]])].filter(p=>p[0]>1);
+function resamplePts(p,n){const seg=[];let L=0;for(let i=0;i<p.length-1;i++){const d=Math.hypot(p[i+1][0]-p[i][0],p[i+1][1]-p[i][1]);seg.push(d);L+=d}
+  const out=[];let acc=0,j=0;for(let k=0;k<n;k++){const tg=L*k/(n-1);while(j<seg.length-1&&acc+seg[j]<tg){acc+=seg[j];j++}const u=seg[j]?Math.min(1,(tg-acc)/seg[j]):0;out.push([p[j][0]+(p[j+1][0]-p[j][0])*u,p[j][1]+(p[j+1][1]-p[j][1])*u])}return out}
+function mixBar(br,len){
+  const parts=Object.entries(br).map(([k,v])=>[+v,CLCOL[k]||'#ccc',CLASSES[k]?CLASSES[k][0]:k]).filter(p=>p[0]>3).sort((a,b)=>b[0]-a[0]);
   const tot=parts.reduce((s,p)=>s+p[0],0)||1;
   return `<div class="mix" title="Maastikutüübid teekonnal">${parts.map(p=>`<i style="width:${(p[0]/tot*100).toFixed(1)}%;background:${p[1]}"></i>`).join('')}</div>
-    <div class="meta">${parts.sort((a,b)=>b[0]-a[0]).map(p=>`${p[2]} ${fmt(Math.round(p[0]/10)*10)} m`).join(' · ')}${ev.br.marsh>20?` · sellest soos ${fmt(Math.round(ev.br.marsh/10)*10)} m`:''}</div>`;
+    <div class="meta">${parts.slice(0,5).map(p=>`${p[2]} ${fmt(Math.round(p[0]/10)*10)} m`).join(' · ')}</div>`;
 }
 function lossOf(ev){
-  const L=[];ev.br.cat.forEach((m,i)=>{if(CATF[i]<1)L.push([m*(1/CATF[i]-1),CATNAME[i],'roheline'])});
-  L.push([ev.climb*10,'tõusul','tous']);if(ev.br.marsh)L.push([ev.br.marsh*(1/.75-1),'soos','soo']);
-  L.sort((a,b)=>b[0]-a[0]);return L[0];
+  const L=[];Object.entries(ev.br).forEach(([k,m])=>{const sp=CLASSES[k][1];if(sp<1&&sp>0){L.push([m*(1/sp-1),CLASSES[k][0],(k==8||k==9)?'soo':'roheline'])}});
+  L.push([ev.climb*10,'tõusul','tous']);L.sort((a,b)=>b[0]-a[0]);return L[0];
 }
 function tvDiagnose(mine,best,all){
-  if(all&&mine.ev.len===Math.min(...all.map(r=>r.ev.len)))return 'lyhim';
-  if(best.ev.br.path>best.ev.len*.4&&mine.ev.br.path<mine.ev.len*.2)return 'rada';
-  return lossOf(mine.ev)[2];
+  const pathShare=e=>((e.br[13]||0)+(e.br[14]||0))/Math.max(1,e.len);
+  if(all&&mine.len<=Math.min(...all.map(e=>e.len))+1)return 'lyhim';
+  if(pathShare(best)>.4&&pathShare(mine)<.2)return 'rada';
+  if(pathShare(mine)>.4&&pathShare(best)<.2)return 'otse';
+  return lossOf(mine)[2];
 }
 function tvPanel(){
-  const P_=$('#tv-panel'),leg=TV.leg;if(!leg)return;const pace=TV.pace/1000;
-  let h='<div id="tv-timer"></div>';
+  const P_=$('#tv-panel'),L=TV.leg;if(!L)return;let h='<div id="tv-timer"></div>';
   if(TV.mode==='vali'){
-    const best=bestRoute(leg);
-    h+=`<h3>Milline tee stardist punkti 1 on kõige kiirem?</h3><p class="small">Arvesta pikkust, läbitavust ja tõuse. Rada ja lage ala on kiired, roheline on aeglane ning 10 m tõusu võtab umbes sama kaua kui 100 m tasast maad.</p><div class="routes">`;
-    leg.routes.forEach((r,i)=>{
-      const cls=TV.answered?(r===best?'ok':(i===TV.pick?'no':'')):'';
+    const bi=bestIdx(L);
+    h+=`<h3>Milline tee stardist punkti 1 on kõige kiirem?</h3><p class="small">Etapp on linnulennult umbes ${fmt(Math.round(L.dist/10)*10)} m. Arvesta pikkust, läbitavust ja tõuse. Kaarti saad lohistada ja suurendada.</p><div class="routes">`;
+    L.routes.forEach((r,i)=>{const cls=TV.answered?(i===bi?'ok':(i===TV.pick?'no':'')):'';const e=L.ev[i];
       h+=`<button type="button" class="rrow ${cls}" data-r="${i}" ${TV.answered?'disabled':''}><div class="hd"><span class="L">${'ABC'[i]}</span>`+
-        (TV.answered?`<span class="t">${fmtTime(r.ev.t*pace)}</span><span class="meta">${fmt(Math.round(r.ev.len/10)*10)} m · tõusu ${fmt(Math.round(r.ev.climb))} m</span></div>${mixBar(r.ev)}`
-          :`<span class="meta">${i===0?'pidev joon':i===1?'kriipsjoon':'punktiirjoon'}</span></div>`)+`</button>`;
-    });
+        (TV.answered?`<span class="t">${fmtTime(secs(e.t))}</span><span class="meta">${fmt(Math.round(e.len/10)*10)} m · tõusu umbes ${fmt(Math.round(e.climb))} m</span></div>${mixBar(e.br)}`
+          :`<span class="meta">${['pidev joon','kriipsjoon','punktiirjoon'][i]}</span></div>`)+`</button>`});
     h+='</div>';
     if(TV.answered){
-      const mine=TV.pick>=0?leg.routes[TV.pick]:null,ok=mine===best;
-      const sorted=leg.routes.map(r=>r.ev.t).sort((a,b)=>a-b);
-      let txt;
-      if(ok)txt=`Järgmine valik oli ${fmtTime((sorted[1]-best.ev.t)*pace)} aeglasem.`;
+      const mine=TV.pick>=0?L.ev[TV.pick]:null,ok=TV.pick===bi;const sorted=L.ev.map(e=>e.t).sort((a,b)=>a-b);let txt;
+      if(ok)txt=`Järgmine valik oli ${fmtTime(secs(sorted[1]-L.ev[bi].t))} aeglasem.`;
       else if(!mine)txt='Vali järgmisel korral kiiremini.';
-      else{const loss=lossOf(mine.ev);txt=`Sinu tee ${'ABC'[TV.pick]} oli ${fmtTime((mine.ev.t-best.ev.t)*pace)} aeglasem. Kõige rohkem aega kaotad ${loss[1]} (umbes ${fmtTime(loss[0]*pace)}).`}
-      h+=`<div class="fb ${ok?'ok':'no'}"><div><b>${ok?'Õige! '+'ABC'[TV.pick]+' on kõige kiirem.':(mine?'':'Aeg sai otsa. ')+'Kiireim oli '+'ABC'[leg.routes.indexOf(best)]+'.'}</b>${txt}</div></div>${ok?'':tipHtml(TV.tag)}${lvlMsg('tv',TV.change)}
+      else{const loss=lossOf(mine);txt=`Sinu tee ${'ABC'[TV.pick]} oli ${fmtTime(secs(mine.t-L.ev[bi].t))} aeglasem. Kõige rohkem aega kaotad ${loss[1]} (umbes ${fmtTime(secs(loss[0]))}).`}
+      h+=`<div class="fb ${ok?'ok':'no'}"><div><b>${ok?'Õige! '+'ABC'[TV.pick]+' on kõige kiirem.':(mine?'':'Aeg sai otsa. ')+'Kiireim oli '+'ABC'[bi]+'.'}</b>${txt}</div></div>${ok?'':tipHtml(TV.tag)}${lvlMsg('tv',TV.change)}
         <div class="actions"><button type="button" class="btn primary" id="tv-next">Uus etapp</button></div>`;
     }
   }else{
@@ -1369,44 +1068,234 @@ function tvPanel(){
     h+=`<h3>Joonista oma tee stardist punkti 1</h3><p class="small">Puuduta kaarti, et lisada teele murdepunkte. Lõpetamiseks puuduta kontrollpunkti ringi või vajuta „Valmis“. Sellel tasemel on hea tee kuni ${tol}% aeglasem kui arvuti leitud kiireim.</p>`;
     if(!TV.answered){
       h+=`<div class="actions"><button type="button" class="btn primary" id="tv-done">Valmis</button><button type="button" class="btn" id="tv-undo" ${TV.user.length?'':'disabled'}>Võta tagasi</button></div><p class="small">Murdepunkte: ${TV.user.length}</p>`;
-    }else if(TV.userEv.blocked){
-      h+=`<div class="fb no"><div><b>See tee läheb läbi ületamatu veekogu.</b>Musta kaldajoonega veekogu tuleb ümber joosta.</div></div><div class="actions"><button type="button" class="btn primary" id="tv-retry">Proovi uuesti</button></div>`;
+    }else if(TV.userEv.blocked!=null){
+      const why=TV.userEv.blocked===0?'läheb kaardilt välja':'läbib ületamatut objekti: veekogu, hoonet, keeluala, ületamatut soo või tara';
+      h+=`<div class="fb no"><div><b>See tee ${why}.</b>Joonista tee, mis läheb neist ümber. Must kaldajoon, oliivroheline keeluala ja must hoone tähendavad, et sealt läbi ei saa.</div></div><div class="actions"><button type="button" class="btn primary" id="tv-retry">Proovi uuesti</button></div>`;
     }else{
-      const me=TV.userEv,op=leg.opt.ev,diff=me.t-op.t,pct=diff/op.t*100,good=pct<=tol;
-      h+=`<div class="routes"><div class="rrow ${good?'ok':''}"><div class="hd"><span class="L" style="color:#E3202B">Sina</span><span class="t">${fmtTime(me.t*pace)}</span><span class="meta">${fmt(Math.round(me.len/10)*10)} m · tõusu ${fmt(Math.round(me.climb))} m</span></div>${mixBar(me)}</div>
-        <div class="rrow"><div class="hd"><span class="L" style="color:#1F4FD8">Arvuti</span><span class="t">${fmtTime(op.t*pace)}</span><span class="meta">${fmt(Math.round(op.len/10)*10)} m · tõusu ${fmt(Math.round(op.climb))} m</span></div>${mixBar(op)}</div></div>`;
+      const me=TV.userEv,op=L.ev[bestIdx(L)],diff=me.t-op.t,pct=diff/op.t*100,good=pct<=tol;
+      h+=`<div class="routes"><div class="rrow ${good?'ok':''}"><div class="hd"><span class="L" style="color:#E3202B">Sina</span><span class="t">${fmtTime(secs(me.t))}</span><span class="meta">${fmt(Math.round(me.len/10)*10)} m · tõusu umbes ${fmt(Math.round(me.climb))} m</span></div>${mixBar(me.br)}</div>
+        <div class="rrow"><div class="hd"><span class="L" style="color:#1F4FD8">Arvuti</span><span class="t">${fmtTime(secs(op.t))}</span><span class="meta">${fmt(Math.round(op.len/10)*10)} m · tõusu umbes ${fmt(Math.round(op.climb))} m</span></div>${mixBar(op.br)}</div></div>`;
       const loss=lossOf(me);
-      h+=`<div class="fb ${good?'ok':'no'}"><div><b>${pct<=0?'Sinu tee oli sama kiire või kiiremgi!':good?'Hea tee!':`Sinu tee oli ${fmtTime(diff*pace)} aeglasem (${fmt(Math.round(pct))}%).`}</b>${good?`Erinevus arvuti leitud kiireimast on ${fmt(Math.max(0,Math.round(pct)))}%.`:`Kõige rohkem aega kulus ${loss[1]} (umbes ${fmtTime(loss[0]*pace)}). Võrdle oma teed sinise kriipsjoonega.`}</div></div>${good?'':tipHtml(TV.tag)}${lvlMsg('tvd',TV.change)}
+      h+=`<div class="fb ${good?'ok':'no'}"><div><b>${pct<=0?'Sinu tee oli sama kiire või kiiremgi!':good?'Hea tee!':`Sinu tee oli ${fmtTime(secs(diff))} aeglasem (${fmt(Math.round(pct))}%).`}</b>${good?`Erinevus arvuti leitud kiireimast on ${fmt(Math.max(0,Math.round(pct)))}%.`:`Kõige rohkem aega kulus ${loss[1]} (umbes ${fmtTime(secs(loss[0]))}). Võrdle oma teed sinise kriipsjoonega.`}</div></div>${good?'':tipHtml(TV.tag)}${lvlMsg('tvd',TV.change)}
         <div class="actions"><button type="button" class="btn primary" id="tv-next">Uus etapp</button><button type="button" class="btn" id="tv-retry">Proovi samal etapil uuesti</button></div>`;
     }
   }
   P_.innerHTML=h;
   const a=acc('tv'),b=acc('tvd');
-  $('#tv-progress').textContent=[a!=null?`Vali kolmest: ${a}% õigeid`:'',b!=null?`joonista ise: ${b}% häid teid`:'','Ajad on arvutatud sinu tempo ja ISOM-i läbitavusklasside järgi, seega on need hinnangulised.'].filter(Boolean).join(' · ');
+  $('#tv-progress').textContent=[a!=null?`Vali kolmest: ${a}% õigeid`:'',b!=null?`joonista ise: ${b}% häid teid`:'','Ajad on arvutatud sinu tempo, kaardi läbitavusklasside ja horisontaalide järgi, seega on need hinnangulised.'].filter(Boolean).join(' · ');
 }
 function tvAnswer(i){
   if(TV.stopT){TV.stopT();TV.stopT=null}
-  TV.answered=true;TV.pick=i;const best=bestRoute(TV.leg),mine=i>=0?TV.leg.routes[i]:null,ok=mine===best;
-  TV.tag=ok?null:(mine?tvDiagnose(mine,best,TV.leg.routes):'aeg');
-  TV.change=record('tv',ok,TV.tag);
-  tvDraw();tvPanel();
+  const L=TV.leg,bi=bestIdx(L);TV.answered=true;TV.pick=i;const ok=i===bi;
+  TV.tag=ok?null:(i>=0?tvDiagnose(L.ev[i],L.ev[bi],L.ev):'aeg');
+  TV.change=record('tv',ok,TV.tag);tvDraw();tvPanel();
 }
-function tvFinishUser(){
-  if(TV.answered)return;const leg=TV.leg;
-  TV.userEv=routeEval(leg.M,[leg.S,...TV.user,leg.F]);TV.answered=true;
-  if(!TV.userEv.blocked){
-    const pct=(TV.userEv.t-leg.opt.ev.t)/leg.opt.ev.t*100,ok=pct<=TVDTOL[P('tvd').lvl];
-    TV.tag=ok?null:tvDiagnose({ev:TV.userEv},leg.opt,null);TV.change=record('tvd',ok,TV.tag);
-  }
+async function tvFinishUser(){
+  if(TV.answered)return;const L=TV.leg;
+  TV.G=await loadGrid(TV.m);
+  TV.userEv=evalRoute(TV.m,TV.G,[L.s,...TV.user,L.e]);TV.answered=true;
+  if(TV.userEv.blocked==null){const op=L.ev[bestIdx(L)];const pct=(TV.userEv.t-op.t)/op.t*100,ok=pct<=TVDTOL[P('tvd').lvl];
+    TV.tag=ok?null:tvDiagnose(TV.userEv,op,null);TV.change=record('tvd',ok,TV.tag)}
   tvDraw();tvPanel();
 }
 
 /* =========================================================
-   5. JOONISTAMINE
+   5. MÕÕTKAVA
+   ========================================================= */
+const MM={mode:'arvuta',q:null,done:false,sp:store.get('sp',1.3),stopT:null,mv:null};
+const scaleTxt=sc=>`1 : ${fmt(sc)}`;
+const MMTOL=[0,.30,.25,.20,.15,.10],MMDIST=[null,[100,250],[150,350],[200,500],[250,650],[300,800]];
+function mmGen(l){
+  const kinds=l===1?['k2m','m2k']:l===2?['k2m','m2k','pohi']:l===3?['k2m','m2k','aeg','pohi']:['k2m','m2k','aeg','samm','pohi','samm'];
+  const kind=pick(kinds);const scales=l===1?[10000]:l===2?[10000,15000]:[10000,15000,4000,7500,5000];const sc=pick(scales);
+  if(kind==='k2m'){const cm=l===1?randInt(1,9):randInt(6,95)/10,m=cm*sc/100;
+    return {kind,text:`Kaardil on kahe punkti vahe ${fmt(cm,1)} cm. Mõõtkava on ${scaleTxt(sc)}. Kui pikk on see vahemaa maastikul?`,ans:m,unit:'m',tol:.02,ex:`${scaleTxt(sc)} tähendab, et 1 cm kaardil on maastikul ${fmt(sc/100)} m. ${fmt(cm,1)} × ${fmt(sc/100)} m = ${fmt(m)} m.`}}
+  if(kind==='m2k'){const m=l===1?randInt(1,8)*100:randInt(5,80)*10,mm=m/(sc/1000);
+    return {kind,text:`Maastikul on vahemaa ${fmt(m)} m. Mitu millimeetrit on see ${scaleTxt(sc)} kaardil?`,ans:mm,unit:'mm',tol:.03,ex:`${scaleTxt(sc)} kaardil on 1 mm maastikul ${fmt(sc/1000,1)} m. ${fmt(m)} m : ${fmt(sc/1000,1)} m = ${fmt(mm,1)} mm.`}}
+  if(kind==='aeg'){const s2=pick([10000,15000]),cm=randInt(20,80)/10,pace=pick([5,6,7]),km=cm*s2/100000,min=km*pace;
+    return {kind,text:`Etapp on ${scaleTxt(s2)} kaardil ${fmt(cm,1)} cm pikk. Jooksed tempoga ${pace}:00 min/km. Mitu minutit kulub, kui jooksed otse?`,ans:min,unit:'min',tol:.05,ex:`${fmt(cm,1)} cm × ${fmt(s2/100)} m = ${fmt(km*1000)} m ehk ${fmt(km,2)} km. ${fmt(km,2)} × ${pace} min = ${fmt(min,1)} min.`}}
+  if(kind==='samm'){const s2=pick([10000,15000]),mm=randInt(4,24),m=mm*s2/1000,sp=MM.sp,n=m/sp;
+    return {kind,text:`Kontrollpunkt on ${scaleTxt(s2)} kaardil ${mm} mm kaugusel. Sinu sammupaar on ${fmt(sp,2)} m. Mitu sammupaari tuleb lugeda?`,ans:n,unit:'sammupaari',tol:.05,abs:1.5,ex:`${mm} mm × ${fmt(s2/1000)} m = ${fmt(m)} m. ${fmt(m)} m : ${fmt(sp,2)} m ≈ ${fmt(Math.round(n))} sammupaari.`}}
+  const s2=pick([10000,15000]),cmap=s2===10000?30:20;
+  if(Math.random()<.5)return {kind,text:`Põhjajooned on ${scaleTxt(s2)} kaardil üksteisest ${cmap} mm kaugusel. Mitu meetrit on nende vahe maastikul?`,ans:300,unit:'m',tol:.01,ex:`${cmap} mm × ${fmt(s2/1000)} m = 300 m. Põhjajoonte vahe on maastikul alati 300 m.`};
+  return {kind,text:`Põhjajoonte vahe on maastikul 300 m. Mitu millimeetrit on see ${scaleTxt(s2)} kaardil?`,ans:cmap,unit:'mm',tol:.01,ex:`300 m : ${fmt(s2/1000)} m = ${cmap} mm.`};
+}
+function mmInit(){
+  $('#sp-len').value=MM.sp;
+  $('#sp-len').addEventListener('change',e=>{const v=parseNum(e.target.value);if(v&&v>.7&&v<2.6){MM.sp=v;store.set('sp',v)}});
+  $$('[data-mm]').forEach(b=>b.addEventListener('click',()=>{MM.mode=b.dataset.mm;mmNew()}));
+  $('#mm-card').addEventListener('submit',e=>{e.preventDefault();if(!MM.done)mmCheck();else mmNew()});
+  $('#mmh-panel').addEventListener('submit',e=>{e.preventDefault();if(!MM.done)mmCheck();else mmNew()});
+  mmNew();
+}
+const mmKey=()=>MM.mode==='hinda'?'mmh':'mm';
+async function mmNew(){
+  if(MM.stopT){MM.stopT();MM.stopT=null}
+  $$('[data-mm]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mm===MM.mode));
+  $('#mm-lvl').innerHTML=lvlHtml(mmKey());
+  const l=P(mmKey()).lvl;MM.done=false;
+  const hinda=MM.mode==='hinda';$('#mm-card').hidden=hinda;$('#mmh-box').hidden=!hinda;
+  if(!hinda){
+    const q=MM.q=mmGen(l);
+    $('#mm-card').innerHTML=`<form class="card" style="border:0;padding:0" autocomplete="off"><div id="mm-timer"></div><p class="qtext">${q.text}</p>
+      <div class="answer-row"><input id="mm-in" inputmode="decimal" aria-label="Vastus"><span class="unit">${q.unit}</span><button class="btn primary" type="submit" id="mm-go">Kontrolli</button></div>
+      <div class="feedback" aria-live="polite"></div></form>`;
+    $('#mm-in').focus({preventScroll:true});
+    if(l===5)MM.stopT=startTimer(45,$('#mm-timer'),()=>{MM.stopT=null;if(!MM.done)mmCheck(true)});
+  }else{
+    if(!MM.mv)MM.mv=new MapView($('#mmh-map'));
+    $('#mmh-panel').innerHTML='<p>Valin päris kaardilt kaks punkti…</p>';
+    try{
+      const [d0,d1]=MMDIST[l];let m,a,b;
+      for(let t=0;t<8&&!b;t++){
+        m=await pickMap();const fs=m.features.filter(f=>f.iso&&!f.weak);a=pick(fs);
+        const c=fs.filter(f=>{const d=Math.hypot(f.x-a.x,f.y-a.y)*m.mpp;return d>=d0&&d<=d1});if(c.length)b=pick(c);
+      }
+      if(!b)throw new Error('pair');
+      const dist=Math.hypot(b.x-a.x,b.y-a.y)*m.mpp;MM.q={kind:'est',ans:dist,unit:'m',m,a,b};
+      await MM.mv.load(m);const pad=px(m,90);
+      MM.mv.fit([Math.min(a.x,b.x)-pad,Math.min(a.y,b.y)-pad,Math.max(a.x,b.x)+pad,Math.max(a.y,b.y)+pad]);
+      const vis=MM.mv.visible();
+      MM.mv.draw(startSvg(m,a.x,a.y,b.x,b.y)+ringSvg(m,b.x,b.y,'1')+legLine(m,[a.x,a.y],[b.x,b.y]),scaleBarSvg(m,vis));
+      $('#mmh-panel').innerHTML=`<form autocomplete="off" style="display:flex;flex-direction:column;gap:14px"><h3>Kui pikk on etapp linnulennult?</h3>
+        <p class="small">Kasuta kaardil olevat mõõtkavajoonlauda. Kaart on mõõtkavas ${scaleTxt(m.scale)}. Lubatud viga on ${Math.round(MMTOL[l]*100)}%.</p>
+        <div class="answer-row"><input id="mm-in" inputmode="decimal" aria-label="Vastus meetrites"><span class="unit">m</span><button class="btn primary" type="submit" id="mm-go">Kontrolli</button></div>
+        <div class="feedback" aria-live="polite"></div></form>`;
+      $('#mm-in').focus({preventScroll:true});
+    }catch(err){console.error(err);mapError($('#mmh-panel'),'Kaardiandmete laadimine ebaõnnestus.')}
+  }
+  mmProgress();
+}
+function mmCheck(timeout){
+  if(MM.stopT){MM.stopT();MM.stopT=null}
+  const v=timeout?null:parseNum($('#mm-in').value);const q=MM.q;const fb=$(MM.mode==='hinda'?'#mmh-panel .feedback':'#mm-card .feedback');
+  if(v==null&&!timeout){fb.innerHTML='<div class="fb no"><div>Kirjuta vastuseks arv.</div></div>';return}
+  MM.done=true;const k=mmKey(),l=P(k).lvl;
+  if(q.kind==='est'){
+    const err=(v-q.ans)/q.ans,ae=Math.abs(err),ok=ae<=MMTOL[l];const tag=ok?null:(err>0?'yle':'ala');const change=record(k,ok,tag);
+    fb.innerHTML=`<div class="fb ${ok?'ok':'no'}"><div><b>${ae<=.1?'Väga hea hinnang!':ok?'Hea hinnang.':'Sellel tasemel liiga palju mööda.'}</b>Etapp on umbes ${fmt(Math.round(q.ans/5)*5)} m pikk. Sinu hinnang oli ${fmt(v)} m (${err>0?'+':''}${fmt(err*100)}%). ${scaleTxt(q.m.scale)} kaardil on see ${fmt(q.ans/(q.m.scale/1000),1)} mm.</div></div>`
+      +(ok?'':tipHtml(tag)+'<div class="tip">Nipp: mõõda sõrmega joonlaua lõik ja vaata, mitu korda see etapile mahub.</div>')+lvlMsg(k,change);
+  }else{
+    const ok=v!=null&&Math.abs(v-q.ans)<=Math.max(q.ans*q.tol,q.abs||0)+1e-9;let tag=null;
+    if(!ok){if(v==null)tag='aeg';else{const r=v/q.ans;const near=(x)=>Math.abs(r-x)<=x*.06;if(near(10)||near(.1)||near(100)||near(.01))tag='uhik';else if(near(1.5)||near(2/3)||near(2.5)||near(.4))tag='mootkava';else tag='arvutus'}}
+    const change=record(k,ok,tag);
+    fb.innerHTML=`<div class="fb ${ok?'ok':'no'}"><div><b>${ok?'Õige!':(v==null?'Aeg sai otsa. ':'')+'Õige vastus on '+fmt(q.ans,q.unit==='m'?0:1)+' '+q.unit+'.'}</b>${q.ex}</div></div>`+tipHtml(tag)+lvlMsg(k,change);
+  }
+  $('#mm-go').textContent='Järgmine';$('#mm-in').readOnly=true;$('#mm-go').focus({preventScroll:true});mmProgress();
+}
+function mmProgress(){const a=acc('mm'),b=acc('mmh');$('#mm-progress').textContent=[a!=null?`Arvutused: viimastel kordadel ${a}% õigeid`:'',b!=null?`hindamine kaardil: ${b}% piisavalt täpseid`:''].filter(Boolean).join(' · ')}
+
+/* =========================================================
+   6. PÄRIS VÕISTLUS (Livelox)
+   ========================================================= */
+const LX_EVENTS=[
+  {id:201404,name:'Eesti meistrivõistlused, tavarada',date:'5.09.2026',org:'Aarain Team, EOL',cls:[['N14',3260,3],['M14',5000,2],['N16',4590,5],['M16',7530,12],['N18',5780,4],['M18',9220,11],['M21E',14960,11],['W21E',11380,6]]},
+  {id:191271,name:'Eesti MV lühirada, Keibu',date:'6.06.2026',org:'SK Saue Tammed',cls:[['N14',1780,1],['M14',2180,2],['N16',2500,3],['M16',3380,7],['N18',4220,3],['M18',5220,10]]},
+  {id:189920,name:'Balti meistrivõistlused, pikk rada',date:'16.05.2026',org:'EOL, OK Võru',cls:[['W14E',3610,1],['M14E',3610,3],['W16E',4160,13],['M16E',5790,10],['W18E',5790,6],['M18E',6550,4]]},
+  {id:188742,name:'EMV sprint 2026',date:'9.05.2026',org:'Rakvere OK',cls:[['N14, M14',2040,4],['N16, N45, M55',2310,10],['M16, M50',2450,12],['N18, N35, N40',2390,4],['M18, M40, M45',2640,13]]},
+  {id:196336,name:'Suvejooks 2026, Viitna 1. päev',date:'18.07.2026',org:'LSF PT',cls:[['OPEN SHORT',2960,4],['N14',2470,1],['N16',4100,3],['M16',4420,1],['N18',4420,1],['OPEN LONG',5850,2]]},
+  {id:196385,name:'Suvejooks 2026, 2. päev',date:'19.07.2026',org:'LSF PT',cls:[['OPEN SHORT',3240,1],['N14',2780,2],['M14',2930,1],['N16',3780,3],['M16',4400,1],['N18',4400,1],['OPEN LONG',6080,2]]},
+  {id:196012,name:'Tallinna teisipäevak, Apuparra',date:'28.07.2026',org:'OK Nõmme',cls:[['M21C',3680,1],['M16',4250,1],['N50',4250,1],['M21B',5660,2],['M21A',7160,4]]},
+  {id:195597,name:'Tallinna teisipäevak, Kaberneeme',date:'14.07.2026',org:'OK Nõmme',cls:[['N50',4040,1],['N40',4940,1],['N21A',6020,1],['M21A',7130,2]]},
+  {id:192819,name:'10. Lääne-Virumaa kolmapäevak',date:'10.06.2026',org:'Rakvere OK',cls:[['Rada 4',3550,1],['Rada 3',4410,4],['Rada 2',5700,9],['Rada 1',6870,7]]},
+  {id:196621,name:'Valgamaa Purtsi-Rebaste päevak',date:'22.07.2026',org:'Aarain Team, EOL',cls:[['Rada 5',2080,1],['Rada 4',3750,1],['Rada 3',5010,1],['Rada 1',8140,2]]},
+  {id:196687,name:'Saaremaa neljapäevak, Kandla',date:'23.07.2026',org:'SOK',cls:[['R4',1500,1],['R1',6100,2]]},
+  {id:194194,name:'NOOL 2026, Viljandi sprint',date:'20.06.2026',org:'EOL',cls:[['K2',1830,2],['P1',2160,6],['EYOC',2520,12]]}
+];
+const LX_LVL=[null,{min:0,max:3000},{min:2000,max:3800},{min:3000,max:5000},{min:4000,max:6500},{min:5500,max:99999}];
+const LXCH=[['vasak','Vasakult'],['otse','Otse'],['parem','Paremalt'],['rada','Mööda teed või rada']];
+const LX={sel:null,step:1,plan:{},cmp:{},hist:store.get('lxHist',[]),custom:false};
+function lxSuggest(){
+  const r=LX_LVL[P('lx').lvl];const c=[];
+  LX_EVENTS.forEach(e=>e.cls.forEach(([n,len,cnt])=>{if(len>=r.min&&len<=r.max&&cnt>0)c.push({e,cls:n,len,cnt})}));
+  return c.length?pick(c):{e:LX_EVENTS[0],cls:LX_EVENTS[0].cls[0][0],len:LX_EVENTS[0].cls[0][1],cnt:LX_EVENTS[0].cls[0][2]};
+}
+function lxInit(){
+  $('#lx-card').addEventListener('click',lxClick);
+  $('#lx-card').addEventListener('input',e=>{const t=e.target;if(t.dataset.f){(t.dataset.g==='cmp'?LX.cmp:LX.plan)[t.dataset.f]=t.value}if(t.id==='lx-url')LX.url=t.value;if(t.id==='lx-cls')LX.clsName=t.value;if(t.id==='lx-clssel'){LX.clsName=t.value;lxRender()}if(t.id==='lx-leg')LX.legNo=t.value});
+  renderLvl('lx');lxNewTask();lxHist();
+}
+function lxNewTask(){const s=lxSuggest();LX.sel=s;LX.custom=false;LX.url='';LX.clsName=s.cls;LX.legNo=String(randInt(2,7));LX.step=1;LX.plan={};LX.cmp={};lxRender()}
+function lxRender(){
+  const c=$('#lx-card'),s=LX.sel;
+  const evUrl=LX.custom?(LX.url||''):`https://www.livelox.com/Events/Show/${s.e.id}`;
+  const evName=LX.custom?'Sinu valitud võistlus':s.e.name;
+  const chs=(g,f)=>`<div class="choice" data-cg="${g}" data-cf="${f}">${LXCH.map(([v,t])=>`<button type="button" data-cv="${v}" aria-pressed="${(g==='cmp'?LX.cmp:LX.plan)[f]===v}">${t}</button>`).join('')}</div>`;
+  const stepCls=n=>LX.step>n?'step done':'step';
+  c.innerHTML=`<div class="toolbar"><h3 class="grow">${LX.custom?'Analüüsi oma võistlust':'Tänane etapp'}</h3>
+      <button type="button" class="btn small" data-lx="new">Teine soovitus</button>
+      <button type="button" class="btn small" data-lx="custom">${LX.custom?'Vali soovitatud võistlus':'Analüüsi oma võistlust'}</button></div>
+    ${LX.custom?`<div class="field"><label for="lx-url">Livelox'i võistluse link</label><input id="lx-url" type="url" placeholder="https://www.livelox.com/Events/Show/…" value="${esc(LX.url||'')}"></div>
+      <div class="toolbar"><div class="field"><label for="lx-cls">Klass või rada</label><input id="lx-cls" value="${esc(LX.clsName||'')}"></div><div class="field"><label for="lx-leg">Etapi number</label><input id="lx-leg" inputmode="numeric" value="${esc(LX.legNo||'')}" style="width:90px"></div></div>`
+    :`<div class="events">${LX_EVENTS.map(e=>`<button type="button" class="ev" data-ev="${e.id}" aria-pressed="${e.id===s.e.id}"><span class="nm">${esc(e.name)}</span><span class="mt">${e.date} · ${esc(e.org)}</span><span class="mt">${e.cls.filter(x=>x[2]>0).map(x=>x[0]).slice(0,5).join(', ')}</span></button>`).join('')}</div>
+      <div class="toolbar"><div class="field"><label for="lx-clssel">Klass</label><select id="lx-clssel">${s.e.cls.map(([n,len,cnt])=>`<option value="${esc(n)}" ${n===LX.clsName?'selected':''}>${esc(n)} · ${fmt(len)} m · ${cnt} rada</option>`).join('')}</select></div>
+      <div class="field"><label for="lx-leg">Etapi number</label><input id="lx-leg" inputmode="numeric" value="${esc(LX.legNo)}" style="width:90px"></div></div>`}
+    <div class="steps">
+      <div class="${stepCls(1)}"><span class="n">1</span><div class="bd"><b>Ava võistlus Livelox'is</b>
+        <p>Ava ${esc(evName)}. Vali klass <b>${esc(LX.clsName||'—')}</b> ja vajuta <b>Replay</b>. Vali ülal <b>Legs</b> ja sealt etapp <b>${esc(LX.legNo||'—')}</b>. Peida osalejate teed, et sa neid veel ei näeks.</p>
+        <div class="actions">${evUrl?`<a class="btn" href="${esc(evUrl)}" target="_blank" rel="noopener">Ava Livelox</a>`:''}<button type="button" class="btn primary" data-lx="s2">Etapp on ees</button></div>
+        <p class="small">Livelox näitab tasuta korraga ühe jooksja teed. Sellest piisab.</p></div></div>
+      ${LX.step>=2?`<div class="${stepCls(2)}"><span class="n">2</span><div class="bd"><b>Planeeri enne vaatamist</b>
+        <div class="field"><label>Milline tee on sinu meelest kiireim?</label>${chs('plan','tee')}</div>
+        <div class="field"><label for="lx-att">Rünnakupunkt: mis on viimane kindel objekt enne punkti?</label><input id="lx-att" data-f="att" value="${esc(LX.plan.att||'')}"></div>
+        <div class="field"><label for="lx-catch">Püüdja: mis objekt annab märku, et oled punktist mööda läinud?</label><input id="lx-catch" data-f="catch" value="${esc(LX.plan.catch||'')}"></div>
+        <div class="field"><label for="lx-est">Mitu minutit sul selleks etapiks kuluks? (näiteks 4:30)</label><input id="lx-est" data-f="est" inputmode="decimal" value="${esc(LX.plan.est||'')}" style="width:120px"></div>
+        <div class="actions"><button type="button" class="btn primary" data-lx="s3">Plaan on valmis</button></div></div></div>`:''}
+      ${LX.step>=3?`<div class="${stepCls(3)}"><span class="n">3</span><div class="bd"><b>Võrdle päris jooksjatega</b>
+        <p>Vali Livelox'is <b>Table</b>, leia etapi ${esc(LX.legNo||'')} kiireim aeg ja näita selle jooksja teed. Vaata ka 1–2 teist jooksjat.</p>
+        <div class="field"><label>Mis teed läks kiireim?</label>${chs('cmp','tee')}</div>
+        <div class="field"><label for="lx-ft">Kiireima aeg sellel etapil (näiteks 3:45)</label><input id="lx-ft" data-g="cmp" data-f="ft" inputmode="decimal" value="${esc(LX.cmp.ft||'')}" style="width:120px"></div>
+        <div class="field"><label>Mitu erinevat teevalikut jooksjad tegid?</label><div class="choice" data-cg="cmp" data-cf="n">${[['1','Kõik sama teed'],['2','Kaks'],['3','Kolm või rohkem']].map(([v,t])=>`<button type="button" data-cv="${v}" aria-pressed="${LX.cmp.n===v}">${t}</button>`).join('')}</div></div>
+        <div class="field"><label for="lx-why">Miks oli kiireima tee hea? Mida sa ise teisiti teeksid?</label><textarea id="lx-why" data-g="cmp" data-f="why">${esc(LX.cmp.why||'')}</textarea></div>
+        <div class="actions"><button type="button" class="btn primary" data-lx="s4">Vaata tagasisidet</button></div></div></div>`:''}
+      ${LX.step>=4?`<div class="step"><span class="n">4</span><div class="bd" id="lx-fb">${LX.fbHtml||''}</div></div>`:''}
+    </div>`;
+}
+function lxClick(e){
+  const ev=e.target.closest('[data-ev]');if(ev){const E=LX_EVENTS.find(x=>x.id===+ev.dataset.ev);const c=E.cls.find(x=>x[2]>0)||E.cls[0];LX.sel={e:E,cls:c[0],len:c[1],cnt:c[2]};LX.clsName=c[0];LX.step=1;LX.plan={};LX.cmp={};lxRender();return}
+  const ch=e.target.closest('[data-cv]');if(ch){const box=ch.closest('[data-cg]');const obj=box.dataset.cg==='cmp'?LX.cmp:LX.plan;obj[box.dataset.cf]=ch.dataset.cv;$$('[data-cv]',box).forEach(b=>b.setAttribute('aria-pressed',b===ch));return}
+  const a=e.target.closest('[data-lx]');if(!a)return;const act=a.dataset.lx;
+  const sel=$('#lx-clssel');if(sel)LX.clsName=sel.value;
+  if(act==='new')lxNewTask();
+  else if(act==='custom'){LX.custom=!LX.custom;LX.step=1;LX.plan={};LX.cmp={};if(!LX.custom)lxNewTask();else{LX.clsName='';LX.legNo='';lxRender()}}
+  else if(act==='s2'){if(LX.custom&&!/^https:\/\/(www\.)?livelox\.com\//.test(LX.url||'')){alertInline('Kleebi Livelox\'i võistluse link (algab https://www.livelox.com/).');return}LX.step=Math.max(LX.step,2);lxRender()}
+  else if(act==='s3'){if(!LX.plan.tee){alertInline('Vali enne, milline tee on sinu meelest kiireim.');return}LX.step=Math.max(LX.step,3);lxRender()}
+  else if(act==='s4'){if(!LX.cmp.tee){alertInline('Märgi, mis teed kiireim läks.');return}lxFeedback();LX.step=4;lxRender();$('#lx-fb').scrollIntoView({behavior:'smooth',block:'nearest'})}
+  else if(act==='again')lxNewTask();
+}
+function alertInline(t){let n=$('#lx-warn');if(!n){n=document.createElement('div');n.id='lx-warn';n.className='fb no';$('#lx-card').prepend(n)}n.innerHTML=`<div>${esc(t)}</div>`;n.scrollIntoView({behavior:'smooth',block:'nearest'})}
+function lxFeedback(){
+  const ok=LX.plan.tee===LX.cmp.tee;
+  const est=parseTime(LX.plan.est),ft=parseTime(LX.cmp.ft);
+  let tag=null,lines=[];
+  if(!ok){tag=LX.cmp.tee==='rada'?'lxrada':LX.cmp.tee==='otse'?'lxotse':'lxkylg'}
+  if(est&&ft){const r=est/ft;lines.push(`Sinu ajahinnang oli ${fmtTime(est)}, kiireim jooksis ${fmtTime(ft)}. ${r<1?'Hindasid end kiiremaks kui võitja.':r<1.3?'Sinu hinnang oli võitja ajale lähedal.':r<1.8?'Arvestasid endale mõistliku varu.':'Hindasid etapi päris pikaks. Vaata, kas mõni teevalik oleks olnud lihtsam.'}`);
+    if(r<.9||r>2.2){if(!tag)tag='lxaeg'}}
+  if(LX.cmp.n==='3')lines.push('Jooksjad tegid mitu erinevat valikut. See on hea etapp, et võrrelda aegu: vaata Table-vaates, kui palju valikute vahe sekundites oli.');
+  if(LX.cmp.n==='1')lines.push('Kõik läksid sama teed. Siis otsustab etapi täpsus: rünnakupunkt ja punkti võtmine.');
+  if(LX.plan.att)lines.push(`Sinu rünnakupunkt oli „${esc(LX.plan.att)}“. Vaata kiireima jooksja teelt, kas ta kasutas sama objekti.`);
+  const change=record('lx',ok,tag);
+  const h={d:today(),ev:LX.custom?(LX.url||'oma võistlus'):LX.sel.e.name,cls:LX.clsName,leg:LX.legNo,ok,plan:LX.plan.tee,fast:LX.cmp.tee,est:LX.plan.est||'',ft:LX.cmp.ft||''};
+  LX.hist.unshift(h);LX.hist=LX.hist.slice(0,30);store.set('lxHist',LX.hist);
+  const nm=v=>(LXCH.find(x=>x[0]===v)||[,'—'])[1].toLowerCase();
+  LX.fbHtml=`<div class="fb ${ok?'ok':'no'}"><div><b>${ok?'Sinu valik oli sama mis kiireimal!':'Kiireim valis teise tee.'}</b>Sina valisid: ${nm(LX.plan.tee)}. Kiireim läks: ${nm(LX.cmp.tee)}.</div></div>
+    ${lines.map(l=>`<p>${l}</p>`).join('')}${ok?'':tipHtml(tag)}${lvlMsg('lx',change)}
+    <div class="actions"><button type="button" class="btn primary" data-lx="again">Uus etapp</button></div>`;
+  lxHist();
+}
+function lxHist(){
+  const h=LX.hist;const ok=h.filter(x=>x.ok).length;
+  $('#lx-hist').innerHTML=`<h3>Sinu analüüsid</h3>${h.length?`<p class="progress">${h.length} etappi, neist ${ok} korral valisid sama tee mis kiireim.</p><div class="hist">${h.slice(0,10).map(x=>`<div class="h"><span class="mono">${esc(x.d)}</span><b>${esc(x.ev)}</b><span>${esc(x.cls)}, etapp ${esc(x.leg)}</span><span>${x.ok?'✓ sama tee':'✗ teine tee'}</span></div>`).join('')}</div>`:'<p class="small">Siia tekivad sinu analüüsitud etapid. Alusta ülalt esimese etapiga.</p>'}`;
+}
+
+/* =========================================================
+   7. JOONISTAMINE
    ========================================================= */
 const INKS=[['black',INK.black,'must'],['brown',INK.brown,'pruun'],['blue',INK.blue,'sinine'],['green',INK.green,'roheline'],['yellow',INK.yellow,'kollane'],['grey',INK.grey,'hall'],['magenta',INK.magenta,'magenta']];
 const DR={ink:'black',w:3,strokes:[],cur:null,target:null,stats:store.get('drStats',{}),last:null,peekT:0};
-const DW=320;
+const DW=320;const DPR=Math.min(2,window.devicePixelRatio||1);
+function setupCanvas(cv,W,H){cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);const ctx=cv.getContext('2d');ctx.setTransform(DPR,0,0,DPR,0,0);return ctx}
+function canvasPoint(cv,e,W,H){const r=cv.getBoundingClientRect();return [(e.clientX-r.left)/r.width*W,(e.clientY-r.top)/r.height*H]}
 function drInit(){
   const cv=$('#dr-canvas');DR.ctx=setupCanvas(cv,DW,DW);
   $('#dr-inks').innerHTML=INKS.map(([k,c,n])=>`<button type="button" class="ink" data-ink="${k}" style="background:${c}" aria-label="${n}" title="${n}" aria-pressed="${k===DR.ink}"></button>`).join('');
@@ -1422,8 +1311,7 @@ function drInit(){
   renderLvl('dr');drNew();
 }
 function drNew(){
-  clearTimeout(DR.peekT);
-  const l=P('dr').lvl;
+  clearTimeout(DR.peekT);const l=P('dr').lvl;
   const pool=SYMBOLS.filter(s=>s.n!=='405'&&s!==DR.last&&(l>1||CORE.has(s.n)));
   const w=pool.map(s=>{const g=DR.stats[s.n];return g===undefined?3:g===2?1:g===1?3:6});
   let x=Math.random()*w.reduce((a,b)=>a+b,0),i=0;for(;i<pool.length;i++){x-=w[i];if(x<=0)break}
@@ -1432,55 +1320,37 @@ function drNew(){
   $('#dr-hint').textContent=l===5?'Joonista mälu järgi märk numbriga':'Joonista mälu järgi';
   $('#dr-desc').textContent=l===2?s.desc:'';
   const base=`<h3>Kuidas läks?</h3><p class="small">Joonista märk, vali õige värv ja jämedus. Siis vajuta „Näita õiget“ ja võrdle.</p><p class="small">Pinnamärgi puhul vali „Pind“ ja värvi ala üle.</p>`;
-  if(l===1){
-    $('#dr-reveal').innerHTML=`<h3>Vaata ja jäta meelde</h3><div class="tile">${symSvg(s)}</div><p class="small">Märk kaob 4 sekundi pärast. Siis joonista see mälu järgi.</p>`;
-    DR.peekT=setTimeout(()=>{$('#dr-reveal').innerHTML=base},4000);
-  }else $('#dr-reveal').innerHTML=base;
+  if(l===1){$('#dr-reveal').innerHTML=`<h3>Vaata ja jäta meelde</h3><div class="tile">${symSvg(s)}</div><p class="small">Märk kaob 4 sekundi pärast. Siis joonista see mälu järgi.</p>`;DR.peekT=setTimeout(()=>{$('#dr-reveal').innerHTML=base},4000)}
+  else $('#dr-reveal').innerHTML=base;
   $('#dr-show').disabled=false;drPaint();drProgress();
 }
 function drPaint(){
   const ctx=DR.ctx;ctx.fillStyle='#FFFFFF';ctx.fillRect(0,0,DW,DW);
   ctx.strokeStyle='#ECEEE8';ctx.lineWidth=1;for(let k=40;k<DW;k+=40){ctx.beginPath();ctx.moveTo(k,0);ctx.lineTo(k,DW);ctx.moveTo(0,k);ctx.lineTo(DW,k);ctx.stroke()}
-  for(const s of DR.strokes){
-    const col=INKS.find(i=>i[0]===s.ink)[1];ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=s.w;ctx.lineCap='round';ctx.lineJoin='round';
-    if(s.pts.length===1){ctx.beginPath();ctx.arc(s.pts[0][0],s.pts[0][1],s.w/2,0,Math.PI*2);ctx.fill()}
-    else{ctx.beginPath();s.pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.stroke()}
-  }
+  for(const s of DR.strokes){const col=INKS.find(i=>i[0]===s.ink)[1];ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=s.w;ctx.lineCap='round';ctx.lineJoin='round';
+    if(s.pts.length===1){ctx.beginPath();ctx.arc(s.pts[0][0],s.pts[0][1],s.w/2,0,Math.PI*2);ctx.fill()}else{ctx.beginPath();s.pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.stroke()}}
 }
 function drReveal(){
-  clearTimeout(DR.peekT);
-  const s=DR.target;const used=[...new Set(DR.strokes.map(x=>x.ink))];
-  const need=s.inks.filter(k=>k!=='none');
-  const missing=need.filter(k=>!used.includes(k)),extra=used.filter(k=>!need.includes(k));
-  const nm=k=>INKS.find(i=>i[0]===k)[2];
+  clearTimeout(DR.peekT);const s=DR.target;const used=[...new Set(DR.strokes.map(x=>x.ink))];const need=s.inks.filter(k=>k!=='none');
+  const missing=need.filter(k=>!used.includes(k)),extra=used.filter(k=>!need.includes(k));const nm=k=>INKS.find(i=>i[0]===k)[2];
   DR.colorOk=DR.strokes.length>0&&!missing.length&&!extra.length;
-  let note;
-  if(!DR.strokes.length)note='Sa ei joonistanud midagi. Võrdle siis vähemalt mõttes.';
-  else if(DR.colorOk)note=`Värvid on õiged: ${need.map(nm).join(' ja ')}.`;
-  else note=`Selle märgi värv on ${need.map(nm).join(' ja ')}.`+(extra.length?` Sina kasutasid ka värvi ${extra.map(nm).join(', ')}.`:'');
+  let note;if(!DR.strokes.length)note='Sa ei joonistanud midagi. Võrdle siis vähemalt mõttes.';else if(DR.colorOk)note=`Värvid on õiged: ${need.map(nm).join(' ja ')}.`;else note=`Selle märgi värv on ${need.map(nm).join(' ja ')}.`+(extra.length?` Sina kasutasid ka värvi ${extra.map(nm).join(', ')}.`:'');
   $('#dr-reveal').innerHTML=`<h3><span class="num">${s.n}</span> ${s.name}</h3><div class="tile">${symSvg(s)}</div><p>${s.desc}</p>
-    <div class="fb ${DR.colorOk?'ok':'no'}"><div>${note}</div></div>
-    <p class="small">Hinda ausalt, kas kuju oli õige:</p>
+    <div class="fb ${DR.colorOk?'ok':'no'}"><div>${note}</div></div><p class="small">Hinda ausalt, kas kuju oli õige:</p>
     <div class="actions" id="dr-grade"><button type="button" class="btn primary" data-g="2">Õigesti</button><button type="button" class="btn" data-g="1">Pooleldi</button><button type="button" class="btn" data-g="0">Valesti</button></div><div id="dr-after"></div>`;
   $('#dr-show').disabled=true;
 }
 function drGrade(g){
-  if(DR.graded)return;DR.graded=true;
-  DR.stats[DR.target.n]=g;store.set('drStats',DR.stats);
-  const ok=g===2&&DR.colorOk;const tag=ok?null:(!DR.colorOk&&DR.strokes.length?'varv':null);
-  const change=record('dr',ok,tag);
+  if(DR.graded)return;DR.graded=true;DR.stats[DR.target.n]=g;store.set('drStats',DR.stats);
+  const ok=g===2&&DR.colorOk;const tag=ok?null:(!DR.colorOk&&DR.strokes.length?'varv':null);const change=record('dr',ok,tag);
   $('#dr-grade').innerHTML='';
   $('#dr-after').innerHTML=(ok?'<div class="fb ok"><div><b>Tubli!</b>Kuju ja värv olid õiged.</div></div>':tipHtml(tag))+lvlMsg('dr',change)+'<div class="actions"><button type="button" class="btn primary" id="dr-next">Järgmine märk</button></div>';
   drProgress();
 }
-function drProgress(){
-  const good=Object.values(DR.stats).filter(x=>x===2).length,a=acc('dr');
-  $('#dr-progress').textContent=`Mälu järgi õigesti joonistatud ${good} märki ${SYMBOLS.length-1}-st`+(a!=null?` · viimastel kordadel ${a}% õigeid`:'')+'. Märgid, mis ei õnnestunud, tulevad sagedamini tagasi.';
-}
+function drProgress(){const good=Object.values(DR.stats).filter(x=>x===2).length,a=acc('dr');$('#dr-progress').textContent=`Mälu järgi õigesti joonistatud ${good} märki ${SYMBOLS.length-1}-st`+(a!=null?` · viimastel kordadel ${a}% õigeid`:'')+'. Märgid, mis ei õnnestunud, tulevad sagedamini tagasi.'}
 
-const INIT={leppemargid:lepInit,moodkava:mmInit,reljeef:relInit,teevalik:tvInit,joonistamine:drInit};
+const INIT={leppemargid:lepInit,kaardilugemine:()=>Ring.init('#ring-map','#ring-panel'),reljeef:()=>Rel.init('#rel-map','#rel-panel'),teevalik:tvInit,moodkava:mmInit,livelox:lxInit,joonistamine:drInit};
 route();
 </script>
-
 </body>
 </html>
