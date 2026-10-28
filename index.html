@@ -177,6 +177,12 @@ nav.tabs .sw{width:12px;height:12px;border-radius:2px;flex:none;box-shadow:0 0 0
 .reveal .tile{width:min(220px,100%)}
 
 /* Livelox */
+.frag{position:relative;width:100%;max-width:300px;aspect-ratio:1;overflow:hidden;border-radius:10px;border:3px solid var(--fg);background:var(--paper);align-self:center}
+.frag .fi{position:absolute;inset:0;transform-origin:50% 50%}
+.frag img{position:absolute;max-width:none;image-rendering:auto}
+.frag .na{position:absolute;right:8px;top:8px;width:34px;height:34px;background:rgba(255,255,255,.9);border-radius:50%;display:grid;place-items:center}
+.frag .hid{position:absolute;inset:0;background:var(--chip);display:grid;place-items:center;text-align:center;padding:16px;font-weight:700}
+.tk-ev{font-size:14px;color:var(--muted)}
 .events{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
 .ev{background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:4px;cursor:pointer;text-align:left}
 .ev:hover{border-color:var(--fg)}
@@ -241,6 +247,7 @@ footer.res ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:colum
     <a href="#reljeef" data-v="reljeef"><span class="sw" style="background:#C4661F"></span>Reljeef</a>
     <a href="#teevalik" data-v="teevalik"><span class="sw" style="background:#E3202B"></span>Teevalik</a>
     <a href="#moodkava" data-v="moodkava"><span class="sw" style="background:#1A1A1A"></span>Mõõtkava</a>
+    <a href="#tipp" data-v="tipp"><span class="sw" style="background:#F2B705"></span>Tippvõistlused</a>
     <a href="#livelox" data-v="livelox"><span class="sw" style="background:#7A7F75"></span>Päris võistlus</a>
     <a href="#joonistamine" data-v="joonistamine"><span class="sw" style="background:#1E9FD8"></span>Joonista</a>
   </nav>
@@ -336,6 +343,38 @@ footer.res ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:colum
     </div>
   </section>
 
+  <!-- TIPPVÕISTLUSED -->
+  <section class="view" id="v-tipp" hidden>
+    <div class="toolbar">
+      <div class="seg" role="group" aria-label="Harjutuse liik">
+        <button type="button" data-tk="koht">Leia koht</button>
+        <button type="button" data-tk="maastik">Mis maastik?</button>
+      </div>
+      <label class="inline" for="tk-ev">Võistlus
+        <select id="tk-ev">
+          <option value="">Kõik</option>
+          <option value="mm17">MM 2017</option>
+          <option value="em06">EM ja MK 2006</option>
+          <option value="jmm03">Juunioride MM 2003</option>
+          <option value="em22">EM 2022</option>
+        </select>
+      </label>
+      <button type="button" class="btn" id="tk-new">Uus ülesanne</button>
+      <span class="grow"></span>
+      <span class="lvl" id="tk-lvl"></span>
+    </div>
+    <div class="split">
+      <div class="mapwrap" id="tk-map"></div>
+      <div class="side card" id="tk-panel"></div>
+    </div>
+    <div class="progress" id="tk-progress"></div>
+    <div class="note">
+      <b>Eesti tippvõistluste kaardid</b>
+      <span>Nendel kaartidel on peetud orienteerumise MM, EM, maailmakarika etapid ja juunioride MM. Kaardid tulevad EOL-i kaardiserverist.</span>
+      <span>Nende kaartide OCAD-faile ei jagata. Seepärast kasutavad harjutused ainult kaardipildi värve: kohaleidmine põhineb kaardil endal ja maastikutüübid on valitud ainult sealt, kus värv on ühtlane ja selge.</span>
+    </div>
+  </section>
+
   <!-- LIVELOX -->
   <section class="view" id="v-livelox" hidden>
     <div class="toolbar"><p class="small grow">Päris võistlus Livelox'is: vali enne ise tee, siis vaata, kuidas jooksid teised.</p><span class="lvl" data-lvl="lx"></span></div>
@@ -386,6 +425,7 @@ footer.res ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:colum
       <ul>
         <li>Kaardid laaditakse otse <a href="https://orienteerumine.ee/kaardid/" target="_blank" rel="noopener">EOL-i kaardiserverist</a>. Autoriõigus kuulub kaardi omanikule, kes on märgitud iga kaardi all.</li>
         <li>Harjutuste objektid ja läbitavus on arvutatud samade kaartide OCAD-failidest, mida EOL avalikult jagab.</li>
+        <li>Tippvõistluste kaartide (MM, EM, MK) OCAD-faile ei jagata. Nende harjutused kasutavad ainult kaardipildi värve.</li>
         <li>Päris võistlused: <a href="https://www.livelox.com/" target="_blank" rel="noopener">Livelox</a>.</li>
         <li><a href="https://orienteerumine.ee/wp-content/uploads/2021/11/isom2017-est.pdf" target="_blank" rel="noopener">ISOM 2017 eestikeelne tõlge</a> ja <a href="https://app.orienteerumine.ee/orienteerumine/opime/O-kaardi_leppema%CC%88rgid_A4_20180518.pdf" target="_blank" rel="noopener">leppemärgid A4-lehel</a></li>
       </ul>
@@ -420,6 +460,8 @@ const MODS={
   tvd:{name:'Teevalik: joonista ise',view:'teevalik',desc:['','Hea tee on kuni 15% aeglasem kui arvuti oma','Kuni 12% aeglasem','Kuni 9% aeglasem','Kuni 7% aeglasem','Kuni 5% aeglasem']},
   mm:{name:'Mõõtkava: arvutused',view:'moodkava',desc:['','1 : 10 000 ja ümmargused arvud','Lisandub 1 : 15 000 ja komakohad','Lisanduvad sprindimõõtkavad ja ajaarvutus','Lisanduvad sammupaarid','Kõik ülesanded segamini, 45 sekundit aega']},
   mmh:{name:'Mõõtkava: hinda kaardil',view:'moodkava',desc:['','Lühikesed vahemaad, lubatud viga 30%','Lubatud viga 25%','Lubatud viga 20%','Pikemad vahemaad, lubatud viga 15%','Pikad vahemaad, lubatud viga 10%']},
+  tk:{name:'Tippvõistlus: leia koht',view:'tipp',desc:['','Suur kaardilõik ja kolm valikut','Väiksem lõik ja neli valikut','Valikud on sarnase maastikuga','Lõik on näha 10 sekundit, siis vali mälu järgi','Väike pööratud lõik, näha 6 sekundit']},
+  tm:{name:'Tippvõistlus: mis maastik?',view:'tipp',desc:['','Lage ala, mets, tihe mets ja veekogu','Lisanduvad aeglaselt läbitav mets ja soo','Kõik maastikutüübid, valikud samast rühmast','Kõik maastikutüübid, kaart vähem suurendatud','Kõik maastikutüübid, 8 sekundit aega']},
   lx:{name:'Päris võistlus (Livelox)',view:'livelox',desc:['','Lühikesed noorterajad (N12–N14 või lihtne rada)','N14 ja M14 rajad','N16 ja M16 rajad','N18 ja M18 rajad','Põhiklassid ja eliit']},
   dr:{name:'Joonistamine mälu järgi',view:'joonistamine',desc:['','Näed märki 4 sekundit, siis joonistad','Nimi, number ja kirjeldus','Nimi ja number','Ainult nimi','Ainult number']}
 };
@@ -444,6 +486,12 @@ const TIPS={
   lxrada:'Kiireim läks mööda teed või rada. Vaata, kui palju pikem see tee oli ja kas see tasus end ära.',
   lxotse:'Kiireim läks otse. Vaata kaardilt, miks otsetee oli seekord kiire: valge mets, lage ala või hea suund.',
   lxkylg:'Kiireim valis teise külje. Uuri kaardilt, mis sellel küljel paremini joosta lasi: rajad, lage ala või vähem tõusu.',
+  tkobj:'Otsi lõigult kõigepealt suurim ja selgeim objekt: järv, lage ala, suur tee või soo. Siis kontrolli, kas ka teised objektid on õiges kohas.',
+  tkpoor:'Lõik oli pööratud. Pööra seda peas nii, et põhjanool näitaks üles, ja alles siis võrdle kaardiga.',
+  tkmalu:'Jäta meelde kolm asja: suurim objekt, selle kõrval olev teine objekt ja nende omavaheline suund.',
+  tmkollane:'Kollane on lage ala. Täiskollane on hästi joostav lagendik, helekollane hooldamata lage ala, kus jooks on aeglasem.',
+  tmroheline:'Mida tumedam roheline, seda aeglasem on jooks. Heleroheline on 60–80% tavakiirusest, tumeroheline alla 20%.',
+  tmsinine:'Sinised horisontaalsed jooned on soo. Täissinine pind on veekogu, millest tuleb ümber joosta.',
   lxaeg:'Sinu ajahinnang erines palju. Arvesta etapi pikkust, tempot ja aeglustavaid alasid.'
 };
 const PROG=store.get('prog',{});
@@ -468,6 +516,7 @@ function lvlHtml(k){const l=P(k).lvl;return `<span>Tase</span><b>${LVLNAME[l]}</
 function renderLvl(k){
   $$(`[data-lvl="${k}"]`).forEach(el=>el.innerHTML=lvlHtml(k));
   if((k==='mm'||k==='mmh')&&$('#mm-lvl'))$('#mm-lvl').innerHTML=lvlHtml(MM.mode==='hinda'?'mmh':'mm');
+  if((k==='tk'||k==='tm')&&$('#tk-lvl'))$('#tk-lvl').innerHTML=lvlHtml(TK.mode==='maastik'?'tm':'tk');
   if((k==='tv'||k==='tvd')&&$('#tv-lvl'))$('#tv-lvl').innerHTML=lvlHtml(TV.mode==='joonista'?'tvd':'tv');
 }
 document.addEventListener('click',e=>{const b=e.target.closest('[data-lk]');if(!b)return;const k=b.dataset.lk;setLvl(k,P(k).lvl+(+b.dataset.ld));onLvlManual(k)});
@@ -478,7 +527,8 @@ function onLvlManual(k){
   else if(k==='rel'&&inited.reljeef)Rel.next();
   else if((k==='mm'||k==='mmh')&&inited.moodkava)mmNew();
   else if((k==='tv'||k==='tvd')&&inited.teevalik)tvNew();
-  else if(k==='lx'&&inited.livelox)lxRender();
+  else if(k==='lx'&&inited.livelox)lxNewTask();
+  else if((k==='tk'||k==='tm')&&inited.tipp)tkNew();
   else if(k==='dr'&&inited.joonistamine)drNew();
 }
 function lvlMsg(k,change){
@@ -721,7 +771,7 @@ function scaleBarSvg(m,vis){const meters=(vis[2]-vis[0])*m.mpp>500?200:100;const
 function mapError(host,msg){host.innerHTML=`<div class="fb no"><div><b>Kaarti ei saanud avada.</b>${esc(msg)} Proovi lehte uuesti laadida.</div></div>`}
 
 /* ---------- vahekaardid ---------- */
-const VIEWS=['ylevaade','leppemargid','kaardilugemine','reljeef','teevalik','moodkava','livelox','joonistamine'];
+const VIEWS=['ylevaade','leppemargid','kaardilugemine','reljeef','teevalik','moodkava','tipp','livelox','joonistamine'];
 const inited={};
 function route(){
   const h=(location.hash||'').slice(1);
@@ -778,7 +828,8 @@ function ovRender(){
 }
 document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(!g)return;const k=g.dataset.go;
   if(k==='mmh')MM.mode='hinda';if(k==='mm')MM.mode='arvuta';if(k==='tvd')TV.mode='joonista';if(k==='tv')TV.mode='vali';
-  if(inited.moodkava&&(k==='mm'||k==='mmh'))setTimeout(mmNew,0);if(inited.teevalik&&(k==='tv'||k==='tvd'))setTimeout(tvReset,0)});
+  if(k==='tk')TK.mode='koht';if(k==='tm')TK.mode='maastik';
+  if(inited.moodkava&&(k==='mm'||k==='mmh'))setTimeout(mmNew,0);if(inited.teevalik&&(k==='tv'||k==='tvd'))setTimeout(tvReset,0);if(inited.tipp&&(k==='tk'||k==='tm'))setTimeout(tkNew,0)});
 
 /* =========================================================
    1. LEPPEMÄRGID
@@ -1202,13 +1253,42 @@ const LX_EVENTS=[
   {id:196687,name:'Saaremaa neljapäevak, Kandla',date:'23.07.2026',org:'SOK',cls:[['R4',1500,1],['R1',6100,2]]},
   {id:194194,name:'NOOL 2026, Viljandi sprint',date:'20.06.2026',org:'EOL',cls:[['K2',1830,2],['P1',2160,6],['EYOC',2520,12]]}
 ];
+/* MM, EM ja MK: [klass, raja pikkus m, teekondi Livelox'is, sobiv tase] */
+const LX_CHAMP=[
+  {id:193961,name:'Noorte EM 2026, sprint',date:'25.06.2026',org:'Sloveenia',cls:[['W16',2970,81,1],['M16',3180,90,1],['W18',3080,181,2],['M18',3530,197,2]]},
+  {id:193963,name:'Noorte EM 2026, pikk rada',date:'26.06.2026',org:'Sloveenia',cls:[['W16',4510,87,2],['M16',5530,94,3],['W18',5700,186,3],['M18',6690,204,4]]},
+  {id:162809,name:'Noorte EM 2025, sprint',date:'19.07.2025',org:'Tšehhi',cls:[['W16',2800,65,1],['M16',3100,63,1],['W18',3000,34,2],['M18',3300,81,2]]},
+  {id:162795,name:'Noorte EM 2025, pikk rada',date:'18.07.2025',org:'Tšehhi',cls:[['W16',4120,73,2],['M16',4790,93,3],['W18',5020,76,3],['M18',5950,92,3]]},
+  {id:132312,name:'Noorte EM 2024, sprint',date:'23.06.2024',org:'Poola',cls:[['W16',1430,20,1],['M16',1750,26,1],['W18',1590,28,1],['M18',1960,32,1]]},
+  {id:132244,name:'Noorte EM 2024, pikk rada',date:'22.06.2024',org:'Poola',cls:[['W16',5620,47,3],['M16',6660,64,4],['W18',7000,67,4],['M18',8970,84,5]]},
+  {id:161732,name:'Juunioride MM 2025, sprint',date:'29.06.2025',org:'Itaalia',cls:[['Women',1840,109,2],['Men',2170,148,2]]},
+  {id:161976,name:'Juunioride MM 2025, lühirada',date:'2.07.2025',org:'Itaalia',cls:[['Women',3610,92,3],['Men',4280,129,3]]},
+  {id:161859,name:'Juunioride MM 2025, pikk rada',date:'30.06.2025',org:'Itaalia',cls:[['Women',8010,88,4],['Men',10030,119,4]]},
+  {id:133002,name:'Juunioride MM 2024, lühirada',date:'5.07.2024',org:'Tšehhi',cls:[['Women',3830,83,3],['Men',4830,103,3]]},
+  {id:132997,name:'Juunioride MM 2024, pikk rada',date:'3.07.2024',org:'Tšehhi',cls:[['Women',9590,151,4],['Men',11490,196,4]]},
+  {id:191632,name:'MK 2026, 2. etapp, sprint',date:'30.05.2026',org:'Rootsi',cls:[['Sprint W',2350,72,3],['Sprint M',2870,78,3]]},
+  {id:169800,name:'MK 2025 finaal, sprint',date:'26.09.2025',org:'Šveits',cls:[['WOMEN',3610,53,3],['MEN',4080,74,3]]},
+  {id:161022,name:'MK 2025, 1. etapp, lühirada',date:'21.06.2025',org:'Rootsi',cls:[['Women A-final',4980,54,4],['Women B-final',4520,38,4],['Men A-final',6030,55,4],['Men B-final',5530,94,4]]},
+  {id:160855,name:'MK 2025, 1. etapp, pikk rada',date:'19.06.2025',org:'Rootsi',cls:[['Women A-final',13200,45,5],['Women B-final',9980,44,5],['Men A-final',16020,35,5],['Men B-final',13380,100,5]]},
+  {id:198030,name:'MK 2026, lühirada',date:'8.08.2026',org:'Tšehhi',cls:[['Women A',4490,50,4],['Women B',3920,22,4],['Men A',5370,51,4],['Men B',4620,47,4],['Men C',3890,33,4]]},
+  {id:197856,name:'MK 2026, pikk rada',date:'6.08.2026',org:'Tšehhi',cls:[['Women A',12950,36,5],['Women B',11090,30,5],['Men A',15240,44,5],['Men B',13510,60,5],['Men C',12280,33,5]]},
+  {id:162085,name:'MM 2025, lühiraja eelvõistlus',date:'8.07.2025',org:'Soome',cls:[['WOMEN-1',3250,38,4],['WOMEN-2',3210,43,4],['WOMEN-3',3280,34,4],['MEN-1',3850,45,4],['MEN-2',3850,43,4],['MEN-3',3860,44,4]]},
+  {id:162086,name:'MM 2025, lühiraja finaal',date:'9.07.2025',org:'Soome',cls:[['WOMEN',4790,67,4],['MEN',5600,66,4]]},
+  {id:162087,name:'MM 2025, pikk rada',date:'10.07.2025',org:'Soome',cls:[['WOMEN',12800,90,5],['MEN',15310,106,5]]},
+  {id:203698,name:'EM 2026, eelvõistlus',date:'23.09.2026',org:'Leedu',cls:[['Women 1',7950,32,5],['Women 2',7920,31,5],['Women 3',8010,32,5],['Men 1',9740,44,5],['Men 2',9650,41,5],['Men 3',9670,43,5]]},
+  {id:203829,name:'EM 2026, pika raja finaal',date:'24.09.2026',org:'Leedu',cls:[['Women A',13880,45,5],['Women B',13080,43,5],['Men A',16800,48,5],['Men B',15990,47,5],['Men C',13750,29,5]]},
+  {id:204073,name:'EM 2026, lühirada',date:'26.09.2026',org:'Leedu',cls:[['Women A',5390,49,4],['Women B',5060,38,4],['Men A',6430,65,4],['Men B',6100,39,4],['Men C',5760,28,4]]}
+];
+const LX_CHAMP_DESC=['','noorte EM-i sprindid','noorte EM-i sprint (W18, M18), noorte EM-i pikk rada (W16) ja juunioride MM-i sprint','noorte EM-i pikk rada, juunioride MM-i lühirada ja MK sprindid','juunioride MM-i pikk rada ning MM-i, EM-i ja MK lühirajad','MM-i, EM-i ja MK pikad rajad'];
 const LX_LVL=[null,{min:0,max:3000},{min:2000,max:3800},{min:3000,max:5000},{min:4000,max:6500},{min:5500,max:99999}];
 const LXCH=[['vasak','Vasakult'],['otse','Otse'],['parem','Paremalt'],['rada','Mööda teed või rada']];
-const LX={sel:null,step:1,plan:{},cmp:{},hist:store.get('lxHist',[]),custom:false};
+const LX={sel:null,step:1,plan:{},cmp:{},hist:store.get('lxHist',[]),custom:false,col:store.get('lxCol','ee')};
+const lxList=()=>LX.col==='champ'?LX_CHAMP:LX_EVENTS;
 function lxSuggest(){
-  const r=LX_LVL[P('lx').lvl];const c=[];
-  LX_EVENTS.forEach(e=>e.cls.forEach(([n,len,cnt])=>{if(len>=r.min&&len<=r.max&&cnt>0)c.push({e,cls:n,len,cnt})}));
-  return c.length?pick(c):{e:LX_EVENTS[0],cls:LX_EVENTS[0].cls[0][0],len:LX_EVENTS[0].cls[0][1],cnt:LX_EVENTS[0].cls[0][2]};
+  const l=P('lx').lvl,r=LX_LVL[l];const c=[];
+  if(LX.col==='champ')LX_CHAMP.forEach(e=>e.cls.forEach(([n,len,cnt,lv])=>{if(lv===l)c.push({e,cls:n,len,cnt})}));
+  else LX_EVENTS.forEach(e=>e.cls.forEach(([n,len,cnt])=>{if(len>=r.min&&len<=r.max&&cnt>0)c.push({e,cls:n,len,cnt})}));
+  const L=lxList();return c.length?pick(c):{e:L[0],cls:L[0].cls[0][0],len:L[0].cls[0][1],cnt:L[0].cls[0][2]};
 }
 function lxInit(){
   $('#lx-card').addEventListener('click',lxClick);
@@ -1222,13 +1302,14 @@ function lxRender(){
   const evName=LX.custom?'Sinu valitud võistlus':s.e.name;
   const chs=(g,f)=>`<div class="choice" data-cg="${g}" data-cf="${f}">${LXCH.map(([v,t])=>`<button type="button" data-cv="${v}" aria-pressed="${(g==='cmp'?LX.cmp:LX.plan)[f]===v}">${t}</button>`).join('')}</div>`;
   const stepCls=n=>LX.step>n?'step done':'step';
-  c.innerHTML=`<div class="toolbar"><h3 class="grow">${LX.custom?'Analüüsi oma võistlust':'Tänane etapp'}</h3>
+  c.innerHTML=`<div class="toolbar"><div class="seg" role="group" aria-label="Võistlused"><button type="button" data-col="ee" aria-pressed="${LX.col!=='champ'}">Eesti võistlused</button><button type="button" data-col="champ" aria-pressed="${LX.col==='champ'}">MM, EM ja MK</button></div></div>
+    <div class="toolbar"><h3 class="grow">${LX.custom?'Analüüsi oma võistlust':'Tänane etapp'}</h3>
       <button type="button" class="btn small" data-lx="new">Teine soovitus</button>
       <button type="button" class="btn small" data-lx="custom">${LX.custom?'Vali soovitatud võistlus':'Analüüsi oma võistlust'}</button></div>
     ${LX.custom?`<div class="field"><label for="lx-url">Livelox'i võistluse link</label><input id="lx-url" type="url" placeholder="https://www.livelox.com/Events/Show/…" value="${esc(LX.url||'')}"></div>
       <div class="toolbar"><div class="field"><label for="lx-cls">Klass või rada</label><input id="lx-cls" value="${esc(LX.clsName||'')}"></div><div class="field"><label for="lx-leg">Etapi number</label><input id="lx-leg" inputmode="numeric" value="${esc(LX.legNo||'')}" style="width:90px"></div></div>`
-    :`<div class="events">${LX_EVENTS.map(e=>`<button type="button" class="ev" data-ev="${e.id}" aria-pressed="${e.id===s.e.id}"><span class="nm">${esc(e.name)}</span><span class="mt">${e.date} · ${esc(e.org)}</span><span class="mt">${e.cls.filter(x=>x[2]>0).map(x=>x[0]).slice(0,5).join(', ')}</span></button>`).join('')}</div>
-      <div class="toolbar"><div class="field"><label for="lx-clssel">Klass</label><select id="lx-clssel">${s.e.cls.map(([n,len,cnt])=>`<option value="${esc(n)}" ${n===LX.clsName?'selected':''}>${esc(n)} · ${fmt(len)} m · ${cnt} rada</option>`).join('')}</select></div>
+    :`${LX.col==='champ'?`<p class="small">Maailma parimate rajad. Sinu tasemele (${LVLNAME[P('lx').lvl]}) sobivad ${LX_CHAMP_DESC[P('lx').lvl]}. Etapi teevalik on sama hea harjutus ka siis, kui kogu rada on pikk.</p>`:''}<div class="events">${lxList().map(e=>`<button type="button" class="ev" data-ev="${e.id}" aria-pressed="${e.id===s.e.id}"><span class="nm">${esc(e.name)}</span><span class="mt">${e.date} · ${esc(e.org)}</span><span class="mt">${e.cls.filter(x=>x[2]>0).map(x=>x[0]).slice(0,5).join(', ')}</span></button>`).join('')}</div>
+      <div class="toolbar"><div class="field"><label for="lx-clssel">Klass</label><select id="lx-clssel">${s.e.cls.map(([n,len,cnt])=>`<option value="${esc(n)}" ${n===LX.clsName?'selected':''}>${esc(n)} · ${fmt(len)} m · ${cnt===1?"1 teekond":cnt+" teekonda"}</option>`).join('')}</select></div>
       <div class="field"><label for="lx-leg">Etapi number</label><input id="lx-leg" inputmode="numeric" value="${esc(LX.legNo)}" style="width:90px"></div></div>`}
     <div class="steps">
       <div class="${stepCls(1)}"><span class="n">1</span><div class="bd"><b>Ava võistlus Livelox'is</b>
@@ -1252,7 +1333,8 @@ function lxRender(){
     </div>`;
 }
 function lxClick(e){
-  const ev=e.target.closest('[data-ev]');if(ev){const E=LX_EVENTS.find(x=>x.id===+ev.dataset.ev);const c=E.cls.find(x=>x[2]>0)||E.cls[0];LX.sel={e:E,cls:c[0],len:c[1],cnt:c[2]};LX.clsName=c[0];LX.step=1;LX.plan={};LX.cmp={};lxRender();return}
+  const col=e.target.closest('[data-col]');if(col){LX.col=col.dataset.col;store.set('lxCol',LX.col);LX.custom=false;lxNewTask();return}
+  const ev=e.target.closest('[data-ev]');if(ev){const E=lxList().find(x=>x.id===+ev.dataset.ev);const c=E.cls.find(x=>x[2]>0)||E.cls[0];LX.sel={e:E,cls:c[0],len:c[1],cnt:c[2]};LX.clsName=c[0];LX.step=1;LX.plan={};LX.cmp={};lxRender();return}
   const ch=e.target.closest('[data-cv]');if(ch){const box=ch.closest('[data-cg]');const obj=box.dataset.cg==='cmp'?LX.cmp:LX.plan;obj[box.dataset.cf]=ch.dataset.cv;$$('[data-cv]',box).forEach(b=>b.setAttribute('aria-pressed',b===ch));return}
   const a=e.target.closest('[data-lx]');if(!a)return;const act=a.dataset.lx;
   const sel=$('#lx-clssel');if(sel)LX.clsName=sel.value;
@@ -1287,6 +1369,154 @@ function lxHist(){
   const h=LX.hist;const ok=h.filter(x=>x.ok).length;
   $('#lx-hist').innerHTML=`<h3>Sinu analüüsid</h3>${h.length?`<p class="progress">${h.length} etappi, neist ${ok} korral valisid sama tee mis kiireim.</p><div class="hist">${h.slice(0,10).map(x=>`<div class="h"><span class="mono">${esc(x.d)}</span><b>${esc(x.ev)}</b><span>${esc(x.cls)}, etapp ${esc(x.leg)}</span><span>${x.ok?'✓ sama tee':'✗ teine tee'}</span></div>`).join('')}</div>`:'<p class="small">Siia tekivad sinu analüüsitud etapid. Alusta ülalt esimese etapiga.</p>'}`;
 }
+
+/* =========================================================
+   6b. TIPPVÕISTLUSTE KAARDID (MM, EM, MK)
+   ========================================================= */
+const TK_GROUP=c=>c==='2019072'||c.startsWith('2017')?'mm17':c.startsWith('2006')?'em06':c.startsWith('2003')?'jmm03':'em22';
+const TK_AREA={w:{n:'405',name:'Mets'},open:{n:'401'},rough:{n:'403'},g1:{n:'406'},g2:{n:'408'},g3:{n:'410'},water:{n:'301'},marsh:{n:'308'}};
+const tmName=q=>TK_AREA[q].name||(SYM[TK_AREA[q].n]?SYM[TK_AREA[q].n].name:q);
+const TM_FAM={w:'mets',g1:'mets',g2:'mets',g3:'mets',open:'lage',rough:'lage',water:'vesi',marsh:'vesi'};
+const TM_LVL=[null,
+  {cls:['open','w','g2','water'],k:16,time:0,same:false},
+  {cls:['open','w','g1','g2','water','marsh'],k:18,time:0,same:false},
+  {cls:['open','rough','w','g1','g2','g3','water','marsh'],k:22,time:0,same:true},
+  {cls:['open','rough','w','g1','g2','g3','water','marsh'],k:32,time:0,same:true},
+  {cls:['open','rough','w','g1','g2','g3','water','marsh'],k:36,time:8,same:true}];
+const TK_LVL=[null,
+  {frag:420,n:3,sim:0,show:0,rot:false,time:0},
+  {frag:320,n:4,sim:.5,show:0,rot:false,time:0},
+  {frag:260,n:4,sim:.9,show:0,rot:false,time:0},
+  {frag:220,n:4,sim:.9,show:10,rot:false,time:0},
+  {frag:180,n:4,sim:.9,show:6,rot:true,time:0}];
+const TK={mode:store.get('tkMode','koht'),ev:store.get('tkEv',''),idx:null,cache:{},mv:null,cur:null,answered:false,stopT:null,hideT:null};
+async function tkIndex(){if(TK.idx)return TK.idx;const r=await fetch('data/champ.json');if(!r.ok)throw new Error('champ.json');TK.idx=await r.json();return TK.idx}
+async function tkLoad(code){
+  if(TK.cache[code])return TK.cache[code];
+  const r=await fetch(`data/champ-${code}.json`);if(!r.ok)throw new Error(code);const m=await r.json();
+  m.interval=parseNum(String(m.interval||'').replace('m',''))||0;TK.cache[code]=m;return m;
+}
+function tkInit(){
+  TK.mv=new MapView($('#tk-map'));
+  $$('[data-tk]').forEach(b=>b.addEventListener('click',()=>{TK.mode=b.dataset.tk;store.set('tkMode',TK.mode);tkNew()}));
+  $('#tk-ev').value=TK.ev;$('#tk-ev').addEventListener('change',e=>{TK.ev=e.target.value;store.set('tkEv',TK.ev);tkNew()});
+  $('#tk-new').addEventListener('click',()=>tkNew());
+  $('#tk-panel').addEventListener('click',e=>{const o=e.target.closest('[data-i]');if(o&&!TK.answered){tkAnswer(+o.dataset.i);return}if(e.target.closest('[data-next]'))tkNew()});
+  TK.mv.onTap=(x,y)=>{if(TK.mode!=='koht'||TK.answered||!TK.cur)return;const c=TK.cur,h=c.fp/2;const i=c.opts.findIndex(o=>Math.abs(x-o[0])<=h&&Math.abs(y-o[1])<=h);if(i>=0)tkAnswer(i)};
+  tkNew();
+}
+const tkKey=()=>TK.mode==='maastik'?'tm':'tk';
+function tkStop(){if(TK.stopT){TK.stopT();TK.stopT=null}if(TK.hideT){clearTimeout(TK.hideT);TK.hideT=null}}
+function tkCredit(m){TK.mv.credit.innerHTML+=` · <b>${esc(m.ev)}</b>`}
+async function tkNew(){
+  tkStop();
+  $$('[data-tk]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.tk===TK.mode));
+  $('#tk-lvl').innerHTML=lvlHtml(tkKey());
+  const panel=$('#tk-panel');panel.innerHTML='<p>Valin kaarti…</p>';TK.answered=false;TK.cur=null;
+  try{
+    const idx=(await tkIndex()).filter(x=>!TK.ev||TK_GROUP(x.code)===TK.ev);
+    if(TK.mode==='maastik')await tmNew(idx);else await tkKohtNew(idx);
+  }catch(err){console.error(err);mapError(panel,'Kaardiandmete laadimine ebaõnnestus.')}
+  tkProgress();
+}
+/* ---- leia koht ---- */
+function tkDesc(a,b){let d=0;for(let i=3;i<a.length;i++)d+=Math.abs(a[i]-b[i]);return d}
+async function tkKohtNew(idx){
+  const l=P('tk').lvl,cfg=TK_LVL[l];let m,t,opts,fp;
+  for(let tr=0;tr<8&&!opts;tr++){
+    const e=pick(idx.filter(x=>x.code!==lastMapCode).length?idx.filter(x=>x.code!==lastMapCode):idx);m=await tkLoad(e.code);
+    const sprint=m.kind==='sprint';
+    fp=Math.round(Math.min(Math.max(cfg.frag*(sprint?.45:1)/m.mpp,70),Math.min(m.w,m.h)*.32));
+    const R=fp*3.6;
+    const ok=m.rel.filter(p=>p[2]>=fp*.55&&p[3]<72);
+    if(ok.length<cfg.n*3)continue;
+    const rich=ok.filter(p=>p.slice(3).filter(v=>v>=5).length>=(l<=2?4:3));
+    t=pick(rich.length>=5?rich:ok);
+    const near=ok.filter(p=>p!==t&&Math.hypot(p[0]-t[0],p[1]-t[1])<=R&&Math.hypot(p[0]-t[0],p[1]-t[1])>=fp*1.15);
+    near.sort((a,b)=>tkDesc(a,t)-tkDesc(b,t));
+    const pool=cfg.sim?near.slice(0,Math.max(cfg.n*2,Math.round(near.length*(1-cfg.sim)))):shuffle(near.slice());
+    const ch=[t];
+    for(const p of (cfg.sim?pool:pool)){if(ch.length>=cfg.n)break;if(ch.every(q=>Math.max(Math.abs(p[0]-q[0]),Math.abs(p[1]-q[1]))>=fp*1.1))ch.push(p)}
+    if(ch.length<cfg.n)continue;
+    opts=shuffle(ch.slice());
+  }
+  if(!opts){$('#tk-panel').innerHTML='<p>Sellel kaardil ei leidnud sobivat kohta. Vajuta „Uus ülesanne“.</p>';return}
+  lastMapCode=m.code;
+  const rot=cfg.rot?pick([90,180,270]):0;
+  TK.cur={m,t,opts,fp,rot,ans:opts.indexOf(t),cfg};
+  await TK.mv.load(m);tkCredit(m);
+  const xs=opts.map(o=>o[0]),ys=opts.map(o=>o[1]),pad=fp*.9;
+  TK.mv.fit([Math.min(...xs)-pad,Math.min(...ys)-pad,Math.max(...xs)+pad,Math.max(...ys)+pad]);
+  tkDrawBoxes(-1,-1);
+  const L='ABCD';
+  $('#tk-panel').innerHTML=`<div id="tk-timer"></div><h3>Kus see kaardilõik asub?</h3>
+    <p class="small">${cfg.show?`Jäta lõik meelde: ${cfg.show} sekundi pärast see peidetakse.`:'Võrdle lõiku kaardiga ja leia sama koht.'}${rot?' Lõik on pööratud: nool näitab põhja.':''} Võid ka vajutada kaardil õigele ruudule.</p>
+    ${tkFragHtml(m,t,fp,rot)}
+    <div class="opts">${opts.map((o,i)=>`<button type="button" class="opt" data-i="${i}"><span class="k">${L[i]}</span>Ruut ${L[i]}</button>`).join('')}</div>
+    <div class="feedback" aria-live="polite"></div>
+    <div class="actions"><button type="button" class="btn primary" data-next hidden>Järgmine</button></div>`;
+  if(cfg.show){TK.stopT=startTimer(cfg.show,$('#tk-timer'),()=>{TK.stopT=null;const f=$('#tk-panel .frag');if(f&&!TK.answered)f.insertAdjacentHTML('beforeend','<div class="hid">Lõik on peidetud. Vali mälu järgi.</div>')})}
+}
+function tkFragHtml(m,t,fp,rot){
+  const S=300/fp;
+  return `<div class="frag" aria-label="Kaardilõik"><div class="fi" style="transform:rotate(${rot}deg)"><img alt="" src="${esc(m.img)}" style="width:${(m.w*S/3).toFixed(2)}%;left:${(-(t[0]-fp/2)*S/3).toFixed(2)}%;top:${(-(t[1]-fp/2)*S/3).toFixed(2)}%"></div>${rot?`<div class="na" title="Põhi"><svg viewBox="0 0 24 24" width="24" height="24" style="transform:rotate(${rot}deg)"><path d="M12 2 L18 20 L12 15 L6 20 Z" fill="#1A1A1A"/></svg></div>`:''}</div>`;
+}
+function tkDrawBoxes(ok,bad){
+  const c=TK.cur,m=c.m,h=c.fp/2,L='ABCD',w=Math.max(2,c.fp/60);
+  TK.mv.draw(c.opts.map((o,i)=>{const col=i===ok?'#1E8A3A':i===bad?'#D0021B':MG;
+    return `<rect x="${o[0]-h}" y="${o[1]-h}" width="${c.fp}" height="${c.fp}" fill="${i===ok?'rgba(30,138,58,.12)':'none'}" stroke="${col}" stroke-width="${i===ok||i===bad?w*2:w}"/>`+badgeSvg({mpp:110/c.fp},o[0]-h+c.fp*.11,o[1]-h+c.fp*.11,L[i],col)}).join(''));
+}
+/* ---- mis maastik ---- */
+async function tmNew(idx){
+  const l=P('tm').lvl,cfg=TM_LVL[l];
+  const avail=cfg.cls.filter(q=>idx.some(x=>x.n&&x.n[q]));
+  if(!avail.length){$('#tk-panel').innerHTML='<p>Selle valikuga kaartidel pole sobivaid kohti. Vali „Kõik“.</p>';return}
+  const q=pick(avail);
+  const cands=idx.filter(x=>x.n&&x.n[q]);const e=pick(cands.filter(x=>x.code!==lastMapCode).length?cands.filter(x=>x.code!==lastMapCode):cands);
+  const m=await tkLoad(e.code);lastMapCode=m.code;
+  const p=pick(m.pts.filter(x=>x[2]===q));
+  // valikud
+  let others=cfg.cls.filter(c=>c!==q);
+  if(cfg.same){const same=shuffle(others.filter(c=>TM_FAM[c]===TM_FAM[q])),rest=shuffle(others.filter(c=>TM_FAM[c]!==TM_FAM[q]));others=same.slice(0,2).concat(rest)}
+  else others=shuffle(others);
+  const opts=shuffle([q,...others.slice(0,3)]);
+  TK.cur={m,p,q,opts,cfg};
+  await TK.mv.load(m);tkCredit(m);
+  const half=m.r*cfg.k/2;TK.mv.fit([p[0]-half,p[1]-half,p[0]+half,p[1]+half]);
+  TK.mv.draw(tmRing(m,p));
+  $('#tk-panel').innerHTML=`<div id="tk-timer"></div><h3>Mis maastik on ringis?</h3>
+    <p class="small">Vaata ringi sees olevat värvi ja mustrit. Kaarti saad lohistada ja suurendada.</p>
+    <div class="opts">${opts.map((c,i)=>`<button type="button" class="opt" data-i="${i}"><span class="k">${i+1}</span>${esc(tmName(c))}</button>`).join('')}</div>
+    <div class="feedback" aria-live="polite"></div>
+    <div class="actions"><button type="button" class="btn primary" data-next hidden>Järgmine</button></div>`;
+  if(cfg.time)TK.stopT=startTimer(cfg.time,$('#tk-timer'),()=>{TK.stopT=null;if(!TK.answered)tkAnswer(-1)});
+}
+function tmRing(m,p){const r=m.r*1.15,w=Math.max(1.6,m.r/6);return `<circle cx="${p[0]}" cy="${p[1]}" r="${r}" fill="none" stroke="${MG}" stroke-width="${w}" opacity=".9"/>`}
+/* ---- vastus ---- */
+function tkAnswer(i){
+  if(TK.answered||!TK.cur)return;tkStop();TK.answered=true;
+  const c=TK.cur,panel=$('#tk-panel');let ok,tag=null,html='';
+  if(TK.mode==='koht'){
+    ok=i===c.ans;const L='ABCD';
+    if(!ok)tag=i<0?'aeg':c.rot?'tkpoor':c.cfg.show?'tkmalu':'tkobj';
+    const change=record('tk',ok,tag);
+    tkDrawBoxes(c.ans,ok?-1:i);
+    const f=$('.frag .hid',panel);if(f)f.remove();
+    html=`<div class="fb ${ok?'ok':'no'}"><div><b>${ok?'Õige!':(i<0?'Aeg sai otsa. ':'')+'Õige oli ruut '+L[c.ans]}</b>${ok?'Leidsid koha üles. Nii otsib orienteeruja ka metsas oma asukohta, kui on korraks eksinud.':'Õige ruut on kaardil roheliselt. Võrdle seda lõiguga: millised objektid on mõlemas samas kohas?'}</div></div>${ok?'':tipHtml(tag)}${lvlMsg('tk',change)}`;
+  }else{
+    const ch=i>=0?c.opts[i]:null;ok=ch===c.q;
+    if(!ok){if(!ch)tag='aeg';else{const f=TM_FAM[c.q];tag=f==='lage'?'tmkollane':f==='vesi'?'tmsinine':'tmroheline';if(TM_FAM[ch]!==f)tag='varv'}}
+    const change=record('tm',ok,tag);
+    $$('[data-i]',panel).forEach(b=>{const v=c.opts[+b.dataset.i];b.disabled=true;if(v===c.q)b.classList.add('ok');else if(+b.dataset.i===i)b.classList.add('no')});
+    const s=SYM[TK_AREA[c.q].n];
+    html=`<div class="fb ${ok?'ok':'no'}">${s?`<div class="tile">${symSvg(s)}</div>`:''}<div><b>${ok?'Õige!':(ch?'':'Aeg sai otsa. ')+'Õige vastus'}: ${esc(tmName(c.q))}</b>${s?esc(s.desc):''}${ch&&!ok?`<br><span class="small">Sinu valik oli ${esc(tmName(ch))}.</span>`:''}</div></div>${ok?'':tipHtml(tag)}${lvlMsg('tm',change)}`;
+  }
+  $$('.opts [data-i]',panel).forEach(b=>{b.disabled=true;if(TK.mode==='koht'){const k=+b.dataset.i;if(k===c.ans)b.classList.add('ok');else if(k===i)b.classList.add('no')}});
+  $('.feedback',panel).innerHTML=html+`<p class="tk-ev">Kaart: ${esc(c.m.name)} · ${esc(c.m.ev)}</p>`;
+  const nx=$('[data-next]',panel);nx.hidden=false;nx.focus({preventScroll:true});
+  tkProgress();
+}
+function tkProgress(){const a=acc('tk'),b=acc('tm');$('#tk-progress').textContent=[a!=null?`Leia koht: viimastel kordadel ${a}% õigeid`:'',b!=null?`mis maastik: ${b}% õigeid`:''].filter(Boolean).join(' · ')||'Kõik ülesanded on Eesti tippvõistluste päris kaartidel.'}
 
 /* =========================================================
    7. JOONISTAMINE
@@ -1349,7 +1579,7 @@ function drGrade(g){
 }
 function drProgress(){const good=Object.values(DR.stats).filter(x=>x===2).length,a=acc('dr');$('#dr-progress').textContent=`Mälu järgi õigesti joonistatud ${good} märki ${SYMBOLS.length-1}-st`+(a!=null?` · viimastel kordadel ${a}% õigeid`:'')+'. Märgid, mis ei õnnestunud, tulevad sagedamini tagasi.'}
 
-const INIT={leppemargid:lepInit,kaardilugemine:()=>Ring.init('#ring-map','#ring-panel'),reljeef:()=>Rel.init('#rel-map','#rel-panel'),teevalik:tvInit,moodkava:mmInit,livelox:lxInit,joonistamine:drInit};
+const INIT={leppemargid:lepInit,kaardilugemine:()=>Ring.init('#ring-map','#ring-panel'),reljeef:()=>Rel.init('#rel-map','#rel-panel'),teevalik:tvInit,moodkava:mmInit,tipp:tkInit,livelox:lxInit,joonistamine:drInit};
 route();
 </script>
 </body>

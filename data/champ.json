@@ -1,0 +1,293 @@
+[
+ {
+  "code": "2017001",
+  "name": "Rõuge",
+  "mk": "Võrumaa",
+  "year": "2017",
+  "ev": "MM 2017, tavarada (4.07.2017)",
+  "kind": "mets",
+  "scale": 15000,
+  "n": {
+   "w": 21,
+   "open": 60,
+   "rough": 3,
+   "g1": 23,
+   "g2": 6,
+   "water": 1,
+   "marsh": 3
+  },
+  "rel": 323
+ },
+ {
+  "code": "2019072",
+  "name": "Rõuge",
+  "mk": "Võrumaa",
+  "year": "2019",
+  "ev": "MM 2017 tavaraja maastik, kaart värskendatud 2019",
+  "kind": "mets",
+  "scale": 15000,
+  "n": {
+   "w": 60,
+   "open": 60,
+   "rough": 2,
+   "g1": 50,
+   "g2": 4,
+   "water": 1,
+   "marsh": 15
+  },
+  "rel": 335
+ },
+ {
+  "code": "2017006",
+  "name": "Vitipalu",
+  "mk": "Tartumaa",
+  "year": "2017",
+  "ev": "MM 2017, lühirada ja teatejooks (6.–7.07.2017)",
+  "kind": "mets",
+  "scale": 10000,
+  "n": {
+   "w": 60,
+   "open": 3,
+   "rough": 2,
+   "g1": 18,
+   "g2": 4,
+   "marsh": 21
+  },
+  "rel": 239
+ },
+ {
+  "code": "2017072",
+  "name": "Kirikuküla",
+  "mk": "Valgamaa",
+  "year": "2017",
+  "ev": "MM 2017 lühiraja ja teatejooksu näidisvõistlus",
+  "kind": "mets",
+  "scale": 10000,
+  "n": {
+   "w": 60,
+   "g1": 19,
+   "g2": 1,
+   "marsh": 7
+  },
+  "rel": 322
+ },
+ {
+  "code": "2017005",
+  "name": "Voorepalu (Küka)",
+  "mk": "Põlvamaa",
+  "year": "2017",
+  "ev": "MM 2017 katsevõistlus (mai 2017)",
+  "kind": "mets",
+  "scale": 10000,
+  "n": {
+   "w": 1,
+   "open": 1,
+   "rough": 1
+  },
+  "rel": 230
+ },
+ {
+  "code": "2017003",
+  "name": "Tartu",
+  "mk": "Tartumaa",
+  "year": "2017",
+  "ev": "MM 2017, sprindi eel- ja finaalvõistlus (30.06.–1.07.2017)",
+  "kind": "sprint",
+  "scale": 4000,
+  "n": {},
+  "rel": 351
+ },
+ {
+  "code": "2017002",
+  "name": "Viljandi",
+  "mk": "Viljandimaa",
+  "year": "2017",
+  "ev": "MM 2017, sprinditeade (2.07.2017)",
+  "kind": "sprint",
+  "scale": 4000,
+  "n": {},
+  "rel": 367
+ },
+ {
+  "code": "2006001",
+  "name": "Kääriku",
+  "mk": "Valgamaa",
+  "year": "2006",
+  "ev": "EM 2006 ja MK 2006",
+  "kind": "mets",
+  "scale": 15000,
+  "n": {
+   "open": 4,
+   "rough": 2,
+   "g1": 1,
+   "water": 6
+  },
+  "rel": 376
+ },
+ {
+  "code": "2006002",
+  "name": "Otepää- Vastsemõisa- Nüpli",
+  "mk": "Valgamaa",
+  "year": "2006",
+  "ev": "EM 2006 ja MK 2006",
+  "kind": "mets",
+  "scale": 15000,
+  "n": {
+   "w": 5,
+   "open": 29,
+   "rough": 1,
+   "g1": 1,
+   "g2": 1,
+   "water": 5
+  },
+  "rel": 413
+ },
+ {
+  "code": "2006003",
+  "name": "Tehvandi-Apteekri",
+  "mk": "Valgamaa",
+  "year": "2006",
+  "ev": "EM 2006 ja MK 2006",
+  "kind": "mets",
+  "scale": 10000,
+  "n": {
+   "w": 5,
+   "open": 21,
+   "rough": 1,
+   "g1": 6,
+   "g2": 6,
+   "water": 1,
+   "marsh": 9
+  },
+  "rel": 283
+ },
+ {
+  "code": "2006008",
+  "name": "Haanja- Kurgjärve",
+  "mk": "Võrumaa",
+  "year": "2006",
+  "ev": "EM 2006 ja MK 2006",
+  "kind": "mets",
+  "scale": 10000,
+  "n": {
+   "w": 3,
+   "open": 2,
+   "rough": 1,
+   "g1": 6,
+   "g2": 2,
+   "water": 13,
+   "marsh": 12
+  },
+  "rel": 298
+ },
+ {
+  "code": "2006009",
+  "name": "Haanja- Tseamäe",
+  "mk": "Võrumaa",
+  "year": "2006",
+  "ev": "EM 2006 ja MK 2006",
+  "kind": "mets",
+  "scale": 10000,
+  "n": {
+   "w": 1,
+   "open": 6,
+   "g1": 6,
+   "g2": 1,
+   "water": 1,
+   "marsh": 4
+  },
+  "rel": 239
+ },
+ {
+  "code": "2006004",
+  "name": "Otepää Linnamägi",
+  "mk": "Valgamaa",
+  "year": "2006",
+  "ev": "EM 2006 ja MK 2006, sprint",
+  "kind": "sprint",
+  "scale": 4000,
+  "n": {},
+  "rel": 426
+ },
+ {
+  "code": "2006005",
+  "name": "Tartu Toomemägi",
+  "mk": "Tartumaa",
+  "year": "2006",
+  "ev": "EM 2006 ja MK 2006, sprint",
+  "kind": "sprint",
+  "scale": 4000,
+  "n": {},
+  "rel": 423
+ },
+ {
+  "code": "2003035",
+  "name": "Uniküla",
+  "mk": "Tartumaa",
+  "year": "2003",
+  "ev": "Juunioride MM 2003",
+  "kind": "mets",
+  "scale": 15000,
+  "n": {
+   "w": 8,
+   "open": 2,
+   "rough": 12,
+   "g1": 14,
+   "g2": 7,
+   "marsh": 44
+  },
+  "rel": 241
+ },
+ {
+  "code": "2003036",
+  "name": "Intsikurmu",
+  "mk": "Põlvamaa",
+  "year": "2003",
+  "ev": "Juunioride MM 2003",
+  "kind": "mets",
+  "scale": 10000,
+  "n": {
+   "w": 16,
+   "open": 60,
+   "rough": 18,
+   "g1": 28,
+   "g2": 8,
+   "water": 1,
+   "marsh": 1
+  },
+  "rel": 83
+ },
+ {
+  "code": "2003037",
+  "name": "Küka",
+  "mk": "Põlvamaa",
+  "year": "2003",
+  "ev": "Juunioride MM 2003",
+  "kind": "mets",
+  "scale": 10000,
+  "n": {
+   "w": 1,
+   "open": 4,
+   "g1": 2,
+   "g2": 2,
+   "water": 2,
+   "marsh": 28
+  },
+  "rel": 298
+ },
+ {
+  "code": "2022015",
+  "name": "Sae",
+  "mk": "Lääne-Virumaa",
+  "year": "2022",
+  "ev": "EM 2022 ametlik treeningvõistlus",
+  "kind": "mets",
+  "scale": 10000,
+  "n": {
+   "w": 26,
+   "g1": 11,
+   "g2": 21
+  },
+  "rel": 231
+ }
+]
